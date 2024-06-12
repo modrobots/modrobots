@@ -39,10 +39,13 @@ boolean Bootstrapper::setupWifiSta()
   auto status = WiFi.begin(ssid.c_str(), password.c_str());
   byte retries = 0;
   Serial.println("Connecting to WiFi...");
+  boolean ledOn = false;
   while (WiFi.status() != WL_CONNECTED)
   {
     delay(1000);
     Serial.print(".");
+    ledOn = !ledOn;
+    digitalWrite(8, ledOn);
     if (retries++ > 30)
     {
       Serial.println("Failed to connect to WiFi");
@@ -71,8 +74,6 @@ void Bootstrapper::setupWifi()
   m_preferences.begin("modmicro");
 
   tryConnectToWifi();
-
-  WiFi.setTxPower(WIFI_POWER_7dBm);
 
   // Print MAC address
   Serial.print("MAC Address: ");

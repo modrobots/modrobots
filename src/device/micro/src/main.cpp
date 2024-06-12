@@ -1,11 +1,17 @@
 #include <Arduino.h>
 #include "bootstrapper.h"
 #include <ArduinoJson.h>
+#include <ESP32Servo.h>
 
 #define STATUS_LED 8
 
 bool ledOn = false;
 Bootstrapper bootstrapper;
+
+Servo servo1;
+int servo1pos = 0;
+int servo1dir = 0;
+#define SERVO1_PIN 1
 
 void formatMacAddress(const uint8_t *macAddr, char *buffer, int maxLength)
 {
@@ -129,6 +135,7 @@ void readData()
 
 void setup()
 {
+    pinMode(STATUS_LED, OUTPUT);
     Serial.begin(115200);
     delay(3000);
 
@@ -192,8 +199,9 @@ void setup()
 
         bootstrapper.m_webServer.send(200, "application/json", message); });
 
-    // LED Output
-    pinMode(STATUS_LED, OUTPUT);
+    ESP32PWM::allocateTimer(0);
+    servo1.setPeriodHertz(50);            // standard 50 hz servo
+    servo1.attach(SERVO1_PIN, 500, 2500); // attaches the servo on pin 18 to the servo object
 }
 
 void loop()
