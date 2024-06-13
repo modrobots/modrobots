@@ -1,0 +1,8 @@
+config:
+  cloudflare:apiToken:
+    secure: AAABAH02+u/1Jofp4mxQSXvLvu4L+KluTtnuGZ/2ZzcflosCpIdv7mZvU9fpByxnAFgRTSww+E31pYZ9ltASCJA0AaOS5wdY
+  vercel:apiToken:
+    secure: AAABAI2nB2TbUVhPjYPQl8ue64+9LtqJTEL6408tY6rrPaLSXZVlcDhMxLltWpW14J1po+76cH4=
+  vercel:team: team_Ade0MlfC3211ml3wYJZ4c9hn
+  mrwww:zoneid:
+    secure: AAABAKPhChxDtSh0Awbi9M5qGDOO7imXSeho3ge9StCDHOY1a30L6vFuuNnMsKxr4rWjPMf3gpeTUxj5G1AyVg==
