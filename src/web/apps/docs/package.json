@@ -16,8 +16,8 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.1.1",
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@modrobots/eslint-config": "workspace:*",
+    "@modrobots/typescript-config": "workspace:*",
     "@types/eslint": "^8.56.5",
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.61",
