@@ -14,7 +14,7 @@ const up = async () => {
     if (!domainName) throw new Error('Domain name not found');
 
     // Vercel setup
-    const app = nextJsApp('mr', 'modrobots', 'web/apps/www');
+    const app = nextJsApp('mr', 'www', 'web/apps/www');
 
     new ProjectDomain('vercel-mr-domain', {
         projectId: app.projectId,
@@ -23,12 +23,6 @@ const up = async () => {
     new ProjectEnvironmentVariable('vercel-mr-env-appdomain', {
         projectId: app.projectId,
         key: 'NEXT_PUBLIC_APP_DOMAIN',
-        value: domainName,
-        targets: stack === 'production' ? ['production'] : ['preview'],
-    });
-    new ProjectEnvironmentVariable('vercel-mr-env-emaildomain', {
-        projectId: app.projectId,
-        key: 'NEXT_PUBLIC_APP_EMAILDOMAIN',
         value: domainName,
         targets: stack === 'production' ? ['production'] : ['preview'],
     });

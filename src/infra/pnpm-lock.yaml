@@ -20,15 +20,9 @@ importers:
 
   apps/www:
     dependencies:
-      '@pulumi/azure-native':
-        specifier: 2.44.0
-        version: 2.44.0(ts-node@7.0.1)(typescript@5.4.5)
       '@pulumi/cloudflare':
         specifier: 5.30.0
         version: 5.30.0(ts-node@7.0.1)(typescript@5.4.5)
-      '@pulumi/docker':
-        specifier: 4.5.4
-        version: 4.5.4(ts-node@7.0.1)(typescript@5.4.5)
       '@pulumi/pulumi':
         specifier: 3.119.0
         version: 3.119.0(ts-node@7.0.1)(typescript@5.4.5)
@@ -96,24 +90,12 @@ importers:
 
   packages/pulumi:
     dependencies:
-      '@checkly/pulumi':
-        specifier: 1.1.4
-        version: 1.1.4(ts-node@7.0.1)(typescript@5.4.5)
-      '@pulumi/aws':
-        specifier: 6.38.0
-        version: 6.38.0(ts-node@7.0.1)(typescript@5.4.5)
-      '@pulumi/azure-native':
-        specifier: 2.44.0
-        version: 2.44.0(ts-node@7.0.1)(typescript@5.4.5)
       '@pulumi/cloudflare':
         specifier: 5.30.0
         version: 5.30.0(ts-node@7.0.1)(typescript@5.4.5)
       '@pulumi/command':
         specifier: 0.11.1
         version: 0.11.1(ts-node@7.0.1)(typescript@5.4.5)
-      '@pulumi/docker':
-        specifier: 4.5.4
-        version: 4.5.4(ts-node@7.0.1)(typescript@5.4.5)
       '@pulumi/pulumi':
         specifier: 3.119.0
         version: 3.119.0(ts-node@7.0.1)(typescript@5.4.5)
@@ -159,9 +141,6 @@ packages:
   '@aashutoshrathi/word-wrap@1.2.6':
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
-
-  '@checkly/pulumi@1.1.4':
-    resolution: {integrity: sha512-YPNYtwEnKu23VDHNFu91xd/Ueu5zYONHcYwKDA5qTvtgZZ1nzrvPJgrO15KF0fLRVlGo7yckirDS26GpvBTe6w==}
 
   '@esbuild/aix-ppc64@0.21.4':
     resolution: {integrity: sha512-Zrm+B33R4LWPLjDEVnEqt2+SLTATlru1q/xYKVn8oVTbiRBGmK2VIMoIYGJDGyftnGaC788IuzGFAlb7IQ0Y8A==}
@@ -547,20 +526,11 @@ packages:
   '@protobufjs/utf8@1.1.0':
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
 
-  '@pulumi/aws@6.38.0':
-    resolution: {integrity: sha512-QVuKa6hNoSCdOvTWEmoFX74T5GHS2RZFP+brcpzTCmBXU7kOJQs1ep+6jy/FfFDzfQJMY3jsZ6s/YVoJRhNPsA==}
-
-  '@pulumi/azure-native@2.44.0':
-    resolution: {integrity: sha512-P2iCiPJn9uQBttw3/9JgMedTyfX2MIc0R2LT8YiFqIf3EKG2qXXyYygIlgR/PPyhN0xqzPDrJoR/oLmPS7isbA==}
-
   '@pulumi/cloudflare@5.30.0':
     resolution: {integrity: sha512-uGEMfDAr3+68MWyN02+oROoHxyQvavslsvsiMUSrwxRMLWFcsAsvC6aqy2KKoQ2itZ+8M3CZx9GK1jWlO5wWCA==}
 
   '@pulumi/command@0.11.1':
     resolution: {integrity: sha512-rKo0fJ+nHP2xPwILZ92Rzpj1fHMXj+AENgSyJ0V0LGjxYCI1WRiJaYmQuFjLbk1YVccHOVR8jcnidMorSdxgeg==}
-
-  '@pulumi/docker@4.5.4':
-    resolution: {integrity: sha512-0R978Se7+NZIocYIoCAMC2q2sovar7O743zfnVQBSZRFLB+2pdZFqmpHWniM6rZtq/h5rwHsMfbJ/E6UJhihfw==}
 
   '@pulumi/pulumi@3.119.0':
     resolution: {integrity: sha512-DpF1Kdfj0lQA5iRJJt6a7+XosCF+Lr9apny38C3I6+Rhzry+lpikMFwR7U1zyq2zD7J6L6t28RI/38fSYHr+ZQ==}
@@ -893,10 +863,6 @@ packages:
 
   buffer-from@1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
-
-  builtin-modules@3.0.0:
-    resolution: {integrity: sha512-hMIeU4K2ilbXV6Uv93ZZ0Avg/M91RaKXucQ+4me2Do1txxBDyDZWCBa5bJSLqoNTRpXTLwEzIk1KmloenDDjhg==}
-    engines: {node: '>=6'}
 
   builtins@5.0.1:
     resolution: {integrity: sha512-qwVpFEHNfhYJIzNRBvd2C1kyo6jz3ZSMPyyuR47OPdiKWlbYnZNyDWuyR175qDnAJLiCo5fBBqPb3RiXgWlkOQ==}
@@ -1694,11 +1660,6 @@ packages:
     resolution: {integrity: sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==}
     engines: {node: '>=8.6'}
 
-  mime@2.6.0:
-    resolution: {integrity: sha512-USPkMeET31rOMiarsBNIHZKLGgvKc/LrjofAnBlOttf5ajRvqiRA8QsenbcooctK6d6Ts6aqZXBA+XbkKthiQg==}
-    engines: {node: '>=4.0.0'}
-    hasBin: true
-
   mimic-fn@2.1.0:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
     engines: {node: '>=6'}
@@ -2106,10 +2067,6 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  semver@5.7.2:
-    resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
-    hasBin: true
-
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
@@ -2504,15 +2461,6 @@ snapshots:
 
   '@aashutoshrathi/word-wrap@1.2.6': {}
 
-  '@checkly/pulumi@1.1.4(ts-node@7.0.1)(typescript@5.4.5)':
-    dependencies:
-      '@pulumi/pulumi': 3.119.0(ts-node@7.0.1)(typescript@5.4.5)
-    transitivePeerDependencies:
-      - bluebird
-      - supports-color
-      - ts-node
-      - typescript
-
   '@esbuild/aix-ppc64@0.21.4':
     optional: true
 
@@ -2899,27 +2847,6 @@ snapshots:
 
   '@protobufjs/utf8@1.1.0': {}
 
-  '@pulumi/aws@6.38.0(ts-node@7.0.1)(typescript@5.4.5)':
-    dependencies:
-      '@pulumi/pulumi': 3.119.0(ts-node@7.0.1)(typescript@5.4.5)
-      builtin-modules: 3.0.0
-      mime: 2.6.0
-      resolve: 1.22.8
-    transitivePeerDependencies:
-      - bluebird
-      - supports-color
-      - ts-node
-      - typescript
-
-  '@pulumi/azure-native@2.44.0(ts-node@7.0.1)(typescript@5.4.5)':
-    dependencies:
-      '@pulumi/pulumi': 3.119.0(ts-node@7.0.1)(typescript@5.4.5)
-    transitivePeerDependencies:
-      - bluebird
-      - supports-color
-      - ts-node
-      - typescript
-
   '@pulumi/cloudflare@5.30.0(ts-node@7.0.1)(typescript@5.4.5)':
     dependencies:
       '@pulumi/pulumi': 3.119.0(ts-node@7.0.1)(typescript@5.4.5)
@@ -2932,16 +2859,6 @@ snapshots:
   '@pulumi/command@0.11.1(ts-node@7.0.1)(typescript@5.4.5)':
     dependencies:
       '@pulumi/pulumi': 3.119.0(ts-node@7.0.1)(typescript@5.4.5)
-    transitivePeerDependencies:
-      - bluebird
-      - supports-color
-      - ts-node
-      - typescript
-
-  '@pulumi/docker@4.5.4(ts-node@7.0.1)(typescript@5.4.5)':
-    dependencies:
-      '@pulumi/pulumi': 3.119.0(ts-node@7.0.1)(typescript@5.4.5)
-      semver: 5.7.2
     transitivePeerDependencies:
       - bluebird
       - supports-color
@@ -3322,8 +3239,6 @@ snapshots:
       fill-range: 7.0.1
 
   buffer-from@1.1.2: {}
-
-  builtin-modules@3.0.0: {}
 
   builtins@5.0.1:
     dependencies:
@@ -4244,8 +4159,6 @@ snapshots:
       braces: 3.0.2
       picomatch: 2.3.1
 
-  mime@2.6.0: {}
-
   mimic-fn@2.1.0: {}
 
   mimic-response@1.0.1: {}
@@ -4687,8 +4600,6 @@ snapshots:
 
   safer-buffer@2.1.2:
     optional: true
-
-  semver@5.7.2: {}
 
   semver@6.3.1: {}
 
