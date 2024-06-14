@@ -1,0 +1,30 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:base"
+    ],
+    "packageRules": [
+        {
+            "matchPackagePatterns": [
+                "*"
+            ],
+            "rangeStrategy": "pin"
+        },
+        {
+            "matchDepTypes": [
+                "engines",
+                "peerDependencies"
+            ],
+            "rangeStrategy": "auto"
+        }
+    ],
+    "dependencyDashboard": true,
+    "assigneesFromCodeOwners": true,
+    "reviewersFromCodeOwners": true,
+    "baseBranches": [
+        "next"
+    ],
+    "prHourlyLimit": 6,
+    "platformAutomerge": true,
+    "platformCommit": true
+}

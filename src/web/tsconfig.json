@@ -1,0 +1,3 @@
+{
+  "extends": "@modrobots/typescript-config/base.json"
+}
