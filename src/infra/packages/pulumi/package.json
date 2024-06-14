@@ -1,0 +1,47 @@
+{
+    "name": "@infra/pulumi",
+    "private": true,
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "lint": "eslint ./src/**/*.ts"
+    },
+    "exports": {
+        "./azure": {
+            "import": "./src/azure/index.ts"
+        },
+        "./aws": {
+            "import": "./src/aws/index.ts"
+        },
+        "./cloudflare": {
+            "import": "./src/cloudflare/index.ts"
+        },
+        "./checkly": {
+            "import": "./src/checkly/index.ts"
+        },
+        "./vercel": {
+            "import": "./src/vercel/index.ts"
+        },
+        "./dotnet": {
+            "import": "./src/dotnet/index.ts"
+        }
+    },
+    "devDependencies": {
+        "@infra/typescript-config": "workspace:*",
+        "@infra/eslint-config": "workspace:*",
+        "@types/node": "20.14.1",
+        "@typescript-eslint/eslint-plugin": "7.12.0",
+        "@typescript-eslint/parser": "7.12.0",
+        "eslint": "8.57.0",
+        "eslint-plugin-import": "2.29.1",
+        "eslint-plugin-n": "17.7.0",
+        "eslint-plugin-promise": "6.2.0",
+        "typescript": "5.4.5"
+    },
+    "dependencies": {
+        "@pulumi/cloudflare": "5.30.0",
+        "@pulumi/command": "0.11.1",
+        "@pulumi/pulumi": "3.119.0",
+        "@pulumiverse/vercel": "1.11.0"
+    }
+}

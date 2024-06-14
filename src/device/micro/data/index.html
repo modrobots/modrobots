@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <title>MOD Robots - micro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            content: ["./*.html"],
+            theme: {
+                extend: {
+                    colors: {
+                        border: "hsl(var(--border))",
+                        input: "hsl(var(--input))",
+                        ring: "hsl(var(--ring))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: {
+                            DEFAULT: "hsl(var(--primary))",
+                            foreground: "hsl(var(--primary-foreground))",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(var(--secondary))",
+                            foreground: "hsl(var(--secondary-foreground))",
+                        },
+                        tertiary: {
+                            DEFAULT: "hsl(var(--tertiary))",
+                            foreground: "hsl(var(--tertiary-foreground))",
+                        },
+                        destructive: {
+                            DEFAULT: "hsl(var(--destructive))",
+                            foreground: "hsl(var(--destructive-foreground))",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(var(--muted))",
+                            foreground: "hsl(var(--muted-foreground))",
+                        },
+                        accent: {
+                            DEFAULT: "hsl(var(--accent))",
+                            foreground: "hsl(var(--accent-foreground))",
+                        },
+                        popover: {
+                            DEFAULT: "hsl(var(--popover))",
+                            foreground: "hsl(var(--popover-foreground))",
+                        },
+                        card: {
+                            DEFAULT: "hsl(var(--card))",
+                            foreground: "hsl(var(--card-foreground))",
+                            transparent: "hsl(var(--card-transparent))",
+                        },
+                    },
+                    borderRadius: {
+                        lg: `var(--radius)`,
+                        md: `calc(var(--radius) - 2px)`,
+                        sm: "calc(var(--radius) - 4px)",
+                    },
+                    keyframes: {
+                        "accordion-down": {
+                            from: { height: 0 },
+                            to: { height: "var(--radix-accordion-content-height)" },
+                        },
+                        "accordion-up": {
+                            from: { height: "var(--radix-accordion-content-height)" },
+                            to: { height: 0 },
+                        },
+                        "scroll-reveal": {
+                            '0%': { opacity: 0 },
+                            '2%': { opacity: 1 },
+                        },
+                        'scroll': {
+                            '0%': { transform: 'translateY(0)' },
+                            '100%': { transform: 'translateY(-100%)' }
+                        }
+                    },
+                    aspectRatio: {
+                        card: '1.586/1'
+                    },
+                    animation: {
+                        "accordion-down": "accordion-down 0.2s ease-out",
+                        "accordion-up": "accordion-up 0.2s ease-out",
+                        "scroll-overflow": "scroll-reveal 1ms linear",
+                        'scroll': "scroll 5s linear infinite"
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        @layer base {
+        :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 47.4% 11.2%;
+
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 47.4% 11.2%;
+
+        --card: 0 0% 100%;
+        --card-transparent: 0 0% 100%;
+        --card-foreground: 222.2 47.4% 11.2%;
+
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+
+        --primary: 222.2 47.4% 11.2%;
+        --primary-foreground: 210 40% 98%;
+
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 20%;
+
+        --tertiary: 210 40% 80.1%;
+        --tertiary-foreground: 222.2 30% 35%;
+
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+
+        --destructive: 0 100% 50%;
+        --destructive-foreground: 210 40% 98%;
+
+        --ring: 215 20.2% 65.1%;
+
+        --radius: 0.5rem;
+
+        --light-display: visible;
+        --dark-display: none;
+
+        --bg-selection: #000;
+        --text-selection: #fff;
+        }
+
+        .dark {
+        --background: 0 0% 0%;
+        --foreground: 0 0% 91%;
+
+        --muted: 0 0% 11%;
+        --muted-foreground: 0 0% 56.9%;
+
+        --popover: 0 0% 4%;
+        --popover-foreground: 0 0% 65.1%;
+
+        --card: 0 0% 10%;
+        --card-transparent: 0 0% 35%;
+        --card-foreground: 0 0% 91%;
+
+        --border: 0 0% 17%;
+        --input: 0 0% 17%;
+
+        --primary: 0 0% 98%;
+        --primary-foreground: 0 0% 1.2%;
+
+        --secondary: 0 0% 11.2%;
+        --secondary-foreground: 0 0% 80%;
+
+        --tertiary: 0 0% 20%;
+        --tertiary-foreground: 0 0% 70%;
+
+        --accent: 0 0% 17%;
+        --accent-foreground: 0 0% 80%;
+
+        --destructive: 0 63% 31%;
+        --destructive-foreground: 210 40% 98%;
+
+        --ring: 0 0% 17%;
+
+        --radius: 0.5rem;
+
+        --light-display: none;
+        --dark-display: visible;
+
+        --bg-selection: #fff;
+        --text-selection: #000;
+        }
+
+        * {
+        @apply border-border;
+        }
+
+        body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+        }
+
+        button,
+        [role="button"] {
+        @apply cursor-auto;
+        }
+
+        ::selection {
+        background: var(--bg-selection);
+        color: var(--text-selection);
+        }
+        }
+
+        .image--light {
+        display: var(--light-display);
+        }
+
+        .image--dark {
+        display: var(--dark-display);
+        }
+
+        svg.lucide {
+        stroke-width: 1.75px;
+        }
+        </style>
+</head>
+
+<body>
+
+    <h2>WiFi Settings</h2>
+    <form action="/settings/wifi/form" method="post">
+        <div>
+            <label for="wifi-ssid">SSID</label>
+            <input type="text" name="ssid" id="wifi-ssid" required />
+        </div>
+        <div>
+            <label for="wifi-password">Password</label>
+            <input type="password" name="password" id="wifi-password" required />
+        </div>
+        <div>
+            <input type="submit" value="Connect" />
+        </div>
+    </form>
+
+    <!-- Data example: 
+     {
+    "freeHeap": 223828,
+    "availableHeap": 294964,
+    "chipTemperature": 50.09999847,
+    "chipModel": "CHIP_ESP32C3",
+    "chipRevision": 4,
+    "chipFeatures": [
+        "WIFI_BGN",
+        "BLE"
+    ]
+}
+     -->
+    <h2>Robot Data</h2>
+    <div class="border p-2 rounded-md">
+        <div id="freeHeap">Free Heap: ...</div>
+        <div id="availableHeap">Available Heap: ...</div>
+        <div id="chipModel">Chip Model: </div>
+        <div id="chipFeatures">Chip Features: </div>
+        <div id="chipTemperature">Chip Temperature: 0</div>
+        <div id="loopTime">Loop Time: 0us</div>
+    </div>
+
+    <script>
+        const refreshData = async () => {
+            const resp = await fetch('http://192.168.0.51/data');
+            const data = await resp.json();
+            document.getElementById('freeHeap').innerText = `Free Heap: ${Math.floor(data.freeHeap / data.availableHeap * 1000) / 10}% (${data.freeHeap} bytes)`;
+            document.getElementById('availableHeap').innerText = `Available Heap: ${data.availableHeap} bytes`;
+            document.getElementById('chipTemperature').innerText = `Chip Temperature: ${data.chipTemperature}°C`;
+            document.getElementById('chipModel').innerText = `Chip Model: ${data.chipModel} Rev ${data.chipRevision}`;
+            document.getElementById('chipFeatures').innerText = `Chip Features: ${data.chipFeatures.join(', ')}`;
+            document.getElementById('loopTime').innerText = `Loop Time: ${data.loopTimeMicros}us`;
+        };
+
+        // Refresh data 10 times a second (every 100ms) but wait for last refresh to finish
+        let lastRefresh = 0;
+        const refreshLoop = async () => {
+            const now = Date.now();
+            if (now - lastRefresh > 400) {
+                lastRefresh = now;
+                await refreshData();
+            }
+            requestAnimationFrame(refreshLoop);
+        };
+
+        refreshLoop();
+    </script>
+
+</body>
+
+</html>
