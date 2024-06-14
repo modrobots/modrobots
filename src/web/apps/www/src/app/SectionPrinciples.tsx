@@ -57,7 +57,7 @@ export default function SectionPrinciples() {
                             <div>
                                 <h3 className="text-gray-300 text-sm font-medium">3D Printer Friendly</h3>
                                 <p className="text-gray-400 text-sm text-balance">
-                                    Our products are designed to be accessible and usable worldwide, connecting people globally.
+                                    Designs are optimized for 3D printing, allowing for easy and fast upgrades.
                                 </p>
                             </div>
                         </li>
