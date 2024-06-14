@@ -1,3 +1,5 @@
+import { HTMLProps } from "react"
+
 export default function SectionPrinciples() {
     return (
         <section className="pb-44 pt-20">
@@ -86,7 +88,7 @@ export default function SectionPrinciples() {
     )
 }
 
-function CloudLightningIcon(props) {
+function CloudLightningIcon(props: HTMLProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
@@ -107,7 +109,7 @@ function CloudLightningIcon(props) {
 }
 
 
-function CodeIcon(props) {
+function CodeIcon(props: HTMLProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
@@ -128,7 +130,7 @@ function CodeIcon(props) {
 }
 
 
-function CpuIcon(props) {
+function CpuIcon(props: HTMLProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
@@ -157,7 +159,7 @@ function CpuIcon(props) {
 }
 
 
-function FlashlightIcon(props) {
+function FlashlightIcon(props: HTMLProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
@@ -179,7 +181,7 @@ function FlashlightIcon(props) {
 }
 
 
-function GithubIcon(props) {
+function GithubIcon(props: HTMLProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
@@ -200,7 +202,7 @@ function GithubIcon(props) {
 }
 
 
-function PencilIcon(props) {
+function PencilIcon(props: HTMLProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
@@ -221,7 +223,7 @@ function PencilIcon(props) {
 }
 
 
-function Scale3dIcon(props) {
+function Scale3dIcon(props: HTMLProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
@@ -244,7 +246,7 @@ function Scale3dIcon(props) {
 }
 
 
-function WrenchIcon(props) {
+function WrenchIcon(props: HTMLProps<SVGSVGElement>) {
     return (
         <svg
             {...props}
