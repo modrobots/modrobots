@@ -8,6 +8,31 @@ import { Center, Environment, OrbitControls, ContactShadows } from '@react-three
 import { ScrolledLine } from "../components/shared/ScrolledLine";
 import SectionPrinciples from "./SectionPrinciples";
 
+function HolderModel({ version }: { version: number }) {
+  const jointModel = useLoader(STLLoader, `/3d/Preview Holder v${version}.stl`);
+  return (
+    <Center top>
+      <group scale={[0.02, 0.02, 0.02]} position={[0, 3.74, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <mesh castShadow>
+          <primitive object={jointModel} />
+          <meshStandardMaterial metalness={1} roughness={1} />
+        </mesh>
+      </group>
+    </Center>
+  )
+}
+
+function HolderPreview({ version }: { version: number }) {
+  return (
+    <group position={[0, -0.5, 0]}>
+      <Suspense fallback={null}>
+        <HolderModel version={version} />
+      </Suspense>
+      <ContactShadows resolution={512} position={[0, -0.1, 0]} opacity={0.5} blur={2} scale={10} />
+    </group>
+  );
+}
+
 function JointModel({ version }: { version: number }) {
   const jointModel = useLoader(STLLoader, `/3d/Preview Joint v${version}.stl`);
   return (
@@ -82,7 +107,7 @@ function ModuleCard({ label, version, children }: PropsWithChildren<{ label: str
 
 const modulePreviews: Record<string, FunctionComponent<{ version: number }> | null> = {
   joint: JointPreview,
-  wheel: null,
+  holder: HolderPreview
 };
 
 const modules = [
@@ -96,7 +121,7 @@ const modules = [
   { id: 'vacuum-foot', label: "Vacuum Foot", version: 0, categories: ['Motion'] },
   { id: 'distance-sensor', label: "Distance Sensor", version: 0, categories: ['Perception'] },
   { id: 'sticky-mount', label: "Sticky Mount", version: 0, categories: ['Attachment'] },
-  { id: 'holder', label: "Holder", version: 0, categories: ['Attachment'] },
+  { id: 'holder', label: "Holder", version: 1, categories: ['Attachment'] },
   { id: 'locker', label: "Locker", version: 0, categories: ['Attachment'] },
 ];
 
