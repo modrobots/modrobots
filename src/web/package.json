@@ -4,14 +4,12 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "lint": "turbo lint"
   },
   "devDependencies": {
     "@modrobots/eslint-config": "workspace:*",
     "@modrobots/typescript-config": "workspace:*",
-    "prettier": "^3.2.5",
-    "turbo": "latest"
+    "turbo": "2.0.4"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {
