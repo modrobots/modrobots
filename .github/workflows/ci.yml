@@ -1,0 +1,21 @@
+name: "CI"
+
+on:
+    push:
+        branches: [main, next]
+        paths:
+            - "src/web/**"
+            - ".github/workflows/ci.yml"
+            - ".github/workflows/web-vercel-deploy_reusable.yml"
+
+jobs:
+    vercel_www_deploy:
+        name: "Vercel Blog (deploy)"
+        uses: ./.github/workflows/web-vercel-deploy_reusable.yml
+        with:
+          name: 'www'
+          path: 'src/web/apps/www'
+          vercelProjectId: 'prj_NwhzXCiY8d0lTcpCXUWwohNkBVaP'
+          preview: false
+          environment: ${{ github.ref == 'refs/heads/main' && 'production' || 'development' }}
+        secrets: inherit
