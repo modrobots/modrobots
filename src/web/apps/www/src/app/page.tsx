@@ -7,6 +7,7 @@ import { FunctionComponent, PropsWithChildren, ReactNode, Suspense, useEffect, u
 import { Center, Environment, OrbitControls, ContactShadows } from '@react-three/drei'
 import { ScrolledLine } from "../components/shared/ScrolledLine";
 import SectionPrinciples from "./SectionPrinciples";
+import { modules, modulesCategories } from "../data/data";
 
 const modelScale = 0.02;
 
@@ -116,29 +117,6 @@ const modulePreviews: Record<string, FunctionComponent<{ version: number }> | nu
   holder: HolderPreview
 };
 
-const modules = [
-  { id: 'joint', label: "Joint", version: 44, categories: ['Motion'] },
-  { id: 'wheel', label: "Wheel", version: 0, categories: ['Motion'] },
-  { id: 'foot', label: "Foot", version: 0, categories: ['Motion'] },
-  { id: 'gripper-flex', label: "Flex Gripper", version: 0, categories: ['Manipulation'] },
-  { id: 'gripper-vacuum', label: "Vacuum Gripper", version: 0, categories: ['Manipulation'] },
-  { id: 'brain', label: "Brain", version: 0, categories: ['Control'] },
-  { id: 'skeleton', label: "Skeleton", version: 0, categories: ['Perception'] },
-  { id: 'vacuum-foot', label: "Vacuum Foot", version: 0, categories: ['Motion'] },
-  { id: 'distance-sensor', label: "Distance Sensor", version: 0, categories: ['Perception'] },
-  { id: 'sticky-mount', label: "Sticky Mount", version: 0, categories: ['Attachment'] },
-  { id: 'holder', label: "Holder", version: 1, categories: ['Attachment'] },
-  { id: 'locker', label: "Locker", version: 0, categories: ['Attachment'] },
-];
-
-const categories = [
-  'Control',
-  'Motion',
-  'Manipulation',
-  'Perception',
-  'Attachment'
-]
-
 function CoverBackground() {
   return (
     <svg className="pointer-events-none size-full absolute inset-0">
@@ -180,7 +158,7 @@ function SectionModules() {
           <span className="opacity-60">modules</span>
         </h2>
         <div className="flex flex-col gap-12 w-full">
-          {categories.map((category) => (
+          {modulesCategories.map((category) => (
             <div key={category} className="flex flex-col gap-4 px-4 md:px-12 w-full">
               <h3 className="text-xl uppercase font-mono">{category}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
