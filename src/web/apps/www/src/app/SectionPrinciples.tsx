@@ -3,83 +3,65 @@ import { HTMLProps } from "react"
 export default function SectionPrinciples() {
     return (
         <section className="pb-44 pt-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="lg:text-center">
                     <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Principles</h2>
                 </div>
-                <div className="mt-10">
-                    <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                        <li className="col-span-1 flex flex-row items-start text-left sm:text-center">
-                            <GithubIcon className="mr-4 h-12 w-12 shrink-0" />
-                            <div>
-                                <h3 className="text-gray-300 text-sm font-medium">Open-source</h3>
-                                <p className="text-gray-400 text-sm text-balance">
-                                    Our code is freely available for everyone to use, modify, and contribute to.
-                                </p>
+                <div className="mt-20">
+                    <ul className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3">
+                        <li className="col-span-1 flex flex-col gap-2">
+                            <div className="flex items-center gap-3">
+                                <OpenSourceIcon className="size-8 shrink-0" />
+                                <span className="text-sm">open source</span>
                             </div>
+                            <p className="text-gray-400 text-sm text-balance">
+                                Our code is freely available for everyone to use, modify, and contribute to.
+                            </p>
                         </li>
-                        <li className="col-span-1 flex flex-row items-start text-left sm:text-center">
-                            <CpuIcon className="mr-4 h-12 w-12 shrink-0" />
-                            <div>
-                                <h3 className="text-gray-300 text-sm font-medium">Open-source hardware</h3>
-                                <p className="text-gray-400 text-sm text-balance">
-                                    Our hardware designs are openly shared, allowing for customization and innovation.
-                                </p>
+                        <li className="col-span-1 flex flex-col gap-2">
+                            <div className="flex items-center gap-3">
+                                <OpenHardwareIcon className="size-8 shrink-0" />
+                                <span className="text-sm">open source hardware</span>
                             </div>
+                            <p className="text-gray-400 text-sm text-balance">
+                                Our hardware designs are openly shared, allowing for customization and innovation.
+                            </p>
                         </li>
-                        <li className="col-span-1 flex flex-row items-start text-left sm:text-center">
-                            <PencilIcon className="mr-4 h-12 w-12 shrink-0" />
-                            <div>
-                                <h3 className="text-gray-300 text-sm font-medium">Open-design</h3>
-                                <p className="text-gray-400 text-sm text-balance">
-                                    Our design files are available for anyone to explore, adapt, and build upon.
-                                </p>
+                        <li className="col-span-1 flex flex-col gap-2">
+                            <div className="flex items-center gap-3">
+                                <OpenSourceIcon className="size-8 shrink-0" />
+                                <span className="text-sm">open design</span>
                             </div>
+                            <p className="text-gray-400 text-sm text-balance">
+                                Our design files are available for anyone to explore, adapt, and build upon.
+                            </p>
                         </li>
-                        <li className="col-span-1 flex flex-row items-start text-left sm:text-center">
-                            <FlashlightIcon className="mr-4 h-12 w-12 shrink-0" />
-                            <div>
-                                <h3 className="text-gray-300 text-sm font-medium">Easy to assemble</h3>
-                                <p className="text-gray-400 text-sm text-balance">
-                                    Our products are designed with simplicity in mind, making them straightforward to put together.
-                                </p>
+                        <li className="col-span-1 flex flex-col gap-2">
+                            <div className="flex items-center gap-3">
+                                <EasyAssemblyIcon className="size-8 shrink-0" />
+                                <span className="text-sm">easy to assemble</span>
                             </div>
+                            <p className="text-gray-400 text-sm text-balance">
+                                Our products are designed with simplicity in mind, making them straightforward to put together.
+                            </p>
                         </li>
-                        <li className="col-span-1 flex flex-row items-start text-left sm:text-center">
-                            <WrenchIcon className="mr-4 h-12 w-12 shrink-0" />
-                            <div>
-                                <h3 className="text-gray-300 text-sm font-medium">DIY</h3>
-                                <p className="text-gray-400 text-sm text-balance">
-                                    We encourage users to get hands-on and customize their own creations.
-                                </p>
+                        <li className="col-span-1 flex flex-col gap-2">
+                            <div className="flex items-center gap-3">
+                                <ThreeDPrinterIcon className="size-8 shrink-0" />
+                                <span className="text-sm">3D printer friendly</span>
                             </div>
+                            <p className="text-gray-400 text-sm text-balance">
+                                Designs are optimized for 3D printing, allowing for easy and fast upgrades.
+                            </p>
                         </li>
-                        <li className="col-span-1 flex flex-row items-start text-left sm:text-center">
-                            <Scale3dIcon className="mr-4 h-12 w-12 shrink-0" />
-                            <div>
-                                <h3 className="text-gray-300 text-sm font-medium">3D Printer Friendly</h3>
-                                <p className="text-gray-400 text-sm text-balance">
-                                    Designs are optimized for 3D printing, allowing for easy and fast upgrades.
-                                </p>
+                        <li className="col-span-1 flex flex-col gap-2">
+                            <div className="flex items-center gap-3">
+                                <CodeIcon className="size-8 shrink-0" />
+                                <span className="text-sm">hackable</span>
                             </div>
-                        </li>
-                        <li className="col-span-1 flex flex-row items-start text-left sm:text-center">
-                            <CodeIcon className="mr-4 h-12 w-12 shrink-0" />
-                            <div>
-                                <h3 className="text-gray-300 text-sm font-medium">Hackable</h3>
-                                <p className="text-gray-400 text-sm text-balance">
-                                    Our products are designed to be modified and extended by the community.
-                                </p>
-                            </div>
-                        </li>
-                        <li className="col-span-1 flex flex-row items-start text-left sm:text-center">
-                            <CloudLightningIcon className="mr-4 h-12 w-12 shrink-0" />
-                            <div>
-                                <h3 className="text-gray-300 text-sm font-medium">Community driven</h3>
-                                <p className="text-gray-400 text-sm text-balance">
-                                    We believe in the power of collaboration and value the input of our passionate community.
-                                </p>
-                            </div>
+                            <p className="text-gray-400 text-sm text-balance">
+                                Our products are designed to be modified and extended by the community.
+                            </p>
                         </li>
                     </ul>
                 </div>
@@ -88,26 +70,21 @@ export default function SectionPrinciples() {
     )
 }
 
-function CloudLightningIcon(props: HTMLProps<SVGSVGElement>) {
+function EasyAssemblyIcon(props: HTMLProps<SVGSVGElement>) {
     return (
         <svg
-            {...props}
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973" />
-            <path d="m13 12-3 5h4l-3 5" />
+            width={64}
+            height={64}
+            fill="currentColor"
+            viewBox="0 0 64 64"
+            {...props}>
+            <path
+                d="M33.347 61.653C31.377 59.68 31 59.247 31 58.94c0-.305.378-.743 2.34-2.715 2.03-2.041 2.39-2.351 2.726-2.351.423 0 .925.383.948.724.038.558-.114.796-1.24 1.932-1.35 1.363-1.368 1.323.476 1.027 11.172-1.792 19.963-10.898 21.448-22.215.253-1.924.188-5.964-.122-7.656-1.35-7.353-5.26-13.342-11.326-17.349-1.456-.961-4.027-2.244-5.563-2.775-1.214-.42-1.487-.652-1.487-1.264 0-.545.387-.924.944-.924.954 0 5.041 1.869 7.196 3.29 6.565 4.328 10.801 10.858 12.22 18.835.287 1.613.392 5.583.197 7.398A27.922 27.922 0 0 1 51.36 52.07c-2.257 2.18-4.373 3.654-7.25 5.046-2.825 1.368-6.127 2.335-8.829 2.585-.498.046-.906.117-.906.158 0 .04.6.675 1.333 1.41 1.143 1.147 1.334 1.396 1.334 1.741 0 .284-.101.49-.34.696-.671.577-.806.494-3.355-2.054zm-10.91-3.415c-5.661-2.111-10.573-6.032-13.858-11.065-2.31-3.537-3.892-8.02-4.339-12.283-.204-1.95-.078-5.917.242-7.64.905-4.871 2.848-9.18 5.777-12.808 1.685-2.088 4.527-4.626 6.691-5.977 2.162-1.35 4.943-2.602 7.238-3.26 1.52-.436 4.244-.955 5.015-.955.232 0 .422-.041.422-.092 0-.05-.6-.693-1.333-1.429-1.143-1.146-1.334-1.395-1.334-1.74 0-.284.101-.49.34-.696.671-.577.806-.494 3.355 2.054C32.623 4.32 33 4.753 33 5.06c0 .305-.378.743-2.34 2.715-2.03 2.041-2.39 2.351-2.726 2.351-.423 0-.925-.383-.948-.724-.038-.558.114-.796 1.24-1.932 1.35-1.363 1.368-1.323-.476-1.027-8.313 1.335-15.551 6.786-19.169 14.436C6.872 24.492 6.125 27.875 6.125 32c0 2.48.221 4.266.812 6.561 2.108 8.19 8.339 15.014 16.256 17.81.613.215 1.209.478 1.324.582.316.286.387.753.178 1.158-.33.638-.813.665-2.258.127zm5.858-10.984c-.559-.231-.67-.587-.67-2.142v-1.457l-.38-.157c-.377-.156-.391-.147-1.484.922-1.616 1.582-1.348 1.674-4.602-1.58-3.25-3.25-3.158-2.987-1.595-4.584 1.045-1.068 1.06-1.094.925-1.484l-.138-.397h-1.529c-1.481 0-1.538-.01-1.831-.323l-.303-.322v-7.502l.35-.301c.328-.283.447-.302 1.832-.302h1.48l.139-.397c.136-.39.12-.416-.925-1.484C18 24.147 17.91 24.41 21.159 21.16c3.25-3.25 2.988-3.158 4.585-1.595 1.068 1.045 1.094 1.06 1.484.925l.397-.138v-1.529c0-1.481.01-1.538.323-1.831l.322-.304h7.502l.301.351c.283.328.302.447.302 1.832v1.48l.397.139c.39.136.416.12 1.484-.925C39.853 18 39.59 17.91 42.84 21.159c3.25 3.25 3.158 2.988 1.595 4.585-1.045 1.068-1.06 1.094-.925 1.484l.138.397h1.529c1.481 0 1.538.01 1.831.323l.304.322v7.502l-.351.301c-.328.283-.447.302-1.832.302h-1.48l-.139.397c-.136.39-.12.416.925 1.484C46 39.853 46.09 39.59 42.841 42.84c-3.25 3.25-2.988 3.158-4.585 1.595-1.068-1.045-1.094-1.06-1.484-.925l-.397.138v1.481c0 1.385-.02 1.504-.302 1.832l-.301.35-3.605.027c-1.982.014-3.725-.024-3.872-.085Zm6.08-3.24c0-1.117.04-1.407.219-1.613.227-.262 2.499-1.276 2.858-1.276.112 0 .663.448 1.225.997l1.02.996 1.715-1.718 1.715-1.717-.943-.935c-.519-.515-.973-1.053-1.01-1.197-.084-.33.881-2.658 1.227-2.957.206-.18.496-.219 1.613-.219h1.361v-4.75l-1.281-.002c-.769 0-1.401-.063-1.58-.156-.206-.107-.466-.543-.838-1.404-.297-.688-.542-1.356-.545-1.484-.003-.13.441-.693.99-1.256l.997-1.02-1.718-1.715-1.717-1.714-.935.942c-.515.52-1.058.974-1.207 1.012-.166.043-.678-.108-1.313-.387a94.967 94.967 0 0 0-1.324-.572c-.413-.169-.529-.607-.529-2.002v-1.242h-4.75v1.242c0 1.395-.116 1.833-.529 2.002-.156.064-.752.321-1.324.572-.635.279-1.147.43-1.313.387-.15-.038-.692-.493-1.207-1.012l-.935-.943-1.717 1.715-1.718 1.714.996 1.021c.549.562.997 1.113.997 1.225 0 .36-1.014 2.631-1.276 2.858-.206.18-.496.219-1.613.219h-1.361v4.75l1.281.002c.769 0 1.401.063 1.58.156.206.107.466.543.838 1.404.297.688.542 1.356.545 1.484.003.13-.441.693-.99 1.256l-.997 1.02 1.718 1.715 1.717 1.714.935-.942c.515-.52 1.056-.974 1.204-1.011.154-.04.631.087 1.125.298.47.202 1.042.439 1.268.527.678.266.776.523.776 2.03v1.347h4.75Zm-4.813-8.158c-.391-.214-2.185-2.006-2.384-2.381-.258-.49-.223-.7.187-1.11.566-.566.9-.491 1.839.41l.807.775 2.713-2.706c1.746-1.74 2.836-2.735 3.058-2.788.643-.156 1.338.598 1.145 1.242-.098.325-5.983 6.276-6.452 6.524-.4.21-.577.217-.912.034z"
+            />
         </svg>
-    )
+    );
 }
-
 
 function CodeIcon(props: HTMLProps<SVGSVGElement>) {
     return (
@@ -119,7 +96,7 @@ function CodeIcon(props: HTMLProps<SVGSVGElement>) {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1"
             strokeLinecap="round"
             strokeLinejoin="round"
         >
@@ -129,138 +106,48 @@ function CodeIcon(props: HTMLProps<SVGSVGElement>) {
     )
 }
 
-
-function CpuIcon(props: HTMLProps<SVGSVGElement>) {
+function ThreeDPrinterIcon(props: HTMLProps<SVGSVGElement>) {
     return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <rect width="16" height="16" x="4" y="4" rx="2" />
-            <rect width="6" height="6" x="9" y="9" rx="1" />
-            <path d="M15 2v2" />
-            <path d="M15 20v2" />
-            <path d="M2 15h2" />
-            <path d="M2 9h2" />
-            <path d="M20 15h2" />
-            <path d="M20 9h2" />
-            <path d="M9 2v2" />
-            <path d="M9 20v2" />
+        <svg xmlns="http://www.w3.org/2000/svg" width={332} height={332} fill="currentColor" viewBox="0 0 332 332" {...props}>
+            <path
+                d="M344.797 536.858c-2.7-.516-3.8-8.121-1.506-10.416.58-.58 25.776-.86 99.68-1.109 111.99-.377 104.37.316 108.135-9.84 5.487-14.801-2.24-18.788-36.458-18.81-26.58-.018-26.31.02-27.932-3.898-1.295-3.126-.14-6.278 2.656-7.247 6.573-2.28 58.121-.808 60.961 1.74.734.658 2.29 1.743 3.459 2.412 2.705 1.547 6.65 6.249 7.951 9.479a136.089 136.089 0 0 0 1.997 4.665c5.034 11.021-5.642 29.827-18.636 32.827-2.718.628-197.055.819-200.307.197zm15.6-41.858c-1.724-.917-3.594-1.667-4.157-1.667-4.076 0-13.156-12.72-14.288-20.02-3.766-24.27 9.19-33.947 45.477-33.968 26.98-.016 31.02-.911 39.15-8.678 4.786-4.572 7.132-8.832 8.436-15.322 2.424-12.065 6.51-15.432 11.64-9.59 8.405 9.573-10.172 39.817-26.734 43.522-1.694.38-3.944 1.069-5 1.533-1.38.606-8.678.94-25.921 1.183-21.136.3-24.239.478-26 1.493-12.498 7.206-12.134 23.221.667 29.285 4 1.895 4 1.895 36.085 1.895 37.849 0 37.581-.043 37.581 6.106 0 1.319-.662 2.66-1.948 3.946-2.861 2.86-69.665 3.112-74.988.282zm96.93-1.008c-3.337-4.214-1.2-8.592 4.217-8.637 5.038-.042 7.11 3.47 4.755 8.064-2.246 4.383-5.776 4.608-8.972.573zM441.333 387.51c-3.765-.657-4.89-3.488-5.34-13.441-.52-11.524 1.742-8.379-25.643-35.65-13.153-13.099-24.14-24.59-24.933-26.076-2.38-4.464-2.198-99.8.199-103.596 2.248-3.561-.256-3.414 57.845-3.414 55.627 0 53.54-.138 55.796 3.688 2.29 3.881 2.206 100.702-.09 103.776-.825 1.104-12.256 12.77-25.4 25.925-27.049 27.066-25.059 24.159-25.084 36.643-.016 7.288-2.65 13.428-5.378 12.535-.168-.055-1.055-.23-1.972-.39zM465.55 329.4c25.473-25.479 22.415-16.47 22.43-66.068.013-41.541-.138-43.917-2.87-45.161-3.273-1.492-84.633-1.105-86.506.41-1.6 1.297-2.966 74.455-1.603 85.848.58 4.84 41.492 46.235 45.666 46.204 1.291-.009 6.443-4.79 22.883-21.233zm-183.936-39.36c-2.082-3.147-1.782-5.955.86-8.033 2.233-1.756 72.355-2.127 76.478-.404 4.044 1.69 3.73 9.522-.425 10.635-8.002 2.144-75.313.22-76.913-2.199zm243.159 1.558c-3.629-2.541-3.433-8.446.332-10.02 3.908-1.632 74.93-1.025 76.788.657 2.306 2.087 2.477 4.805.493 7.804-1.938 2.928-73.603 4.368-77.613 1.56zm-238.44-45.927c-.366-.122-1.486-.403-2.488-.623-3.813-.84-4.82-5.599-1.919-9.074 2.02-2.42 68.207-4.155 75.601-1.981 5.805 1.706 5.93 9.812.174 11.261-2.674.674-69.43 1.064-71.368.417zm239.508-.472c-5.32-1.413-4.859-9.592.632-11.206 2.909-.855 72.5-.678 74.218.19 4.835 2.439 3.691 9.918-1.709 11.17-3.602.835-69.944.695-73.141-.154z"
+                transform="translate(-276.246 -205.332)"
+            />
         </svg>
     )
 }
 
-
-function FlashlightIcon(props: HTMLProps<SVGSVGElement>) {
+function OpenSourceIcon(props: HTMLProps<SVGSVGElement>) {
     return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M18 6c0 2-2 2-2 4v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V10c0-2-2-2-2-4V2h12z" />
-            <line x1="6" x2="18" y1="6" y2="6" />
-            <line x1="12" x2="12" y1="12" y2="12" />
-        </svg>
-    )
+        <div>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={800}
+                height={800}
+                viewBox="0 0 32 32"
+                fill="currentColor"
+                {...props}
+            >
+                <path d="M-.136 16.708C.016 7.943 6.151 1.703 13.661.693 22.62-.506 30.156 5.588 31.604 13.672c1.375 7.667-2.839 14.844-9.787 17.688-.599.244-.927.109-1.156-.5l-3.453-8.969c-.197-.527-.063-.855.453-1.088 1.563-.709 2.536-1.896 2.797-3.6a4.615 4.615 0 0 0-4.161-5.307 4.615 4.615 0 0 0-5 3.853c-.339 2.131.713 4.115 2.697 5.016.62.281.745.557.505 1.188l-3.469 9.031c-.167.443-.531.6-1 .417a15.964 15.964 0 0 1-8.437-7.677c-1.609-3.177-1.624-5.661-1.729-7.021zm1.349-.124c.027.427.041.921.084 1.427.405 4.64 3.197 9.26 8.452 11.817.209.093.287.052.365-.145.959-2.527 1.927-5.052 2.901-7.579.083-.208.041-.307-.152-.427-2.041-1.287-3.057-3.131-2.943-5.552.063-1.391.6-2.615 1.537-3.636 1.932-2.109 4.968-2.568 7.453-1.135a5.931 5.931 0 0 1 2.916 5.839c-.235 1.968-1.244 3.479-2.953 4.5-.172.104-.224.187-.145.389.979 2.532 1.953 5.063 2.916 7.595.079.203.157.244.36.145 2.297-1.068 4.208-2.599 5.688-4.64 2.244-3.115 3.171-6.579 2.728-10.391C29.54 7.207 22.717.926 13.931 2.01 7.087 2.849 1.327 8.625 1.212 16.583z" />
+            </svg>
+        </div>
+    );
 }
 
-
-function GithubIcon(props: HTMLProps<SVGSVGElement>) {
+function OpenHardwareIcon(props: HTMLProps<SVGSVGElement>) {
     return (
         <svg
-            {...props}
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-            <path d="M9 18c-4.51 2-5-2-7-2" />
-        </svg>
-    )
-}
-
-
-function PencilIcon(props: HTMLProps<SVGSVGElement>) {
-    return (
-        <svg
+            xmlSpace="preserve"
+            width={138}
+            height={138}
+            viewBox="0 0 138 138"
+            fill="currentColor"
             {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
         >
-            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-            <path d="m15 5 4 4" />
+            <path
+                d="m135.161 65.604-16.439-3.057c-.4-.075-.838-.451-.973-.837l-5.039-11.756c-.188-.363-.152-.933.08-1.271l9.578-13.96a.932.932 0 0 0-.105-1.136L110.3 21.624a.927.927 0 0 0-1.135-.105L94.96 31.267c-.336.231-.912.272-1.277.092l-11.396-4.665c-.387-.128-.764-.561-.84-.962L78.282 8.729A.929.929 0 0 0 77.405 8h-16.92a.928.928 0 0 0-.876.729l-3.164 17.003c-.076.401-.452.834-.84.962l-11.397 4.665c-.366.18-.942.139-1.277-.092l-14.204-9.748a.929.929 0 0 0-1.136.105L15.627 33.587a.93.93 0 0 0-.105 1.136l9.579 13.96c.23.338.266.908.079 1.271L20.14 61.71c-.134.386-.571.762-.973.837L2.729 65.604a.93.93 0 0 0-.729.878l.001 16.919c0 .408.328.805.729.878l16.035 2.984c.401.073.83.454.952.843l5.006 12.505c.179.367.137.941-.095 1.277l-9.108 13.273a.933.933 0 0 0 .105 1.137l11.965 11.963a.934.934 0 0 0 1.136.105l13.038-8.949c.336-.23.899-.248 1.25-.043l5.75 3.07a.676.676 0 0 0 .945-.348l11.856-28.647a.896.896 0 0 0-.348-1.071l-1.439-.881a6.81 6.81 0 0 1-.91-.697c-5.191-3.324-8.635-9.139-8.635-15.761 0-10.334 8.378-18.711 18.711-18.711 10.333 0 18.71 8.377 18.71 18.711 0 6.622-3.443 12.437-8.635 15.761a6.736 6.736 0 0 1-.908.697l-1.439.881a.9.9 0 0 0-.348 1.071l11.855 28.648c.156.377.58.533.945.348l5.75-3.07c.352-.205.914-.188 1.25.043l13.039 8.949a.933.933 0 0 0 1.135-.105l11.965-11.963a.93.93 0 0 0 .105-1.137l-9.109-13.273c-.23-.336-.273-.91-.094-1.277l5.006-12.505c.123-.389.549-.77.951-.843l16.035-2.984a.93.93 0 0 0 .729-.878l.002-16.919a.93.93 0 0 0-.727-.879zm-2.874 15.947-13.822 2.572c-1.047.207-1.727.645-2.313 1.151-.531.487-1.004 1.053-1.337 1.934l-4.971 12.415a4.75 4.75 0 0 0-.39 1.924c.021.896.168 1.758.84 2.781l7.834 11.416-8.782 8.781-11.184-7.676c-.979-.648-1.855-.805-2.705-.818-.717.008-1.453.127-2.276.568h-.001l-2.903 1.551-9.744-23.547c.234-.169.45-.343.668-.528 6.047-3.975 10.054-10.848 10.054-18.637-.002-12.324-9.987-22.31-22.31-22.312-12.322.002-22.308 9.988-22.312 22.312.002 7.789 4.008 14.661 10.056 18.636.216.184.431.357.668.528l-9.743 23.548-2.903-1.551c-.835-.447-1.583-.561-2.281-.568-.86.014-1.729.172-2.708.822l-11.177 7.672-8.784-8.781 7.835-11.42c.666-1.021.817-1.878.838-2.777a4.844 4.844 0 0 0-.388-1.92l-4.979-12.442c-.335-.876-.809-1.433-1.334-1.915-.589-.504-1.263-.939-2.32-1.148l-13.811-2.57-.001-12.419 14.224-2.649c1.031-.207 1.692-.624 2.277-1.111.521-.463.994-.997 1.346-1.846l.002.001 5.01-11.69a4.802 4.802 0 0 0 .439-2.036c-.019-.875-.164-1.731-.819-2.743l-8.316-12.117 8.782-8.782 12.348 8.475c1.031.672 1.878.813 2.774.833a4.767 4.767 0 0 0 1.926-.389l11.354-4.647c.879-.346 1.433-.826 1.907-1.352.494-.586.915-1.248 1.126-2.276L62.735 12h12.418l2.752 14.79c.216 1.047.637 1.707 1.13 2.291.478.53 1.032 1.01 1.919 1.357l11.356 4.649a4.793 4.793 0 0 0 1.908.385c.888-.023 1.744-.162 2.774-.833l12.352-8.478 8.781 8.783-8.305 12.103c-.668.997-.814 1.876-.834 2.757.006.625.098 1.263.413 1.97l5.038 11.756h.001c.354.85.827 1.383 1.349 1.846.583.485 1.238.902 2.272 1.111l14.228 2.646z"
+            />
         </svg>
-    )
-}
-
-
-function Scale3dIcon(props: HTMLProps<SVGSVGElement>) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <circle cx="19" cy="19" r="2" />
-            <circle cx="5" cy="5" r="2" />
-            <path d="M5 7v12h12" />
-            <path d="m5 19 6-6" />
-        </svg>
-    )
-}
-
-
-function WrenchIcon(props: HTMLProps<SVGSVGElement>) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-        </svg>
-    )
+    );
 }

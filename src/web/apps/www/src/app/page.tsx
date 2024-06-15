@@ -8,11 +8,13 @@ import { Center, Environment, OrbitControls, ContactShadows } from '@react-three
 import { ScrolledLine } from "../components/shared/ScrolledLine";
 import SectionPrinciples from "./SectionPrinciples";
 
+const modelScale = 0.02;
+
 function HolderModel({ version }: { version: number }) {
   const jointModel = useLoader(STLLoader, `/3d/Preview Holder v${version}.stl`);
   return (
     <Center top>
-      <group scale={[0.02, 0.02, 0.02]} position={[0, 4, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+      <group scale={[modelScale, modelScale, modelScale]} position={[0, 4, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <mesh castShadow>
           <primitive object={jointModel} />
           <meshStandardMaterial metalness={1} roughness={1} />
@@ -37,7 +39,7 @@ function JointModel({ version }: { version: number }) {
   const jointModel = useLoader(STLLoader, `/3d/Preview Joint v${version}.stl`);
   return (
     <Center top>
-      <group scale={[0.02, 0.02, 0.02]} position={[0, 2, 0]} rotation={[Math.PI / 2, 0, 0]}>
+      <group scale={[modelScale, modelScale, modelScale]} position={[0, 2, 0]} rotation={[Math.PI / 2, 0, 0]}>
         <mesh castShadow>
           <primitive object={jointModel} />
           <meshStandardMaterial metalness={1} roughness={1} />
@@ -61,14 +63,18 @@ function JointPreview({ version }: { version: number }) {
 function ModulePreview({ model }: { model: ReactNode }) {
   return (
     <>
-      <Canvas camera={{ position: [0, 0, 4.5], fov: 40 }} shadows>
+      <Canvas camera={{ position: [0, 2, 4.5], fov: 40 }} shadows>
         <ambientLight intensity={0.5} />
         <directionalLight color="white" position={[1, 1, 1]} intensity={4} />
         <Suspense fallback={null}>
           {model}
           <Environment preset="sunset" backgroundBlurriness={1} />
         </Suspense>
-        <OrbitControls autoRotate autoRotateSpeed={1} enablePan={false} enableZoom={false} />
+        <OrbitControls
+          autoRotate
+          autoRotateSpeed={1}
+          enablePan={false}
+          enableZoom={false} target={[0, 0, 0]} />
       </Canvas>
     </>
   )
