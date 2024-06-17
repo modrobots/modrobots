@@ -1,7 +1,26 @@
-import { getStack } from '@pulumi/pulumi';
+import { Config, getStack } from '@pulumi/pulumi';
 import { nextJsApp } from '@infra/pulumi/vercel';
 import { dnsRecord } from '@infra/pulumi/cloudflare';
 import { ProjectDomain, ProjectEnvironmentVariable } from '@pulumiverse/vercel';
+import { EmailRoutingRule } from '@pulumi/cloudflare/emailRoutingRule.js';
+
+function emailRoute(name: string, from: string[], to: string) {
+    const config = new Config();
+    const zoneId = config.requireSecret('zoneid');
+    new EmailRoutingRule('emailroute-' + name, {
+        name,
+        zoneId,
+        matchers: from.map((fromEmail) => ({
+            type: 'literal',
+            field: 'to',
+            value: fromEmail,
+        })),
+        actions: [{
+            type: 'forward',
+            values: [to],
+        }],
+    });
+}
 
 const up = async () => {
     const stack = getStack();
@@ -31,6 +50,12 @@ const up = async () => {
         dnsRecord('vercel-mr', 'next', 'cname.vercel-dns.com', 'CNAME', false);
     } else if (stack === 'production') {
         dnsRecord('vercel-mr', '@', '76.76.21.21', 'A', false);
+        emailRoute('main-modrobots', [
+            'aleksandar.toplek@modrobots.com',
+            'contact@modrobots.com',
+            'info@modrobots.com',
+            'security@modrobots.com',
+        ], 'aleksandar.toplek@gmail.com');
     }
 };
 
