@@ -1,105 +1,17 @@
 'use client';
 
-import { Canvas } from "@react-three/fiber";
-import { useLoader } from '@react-three/fiber'
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
-import { FunctionComponent, PropsWithChildren, ReactNode, Suspense, useEffect, useState } from "react";
-import { Center, Environment, OrbitControls, ContactShadows } from '@react-three/drei'
 import { ScrolledLine } from "../components/shared/ScrolledLine";
 import SectionPrinciples from "./SectionPrinciples";
 import { modules, modulesCategories } from "../data/data";
+import Link from "next/link";
+import { ModulePreview } from "./ModulePreview";
+import { ModuleEmptyBackground } from './ModuleEmptyBackground';
+import { PropsWithChildren, useEffect, useState } from "react";
 
-const modelScale = 0.02;
-
-function HolderModel({ version }: { version: number }) {
-  const jointModel = useLoader(STLLoader, `/3d/Preview Holder v${version}.stl`);
-  return (
-    <Center top>
-      <group scale={[modelScale, modelScale, modelScale]} position={[0, 4, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <mesh castShadow>
-          <primitive object={jointModel} />
-          <meshStandardMaterial metalness={1} roughness={1} />
-        </mesh>
-      </group>
-    </Center>
-  )
-}
-
-function HolderPreview({ version }: { version: number }) {
-  return (
-    <group position={[0, -0.5, 0]}>
-      <Suspense fallback={null}>
-        <HolderModel version={version} />
-      </Suspense>
-      <ContactShadows resolution={512} position={[0, -0.1, 0]} opacity={0.5} blur={2} scale={10} />
-    </group>
-  );
-}
-
-function JointModel({ version }: { version: number }) {
-  const jointModel = useLoader(STLLoader, `/3d/Preview Joint v${version}.stl`);
-  return (
-    <Center top>
-      <group scale={[modelScale, modelScale, modelScale]} position={[0, 2, 0]} rotation={[Math.PI / 2, 0, 0]}>
-        <mesh castShadow>
-          <primitive object={jointModel} />
-          <meshStandardMaterial metalness={1} roughness={1} />
-        </mesh>
-      </group>
-    </Center>
-  )
-}
-
-function JointPreview({ version }: { version: number }) {
-  return (
-    <group position={[0, -0.9, 0]}>
-      <Suspense fallback={null}>
-        <JointModel version={version} />
-      </Suspense>
-      <ContactShadows resolution={512} position={[0, -0.1, 0]} opacity={0.5} blur={2} scale={10} />
-    </group>
-  );
-}
-
-function ModulePreview({ model }: { model: ReactNode }) {
-  return (
-    <>
-      <Canvas camera={{ position: [0, 2, 4.5], fov: 40 }} shadows>
-        <ambientLight intensity={0.5} />
-        <directionalLight color="white" position={[1, 1, 1]} intensity={4} />
-        <Suspense fallback={null}>
-          {model}
-          <Environment preset="sunset" backgroundBlurriness={1} />
-        </Suspense>
-        <OrbitControls
-          autoRotate
-          autoRotateSpeed={1}
-          enablePan={false}
-          enableZoom={false} target={[0, 0, 0]} />
-      </Canvas>
-    </>
-  )
-}
-
-function ModuleEmptyBackground() {
-  return (
-    <svg className="pointer-events-none size-full absolute inset-0">
-      <pattern id="pattern-heroundefined" x="0" y="0" width="21.5" height="21.5" patternUnits="userSpaceOnUse" patternTransform="translate(-0.5,-0.5)">
-        <circle cx="0.5" cy="0.5" r="0.5" fill="#91919a" />
-      </pattern>
-      <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-heroundefined)" />
-    </svg>
-  );
-}
-
-function ModuleCard({ label, version, children }: PropsWithChildren<{ label: string, version: number }>) {
+function ModuleCard({ id, label, version, children }: PropsWithChildren<{ id: string, label: string, version: number }>) {
   return (
     <div className="aspect-square rounded-3xl overflow-clip group hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors relative">
       {Boolean(version) && children}
-      <div className="absolute bottom-4 right-4 border-r px-4 py-2 border-black group-hover:dark:border-black group-hover:border-white dark:border-white">
-        <div className="font-light uppercase">{label}</div>
-        <div className="opacity-40 text-xs text-right">v{version}</div>
-      </div>
       {!version && (
         <div className="absolute inset-0">
           <ModuleEmptyBackground />
@@ -108,14 +20,15 @@ function ModuleCard({ label, version, children }: PropsWithChildren<{ label: str
           </div>
         </div>
       )}
+      <Link href={`/modules/${id}`}>
+        <div className="absolute bottom-4 right-4 border-r px-4 py-2 border-black group-hover:dark:border-black group-hover:border-white dark:border-white">
+          <div className="font-light uppercase">{label}</div>
+          <div className="opacity-40 text-xs text-right">v{version}</div>
+        </div>
+      </Link>
     </div>
   );
 }
-
-const modulePreviews: Record<string, FunctionComponent<{ version: number }> | null> = {
-  joint: JointPreview,
-  holder: HolderPreview
-};
 
 function CoverBackground() {
   return (
@@ -162,14 +75,11 @@ function SectionModules() {
             <div key={category} className="flex flex-col gap-4 px-4 md:px-12 w-full">
               <h3 className="text-xl uppercase font-mono">{category}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {modules.filter(({ categories }) => categories.includes(category)).map(({ id, label, version }) => {
-                  const Preview = modulePreviews[id] ?? (() => null);
-                  return (
-                    <ModuleCard key={label} label={label} version={version}>
-                      <ModulePreview model={<Preview version={version} />} />
-                    </ModuleCard>
-                  );
-                })}
+                {modules.filter(({ categories }) => categories.includes(category)).map(({ id, label, version }) => (
+                  <ModuleCard key={id} id={id} label={label} version={version}>
+                    <ModulePreview id={id} version={version} />
+                  </ModuleCard>
+                ))}
               </div>
             </div>
           ))}

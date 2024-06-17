@@ -1,5 +1,12 @@
 export const modules = [
-    { id: 'joint', label: "Joint", version: 44, categories: ['Motion'] },
+    {
+        id: 'joint', label: "Joint", version: 44, categories: ['Motion'],
+        parts: [
+            { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
+            { partId: 'screw-hex-socket-m3-6mm-black', quantity: 24 },
+            { partId: 'servo-motor-mg995-allmetal', quantity: 1 }
+        ]
+    },
     { id: 'wheel', label: "Wheel", version: 0, categories: ['Motion'] },
     { id: 'foot', label: "Foot", version: 0, categories: ['Motion'] },
     { id: 'gripper-flex', label: "Flex Gripper", version: 0, categories: ['Manipulation'] },
@@ -68,7 +75,7 @@ export const parts = [
         sources: [
             {
                 url: 'https://www.aliexpress.com/item/1005006335163110.html',
-                price: [
+                prices: [
                     {
                         numberOfItems: 1,
                         pricePerItem: 7.11,
