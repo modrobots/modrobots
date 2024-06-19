@@ -1,7 +1,7 @@
 import { Config, Input } from '@pulumi/pulumi';
 import { Record } from '@pulumi/cloudflare';
 
-export function dnsRecord(name: string, dnsName: Input<string>, value: Input<string>, type: 'CNAME' | 'TXT' | 'MX' | 'A', protect: boolean) {
+export function dnsRecord(name: string, dnsName: Input<string>, value: Input<string>, type: 'CNAME' | 'TXT' | 'MX' | 'A', protect: boolean, priority?: number) {
     const config = new Config();
     const zoneId = config.requireSecret('zoneid');
     return new Record(name, {
@@ -9,7 +9,7 @@ export function dnsRecord(name: string, dnsName: Input<string>, value: Input<str
         zoneId,
         type,
         value,
-        priority: type === 'MX' ? 10 : undefined,
+        priority: priority ?? (type === 'MX' ? 10 : undefined),
     }, {
         protect,
     });
