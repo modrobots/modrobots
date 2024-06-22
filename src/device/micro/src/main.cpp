@@ -102,19 +102,27 @@ void broadcast(const String &message)
 
 bool initial = true;
 
-#define DATA_REFRESH_INTERVAL 1000
+#define DATA_REFRESH_INTERVAL 100
 long lastDataReadMs = 0;
 float coreTemperature = 0.0;
-esp_chip_info_t *chip_info = nullptr;
+esp_chip_info_t chip_info = *(esp_chip_info_t *)malloc(sizeof(esp_chip_info_t));
 uint32_t availableHeap = 0;
 uint32_t freeHeap = 0;
 unsigned long lastMicros = 0;
-long loopTime = 0;
+unsigned long loopTime[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+byte loopTimeIndex = 0;
 
 void readData()
 {
+    // Measure loop time
+    auto nowMicros = micros();
+    loopTime[loopTimeIndex] = nowMicros - lastMicros;
+    loopTimeIndex = (loopTimeIndex + 1) % (sizeof(loopTime) / sizeof(loopTime[0]));
+    lastMicros = nowMicros;
+
     // Skip reading data if not enough time has passed
-    if (millis() - lastDataReadMs < DATA_REFRESH_INTERVAL)
+    auto delta = millis() - lastDataReadMs;
+    if (delta < DATA_REFRESH_INTERVAL)
     {
         return;
     }
@@ -123,8 +131,7 @@ void readData()
     // Read chip info
     if (availableHeap == 0)
     {
-        chip_info = (esp_chip_info_t *)malloc(sizeof(esp_chip_info_t));
-        esp_chip_info(chip_info);
+        esp_chip_info(&chip_info);
         availableHeap = ESP.getHeapSize();
     }
 
@@ -136,14 +143,10 @@ void readData()
 void setup()
 {
     pinMode(STATUS_LED, OUTPUT);
-    Serial.begin(115200);
-    delay(3000);
 
-    bootstrapper.setupSpiffs();
-    bootstrapper.setupWifi();
-    bootstrapper.setupWebServer();
-    bootstrapper.setupEspNow(receiveCallback, sentCallback);
-    bootstrapper.setupOta();
+    Serial.begin(115200);
+
+    bootstrapper.setup(receiveCallback, sentCallback);
 
     bootstrapper.m_webServer.on("/data", HTTP_GET, []()
                                 {
@@ -153,7 +156,7 @@ void setup()
         doc["chipTemperature"] = coreTemperature;
 
         // Chip model as string
-        switch (chip_info->model)
+        switch (chip_info.model)
         {
         case CHIP_ESP32:
             doc["chipModel"] = "ESP32";
@@ -175,24 +178,28 @@ void setup()
             break;
         }
 
-        doc["chipRevision"] = chip_info->revision;
+        doc["chipRevision"] = chip_info.revision;
 
         // List of CHIP_FEATURE_X flags as string array
         doc["chipFeatures"] = JsonArray();
-        if (chip_info->features & CHIP_FEATURE_EMB_FLASH)
+        if (chip_info.features & CHIP_FEATURE_EMB_FLASH)
             doc["chipFeatures"].add("EMB_FLASH");
-        if (chip_info->features & CHIP_FEATURE_WIFI_BGN)
+        if (chip_info.features & CHIP_FEATURE_WIFI_BGN)
             doc["chipFeatures"].add("WIFI_BGN");
-        if (chip_info->features & CHIP_FEATURE_BLE)
+        if (chip_info.features & CHIP_FEATURE_BLE)
             doc["chipFeatures"].add("BLE");
-        if (chip_info->features & CHIP_FEATURE_BT)
+        if (chip_info.features & CHIP_FEATURE_BT)
             doc["chipFeatures"].add("BT");
-        if (chip_info->features & CHIP_FEATURE_IEEE802154)
+        if (chip_info.features & CHIP_FEATURE_IEEE802154)
             doc["chipFeatures"].add("IEEE802154");
-        if (chip_info->features & CHIP_FEATURE_EMB_PSRAM)
+        if (chip_info.features & CHIP_FEATURE_EMB_PSRAM)
             doc["chipFeatures"].add("EMB_PSRAM");
 
-        doc["loopTimeMicros"] = loopTime;
+        doc["loopTimeMicros"] = JsonArray();
+        for (int i = 0; i < sizeof(loopTime) / sizeof(loopTime[0]); i++)
+        {
+            doc["loopTimeMicros"].add(loopTime[i]);
+        }
 
         String message;
         serializeJson(doc, message);
@@ -206,17 +213,13 @@ void setup()
 
 void loop()
 {
-    unsigned long currentMicros = micros();
-    loopTime = currentMicros - lastMicros;
-    lastMicros = currentMicros;
+    bootstrapper.loop();
 
     if (initial)
     {
         broadcast("discovery-modrobots");
         initial = false;
     }
-
-    bootstrapper.loop();
 
     readData();
 }
