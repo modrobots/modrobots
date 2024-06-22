@@ -36,17 +36,21 @@ boolean Bootstrapper::setupWifiSta()
   WiFi.disconnect();
   Serial.println("WIFI STA Mode");
 
+  // TODO: Move to WiFi loop
   auto status = WiFi.begin(ssid.c_str(), password.c_str());
   byte retries = 0;
   Serial.println("Connecting to WiFi...");
   boolean ledOn = false;
   while (WiFi.status() != WL_CONNECTED)
   {
-    delay(1000);
+    delay(10);
     Serial.print(".");
-    ledOn = !ledOn;
+    if (retries % 100 == 0)
+    {
+      ledOn = !ledOn;
+    }
     digitalWrite(8, ledOn);
-    if (retries++ > 30)
+    if (retries++ > 3000)
     {
       Serial.println("Failed to connect to WiFi");
       return false;
@@ -137,10 +141,27 @@ void Bootstrapper::setupWebServer()
       System::reboot(); });
 }
 
+void Bootstrapper::setupDisplay()
+{
+  m_display.setup();
+  Serial.println("Display setup complete");
+}
+
+void Bootstrapper::setup(esp_now_recv_cb_t receiveCallback, esp_now_send_cb_t sentCallback)
+{
+  setupSpiffs();
+  setupWifi();
+  setupWebServer();
+  setupEspNow(receiveCallback, sentCallback);
+  setupOta();
+  setupDisplay();
+}
+
 void Bootstrapper::loop()
 {
   m_system.loop();
   loopWebServer();
+  m_display.loop();
 }
 
 void Bootstrapper::loopWebServer()
@@ -157,4 +178,5 @@ void Bootstrapper::loopWebServer()
 void Bootstrapper::setupOta()
 {
   m_ota.setup(m_webServer);
+  Serial.println("OTA Setup complete");
 }

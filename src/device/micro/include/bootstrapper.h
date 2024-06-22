@@ -11,34 +11,39 @@
 #include "StreamString.h"
 #include "SPIFFS.h"
 #include "ota.h"
+#include "display.h"
 
 class Bootstrapper
 {
 public:
     Bootstrapper();
 
-    void setupSpiffs();
-    void setupWifi();
-    void setupEspNow(esp_now_recv_cb_t receiveCallback, esp_now_send_cb_t sentCallback);
-    void setupWebServer();
-    void setupOta();
-
+    void setup(
+        esp_now_recv_cb_t receiveCallback,
+        esp_now_send_cb_t sentCallback);
     void loop();
 
 public:
     WebServer m_webServer;
 
 private:
+    void setupSpiffs();
+    void setupWifi();
+    void setupEspNow(esp_now_recv_cb_t receiveCallback, esp_now_send_cb_t sentCallback);
+    void setupWebServer();
+    void setupOta();
+    void setupDisplay();
+
     void tryConnectToWifi();
     void setupWifiApSta();
     boolean setupWifiSta();
 
     void loopWebServer();
-    void loopOta();
 
 private:
     System m_system;
     OTA m_ota;
+    Display m_display;
 
     // WebServer
     boolean m_webServerStarted = false;
