@@ -34,6 +34,31 @@ function HolderPreview({ version }: { version: number }) {
     );
 }
 
+function BrainModel({ version }: { version: number }) {
+    const jointModel = useLoader(STLLoader, `/3d/Preview Brain v${version}.stl`);
+    return (
+        <Center top>
+            <group scale={[modelScale * 0.7, modelScale * 0.7, modelScale * 0.7]} position={[0, 0.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+                <mesh castShadow>
+                    <primitive object={jointModel} />
+                    <meshStandardMaterial metalness={1} roughness={1} />
+                </mesh>
+            </group>
+        </Center>
+    )
+}
+
+function BrainPreview({ version }: { version: number }) {
+    return (
+        <group position={[0, -0.9, 0]}>
+            <Suspense fallback={null}>
+                <BrainModel version={version} />
+            </Suspense>
+            <ContactShadows resolution={512} position={[0, -0.1, 0]} opacity={0.5} blur={2} scale={10} />
+        </group>
+    );
+}
+
 function JointModel({ version }: { version: number }) {
     const jointModel = useLoader(STLLoader, `/3d/Preview Joint v${version}.stl`);
     return (
@@ -61,7 +86,8 @@ function JointPreview({ version }: { version: number }) {
 
 const modulePreviewComponents: Record<string, FunctionComponent<{ version: number }> | null> = {
     joint: JointPreview,
-    holder: HolderPreview
+    holder: HolderPreview,
+    brain: BrainPreview
 };
 
 export function ModulePreview({ id, version }: { id: string, version: number }) {
