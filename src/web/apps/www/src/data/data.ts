@@ -17,7 +17,7 @@ export const modules = [
     {
         id: 'brain',
         label: "Brain",
-        version: 0,
+        version: 25,
         categories: ['Control'],
         parts: [
             { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
