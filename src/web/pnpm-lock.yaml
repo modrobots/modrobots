@@ -49,10 +49,10 @@ importers:
         specifier: 20.14.9
         version: 20.14.9
       '@types/react':
-        specifier: ^18.3.3
+        specifier: 18.3.3
         version: 18.3.3
       '@types/react-dom':
-        specifier: ^18.3.0
+        specifier: 18.3.0
         version: 18.3.0
       eslint:
         specifier: 8.57.0
@@ -101,10 +101,10 @@ importers:
         specifier: 20.14.9
         version: 20.14.9
       '@types/react':
-        specifier: ^18.3.3
+        specifier: 18.3.3
         version: 18.3.3
       '@types/react-dom':
-        specifier: ^18.3.0
+        specifier: 18.3.0
         version: 18.3.0
       eslint:
         specifier: 8.57.0
@@ -166,10 +166,10 @@ importers:
         specifier: 20.14.9
         version: 20.14.9
       '@types/react':
-        specifier: ^18.3.3
+        specifier: 18.3.3
         version: 18.3.3
       '@types/react-dom':
-        specifier: ^18.3.0
+        specifier: 18.3.0
         version: 18.3.0
       eslint:
         specifier: 8.57.0
