@@ -94,8 +94,8 @@ importers:
         specifier: 5.34.0
         version: 5.34.0(ts-node@7.0.1)(typescript@5.5.3)
       '@pulumi/command':
-        specifier: 1.0.0
-        version: 1.0.0(ts-node@7.0.1)(typescript@5.5.3)
+        specifier: 1.0.1
+        version: 1.0.1(ts-node@7.0.1)(typescript@5.5.3)
       '@pulumi/pulumi':
         specifier: 3.124.0
         version: 3.124.0(ts-node@7.0.1)(typescript@5.5.3)
@@ -530,8 +530,8 @@ packages:
   '@pulumi/cloudflare@5.34.0':
     resolution: {integrity: sha512-UheKhkzZZ3x1kbnpAwEZwA5sLp8oDLwoYP7b24ah+HEDhe2jv+4TYzwdJMYrx9mqfbtpfHXp4/cHExntMbT8Wg==}
 
-  '@pulumi/command@1.0.0':
-    resolution: {integrity: sha512-QqtiWlIZcl6YOjufJZkY0huxJnUggF7wuHnJZB/FX72Myc3w3LZY6Rk6osiu2Zy5Bbmtbeuz4Q7QphdrV4ulGQ==}
+  '@pulumi/command@1.0.1':
+    resolution: {integrity: sha512-PqqcMp80Y9dc7Lt0epXqvqha76S4XF08NB8lpMA0zJ9zWvkkssQ8lq8XdHuZOrAGHXj7gKBs6JBrhhltoovUTQ==}
 
   '@pulumi/pulumi@3.124.0':
     resolution: {integrity: sha512-5ytgK1RQYZD310aj0+RTauBpnB1RVO0j4Ql7tvpioklwRmOclVzTMyeaR2xd02Gpw9iyRwvoWHxgCV0owPdu+w==}
@@ -2906,7 +2906,7 @@ snapshots:
       - ts-node
       - typescript
 
-  '@pulumi/command@1.0.0(ts-node@7.0.1)(typescript@5.5.3)':
+  '@pulumi/command@1.0.1(ts-node@7.0.1)(typescript@5.5.3)':
     dependencies:
       '@pulumi/pulumi': 3.124.0(ts-node@7.0.1)(typescript@5.5.3)
     transitivePeerDependencies:
