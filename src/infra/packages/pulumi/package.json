@@ -4,7 +4,6 @@
     "license": "MIT",
     "type": "module",
     "scripts": {
-        "lint": "eslint ./src/**/*.ts"
     },
     "exports": {
         "./azure": {
@@ -28,14 +27,7 @@
     },
     "devDependencies": {
         "@infra/typescript-config": "workspace:*",
-        "@infra/eslint-config": "workspace:*",
         "@types/node": "20.14.11",
-        "@typescript-eslint/eslint-plugin": "7.17.0",
-        "@typescript-eslint/parser": "7.17.0",
-        "eslint": "8.57.0",
-        "eslint-plugin-import": "2.29.1",
-        "eslint-plugin-n": "17.10.1",
-        "eslint-plugin-promise": "7.0.0",
         "typescript": "5.5.3"
     },
     "dependencies": {
