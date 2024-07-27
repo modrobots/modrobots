@@ -1,8 +1,13 @@
 import Link from "next/link";
-import { Card, CardTitle } from "../../../components/shared/Card";
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "../../../components/shared/Table";
 import { modules, parts } from "../../../data/data";
 import { ModulePreview } from "../../ModulePreview";
+import { Card, CardHeader, CardOverflow, CardTitle } from "@signalco/ui-primitives/Card";
+import { Chip } from "@signalco/ui-primitives/Chip";
+import { ModuleCard } from "../../ModuleCard";
+import { Stack } from "@signalco/ui-primitives/Stack";
+import { Typography } from "@signalco/ui-primitives/Typography";
+import { Row } from "@signalco/ui-primitives/Row";
 
 export default function ModulePage({ params }: { params: { id: string } }) {
     const { id } = params;
@@ -17,55 +22,57 @@ export default function ModulePage({ params }: { params: { id: string } }) {
     }, 0);
 
     return (
-        <div className="flex flex-col gap-4 p-8">
-            <div className="flex flex-row gap-4">
-                <Card className="size-72 rounded-3xl bg-black dark:bg-white">
+        <Stack spacing={2} className="p-8">
+            <Row spacing={2} alignItems="start">
+                <ModuleCard id={id} label={mod.label} version={mod.version}>
                     <ModulePreview id={id} version={mod.version} />
-                </Card>
-                <div className="flex flex-col gap-2">
-                    <h1 className="text-3xl px-4 py-2">{mod.label}</h1>
-                    <p className="p-4 text-pretty opacity-80">{mod.description}</p>
-                    <div className="flex flex-row gap-2 px-4">
+                </ModuleCard>
+                <Stack spacing={2}>
+                    <Typography level="h1">{mod.label}</Typography>
+                    {mod.description && <Typography secondary>{mod.description}</Typography>}
+                    <Row spacing={2}>
                         {mod.categories.map((category) => (
-                            <span key={category} className="px-2 py-1 text-sm border border-neutral-700 rounded-full">{category}</span>
+                            <Chip key={category}>{category}</Chip>
                         ))}
-                    </div>
-                </div>
-            </div>
+                    </Row>
+                </Stack>
+            </Row>
             <Card>
-                <CardTitle>
-                    <h2>Parts list</h2>
-                </CardTitle>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableHeadCell>Name</TableHeadCell>
-                            <TableHeadCell>Quantity</TableHeadCell>
-                            <TableHeadCell>Price</TableHeadCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {mod.parts ? mod.parts.map((modulePart) => {
-                            const part = parts.find(p => p.id === modulePart.partId);
-                            return (
-                                <TableRow key={modulePart.partId}>
-                                    <TableCell><Link href={`/parts/${part?.id}`}>{part?.label ?? 'Undocumented part ' + modulePart.partId}</Link></TableCell>
-                                    <TableCell>{modulePart.quantity}</TableCell>
-                                    <TableCell>€{((part?.sources?.at(0)?.prices?.at(0)?.pricePerItem ?? 0) * modulePart.quantity).toFixed(2)}</TableCell>
-                                </TableRow>
-                            );
-                        }) : (
+                <CardHeader>
+                    <CardTitle>Parts list</CardTitle>
+                </CardHeader>
+                <CardOverflow>
+                    <Table>
+                        <TableHead>
                             <TableRow>
-                                <TableCell colSpan={3}>No parts</TableCell>
+                                <TableHeadCell>Name</TableHeadCell>
+                                <TableHeadCell>Quantity</TableHeadCell>
+                                <TableHeadCell>Price</TableHeadCell>
                             </TableRow>
-                        )}
-                        <TableRow>
-                            <TableCell className="text-right font-bold" colSpan={2}>Total</TableCell>
-                            <TableCell>€{partsTotal?.toFixed(2)}</TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
+                        </TableHead>
+                        <TableBody>
+                            {mod.parts ? mod.parts.map((modulePart) => {
+                                const part = parts.find(p => p.id === modulePart.partId);
+                                return (
+                                    <TableRow key={modulePart.partId}>
+                                        <TableCell><Link href={`/parts/${part?.id}`}>{part?.label ?? 'Undocumented part ' + modulePart.partId}</Link></TableCell>
+                                        <TableCell>{modulePart.quantity}</TableCell>
+                                        <TableCell>€{((part?.sources?.at(0)?.prices?.at(0)?.pricePerItem ?? 0) * modulePart.quantity).toFixed(2)}</TableCell>
+                                    </TableRow>
+                                );
+                            }) : (
+                                <TableRow>
+                                    <TableCell colSpan={3}>No parts</TableCell>
+                                </TableRow>
+                            )}
+                            <TableRow>
+                                <TableCell className="text-right font-bold" colSpan={2}>Total</TableCell>
+                                <TableCell>€{partsTotal?.toFixed(2)}</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </CardOverflow>
             </Card>
-        </div>
+        </Stack>
     );
 }

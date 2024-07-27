@@ -1,13 +1,21 @@
+import { Button } from "@signalco/ui-primitives/Button";
+import { Row } from "@signalco/ui-primitives/Row";
 import Link from "next/link";
 
 export function Navbar() {
     return (
-        <nav className="flex justify-between p-4">
-            <Link className="hover:bg-neutral-700 px-4 py-1 transition-colors rounded" href="/">/</Link>
-            <div className="flex gap-4">
-                <Link className="hover:bg-neutral-700 px-4 py-1 transition-colors rounded" href="/modules">/modules</Link>
-                <Link className="hover:bg-neutral-700 px-4 py-1 transition-colors rounded" href="/parts">/parts</Link>
-            </div>
+        <nav className="p-4">
+            <Row spacing={4}>
+                <Link href="/">
+                    <Button variant="link">/(home)</Button>
+                </Link>
+                <Link href="/modules">
+                    <Button variant="link">/modules</Button>
+                </Link>
+                <Link href="/parts">
+                    <Button variant="link">/parts</Button>
+                </Link>
+            </Row>
         </nav>
     );
 }

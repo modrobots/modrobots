@@ -1,71 +1,65 @@
+import { Container } from "@signalco/ui-primitives/Container";
+import { Row } from "@signalco/ui-primitives/Row";
+import { Stack } from "@signalco/ui-primitives/Stack";
+import { Typography } from "@signalco/ui-primitives/Typography";
 import { HTMLProps } from "react"
+
+const principles = [
+    {
+        title: "open source",
+        description: "Our code is freely available for everyone to use, modify, and contribute to.",
+        icon: OpenSourceIcon
+    },
+    {
+        title: "open source hardware",
+        description: "Our hardware designs are openly shared, allowing for customization and innovation.",
+        icon: OpenHardwareIcon
+    },
+    {
+        title: "open design",
+        description: "Our design files are available for anyone to explore, adapt, and build upon.",
+        icon: OpenSourceIcon
+    },
+    {
+        title: "easy to assemble",
+        description: "Our products are designed with simplicity in mind, making them straightforward to put together.",
+        icon: EasyAssemblyIcon
+    },
+    {
+        title: "3D printer friendly",
+        description: "Designs are optimized for 3D printing, allowing for easy and fast upgrades.",
+        icon: ThreeDPrinterIcon
+    },
+    {
+        title: "hackable",
+        description: "Our products are designed to be modified and extended by the community.",
+        icon: CodeIcon
+    }
+];
 
 export default function SectionPrinciples() {
     return (
-        <section className="pb-44 pt-20">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="lg:text-center">
-                    <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Principles</h2>
-                </div>
-                <div className="mt-20">
+        <section className="pb-28 pt-20">
+            <Container maxWidth="md">
+                <Stack spacing={10}>
+                    <Typography level="h2" center>Principles</Typography>
                     <ul className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3">
-                        <li className="col-span-1 flex flex-col gap-2">
-                            <div className="flex items-center gap-3">
-                                <OpenSourceIcon className="size-8 shrink-0" />
-                                <span className="text-sm">open source</span>
-                            </div>
-                            <p className="text-gray-400 text-sm text-balance">
-                                Our code is freely available for everyone to use, modify, and contribute to.
-                            </p>
-                        </li>
-                        <li className="col-span-1 flex flex-col gap-2">
-                            <div className="flex items-center gap-3">
-                                <OpenHardwareIcon className="size-8 shrink-0" />
-                                <span className="text-sm">open source hardware</span>
-                            </div>
-                            <p className="text-gray-400 text-sm text-balance">
-                                Our hardware designs are openly shared, allowing for customization and innovation.
-                            </p>
-                        </li>
-                        <li className="col-span-1 flex flex-col gap-2">
-                            <div className="flex items-center gap-3">
-                                <OpenSourceIcon className="size-8 shrink-0" />
-                                <span className="text-sm">open design</span>
-                            </div>
-                            <p className="text-gray-400 text-sm text-balance">
-                                Our design files are available for anyone to explore, adapt, and build upon.
-                            </p>
-                        </li>
-                        <li className="col-span-1 flex flex-col gap-2">
-                            <div className="flex items-center gap-3">
-                                <EasyAssemblyIcon className="size-8 shrink-0" />
-                                <span className="text-sm">easy to assemble</span>
-                            </div>
-                            <p className="text-gray-400 text-sm text-balance">
-                                Our products are designed with simplicity in mind, making them straightforward to put together.
-                            </p>
-                        </li>
-                        <li className="col-span-1 flex flex-col gap-2">
-                            <div className="flex items-center gap-3">
-                                <ThreeDPrinterIcon className="size-8 shrink-0" />
-                                <span className="text-sm">3D printer friendly</span>
-                            </div>
-                            <p className="text-gray-400 text-sm text-balance">
-                                Designs are optimized for 3D printing, allowing for easy and fast upgrades.
-                            </p>
-                        </li>
-                        <li className="col-span-1 flex flex-col gap-2">
-                            <div className="flex items-center gap-3">
-                                <CodeIcon className="size-8 shrink-0" />
-                                <span className="text-sm">hackable</span>
-                            </div>
-                            <p className="text-gray-400 text-sm text-balance">
-                                Our products are designed to be modified and extended by the community.
-                            </p>
-                        </li>
+                        {principles.map(({ title, description, icon: Icon }) => (
+                            <li key={title} className="col-span-1">
+                                <Stack spacing={1}>
+                                    <Row spacing={2}>
+                                        <Icon className="size-8 shrink-0" />
+                                        <Typography level="body1" thin>{title}</Typography>
+                                    </Row>
+                                    <Typography level="body2" tertiary className="text-pretty">
+                                        {description}
+                                    </Typography>
+                                </Stack>
+                            </li>
+                        ))}
                     </ul>
-                </div>
-            </div>
+                </Stack>
+            </Container>
         </section>
     )
 }

@@ -37,7 +37,7 @@ export function TableBody({ children, className, ...rest }: HTMLAttributes<HTMLT
 
 export function TableRow({ children, className, ...rest }: HTMLAttributes<HTMLTableRowElement>) {
     return (
-        <tr className={cx("border-b border-neutral-700 transition-colors hover:bg-neutral-700/50", className)} {...rest}>
+        <tr className={cx("border-b transition-colors hover:bg-neutral-300/50 dark:hover:bg-neutral-700/50", className)} {...rest}>
             {children}
         </tr>
     )
