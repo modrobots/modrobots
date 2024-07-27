@@ -5,7 +5,6 @@
     },
     "include": [
         "./src/**/*.ts",
-        "./.eslintrc.cjs"
     ],
     "exclude": [
         "node_modules",
