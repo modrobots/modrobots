@@ -13,7 +13,7 @@
     "@react-three/drei": "9.109.2",
     "@react-three/fiber": "8.16.8",
     "@signalco/js": "0.1.0",
-    "@signalco/ui-primitives": "0.1.5",
+    "@signalco/ui-primitives": "0.1.6",
     "@signalco/ui-themes-minimal": "0.1.2",
     "@types/three": "0.167.1",
     "classix": "2.1.38",
