@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Card, CardTitle } from "../../../components/shared/Card";
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "../../../components/shared/Table";
 import { modules, parts } from "../../../data/data";
 import { ModulePreview } from "../../ModulePreview";
+import { Card, CardHeader, CardOverflow, CardTitle } from "@signalco/ui-primitives/Card";
 
 export default function ModulePage({ params }: { params: { id: string } }) {
     const { id } = params;
@@ -33,38 +33,40 @@ export default function ModulePage({ params }: { params: { id: string } }) {
                 </div>
             </div>
             <Card>
-                <CardTitle>
-                    <h2>Parts list</h2>
-                </CardTitle>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableHeadCell>Name</TableHeadCell>
-                            <TableHeadCell>Quantity</TableHeadCell>
-                            <TableHeadCell>Price</TableHeadCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {mod.parts ? mod.parts.map((modulePart) => {
-                            const part = parts.find(p => p.id === modulePart.partId);
-                            return (
-                                <TableRow key={modulePart.partId}>
-                                    <TableCell><Link href={`/parts/${part?.id}`}>{part?.label ?? 'Undocumented part ' + modulePart.partId}</Link></TableCell>
-                                    <TableCell>{modulePart.quantity}</TableCell>
-                                    <TableCell>€{((part?.sources?.at(0)?.prices?.at(0)?.pricePerItem ?? 0) * modulePart.quantity).toFixed(2)}</TableCell>
-                                </TableRow>
-                            );
-                        }) : (
+                <CardHeader>
+                    <CardTitle>Parts list</CardTitle>
+                </CardHeader>
+                <CardOverflow>
+                    <Table>
+                        <TableHead>
                             <TableRow>
-                                <TableCell colSpan={3}>No parts</TableCell>
+                                <TableHeadCell>Name</TableHeadCell>
+                                <TableHeadCell>Quantity</TableHeadCell>
+                                <TableHeadCell>Price</TableHeadCell>
                             </TableRow>
-                        )}
-                        <TableRow>
-                            <TableCell className="text-right font-bold" colSpan={2}>Total</TableCell>
-                            <TableCell>€{partsTotal?.toFixed(2)}</TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
+                        </TableHead>
+                        <TableBody>
+                            {mod.parts ? mod.parts.map((modulePart) => {
+                                const part = parts.find(p => p.id === modulePart.partId);
+                                return (
+                                    <TableRow key={modulePart.partId}>
+                                        <TableCell><Link href={`/parts/${part?.id}`}>{part?.label ?? 'Undocumented part ' + modulePart.partId}</Link></TableCell>
+                                        <TableCell>{modulePart.quantity}</TableCell>
+                                        <TableCell>€{((part?.sources?.at(0)?.prices?.at(0)?.pricePerItem ?? 0) * modulePart.quantity).toFixed(2)}</TableCell>
+                                    </TableRow>
+                                );
+                            }) : (
+                                <TableRow>
+                                    <TableCell colSpan={3}>No parts</TableCell>
+                                </TableRow>
+                            )}
+                            <TableRow>
+                                <TableCell className="text-right font-bold" colSpan={2}>Total</TableCell>
+                                <TableCell>€{partsTotal?.toFixed(2)}</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </CardOverflow>
             </Card>
         </div>
     );

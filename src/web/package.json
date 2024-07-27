@@ -1,6 +1,7 @@
 {
   "name": "web",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -9,7 +10,7 @@
   "devDependencies": {
     "@modrobots/eslint-config": "workspace:*",
     "@modrobots/typescript-config": "workspace:*",
-    "turbo": "2.0.7"
+    "turbo": "2.0.9"
   },
   "packageManager": "pnpm@9.5.0",
   "engines": {
