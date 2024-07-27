@@ -19,13 +19,13 @@ importers:
     dependencies:
       '@pulumi/cloudflare':
         specifier: 5.35.0
-        version: 5.35.0(ts-node@7.0.1)(typescript@5.5.3)
+        version: 5.35.0(ts-node@7.0.1)(typescript@5.5.4)
       '@pulumi/pulumi':
         specifier: 3.127.0
-        version: 3.127.0(ts-node@7.0.1)(typescript@5.5.3)
+        version: 3.127.0(ts-node@7.0.1)(typescript@5.5.4)
       '@pulumiverse/vercel':
         specifier: 1.11.0
-        version: 1.11.0(ts-node@7.0.1)(typescript@5.5.3)
+        version: 1.11.0(ts-node@7.0.1)(typescript@5.5.4)
     devDependencies:
       '@infra/pulumi':
         specifier: workspace:*
@@ -35,25 +35,25 @@ importers:
         version: 20.14.11
       tsup:
         specifier: 8.2.3
-        version: 8.2.3(typescript@5.5.3)
+        version: 8.2.3(typescript@5.5.4)
       typescript:
-        specifier: 5.5.3
-        version: 5.5.3
+        specifier: 5.5.4
+        version: 5.5.4
 
   packages/pulumi:
     dependencies:
       '@pulumi/cloudflare':
         specifier: 5.35.0
-        version: 5.35.0(ts-node@7.0.1)(typescript@5.5.3)
+        version: 5.35.0(ts-node@7.0.1)(typescript@5.5.4)
       '@pulumi/command':
         specifier: 1.0.1
-        version: 1.0.1(ts-node@7.0.1)(typescript@5.5.3)
+        version: 1.0.1(ts-node@7.0.1)(typescript@5.5.4)
       '@pulumi/pulumi':
         specifier: 3.127.0
-        version: 3.127.0(ts-node@7.0.1)(typescript@5.5.3)
+        version: 3.127.0(ts-node@7.0.1)(typescript@5.5.4)
       '@pulumiverse/vercel':
         specifier: 1.11.0
-        version: 1.11.0(ts-node@7.0.1)(typescript@5.5.3)
+        version: 1.11.0(ts-node@7.0.1)(typescript@5.5.4)
     devDependencies:
       '@infra/typescript-config':
         specifier: workspace:*
@@ -62,8 +62,8 @@ importers:
         specifier: 20.14.11
         version: 20.14.11
       typescript:
-        specifier: 5.5.3
-        version: 5.5.3
+        specifier: 5.5.4
+        version: 5.5.4
 
   packages/typescript-config: {}
 
@@ -1680,8 +1680,8 @@ packages:
     resolution: {integrity: sha512-QaLaUL1CqblSKKPgLrFW3lZWkWG4pGBQNW+q1ScJB5v1D/nFWtsrD/yZljW/bdawg90ihi4/ftQJ3h6fz1FamA==}
     hasBin: true
 
-  typescript@5.5.3:
-    resolution: {integrity: sha512-/hreyEujaB0w76zKo6717l3L0o/qEUtRgdvUBvlkhoWeOVMjMuHNHk0BRBzikzuGDqNmPQbg5ifMEqsHLiIUcQ==}
+  typescript@5.5.4:
+    resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -2125,25 +2125,25 @@ snapshots:
 
   '@protobufjs/utf8@1.1.0': {}
 
-  '@pulumi/cloudflare@5.35.0(ts-node@7.0.1)(typescript@5.5.3)':
+  '@pulumi/cloudflare@5.35.0(ts-node@7.0.1)(typescript@5.5.4)':
     dependencies:
-      '@pulumi/pulumi': 3.127.0(ts-node@7.0.1)(typescript@5.5.3)
+      '@pulumi/pulumi': 3.127.0(ts-node@7.0.1)(typescript@5.5.4)
     transitivePeerDependencies:
       - bluebird
       - supports-color
       - ts-node
       - typescript
 
-  '@pulumi/command@1.0.1(ts-node@7.0.1)(typescript@5.5.3)':
+  '@pulumi/command@1.0.1(ts-node@7.0.1)(typescript@5.5.4)':
     dependencies:
-      '@pulumi/pulumi': 3.127.0(ts-node@7.0.1)(typescript@5.5.3)
+      '@pulumi/pulumi': 3.127.0(ts-node@7.0.1)(typescript@5.5.4)
     transitivePeerDependencies:
       - bluebird
       - supports-color
       - ts-node
       - typescript
 
-  '@pulumi/pulumi@3.127.0(ts-node@7.0.1)(typescript@5.5.3)':
+  '@pulumi/pulumi@3.127.0(ts-node@7.0.1)(typescript@5.5.4)':
     dependencies:
       '@grpc/grpc-js': 1.10.1
       '@logdna/tail-file': 2.2.0
@@ -2177,16 +2177,16 @@ snapshots:
       upath: 1.2.0
     optionalDependencies:
       ts-node: 7.0.1
-      typescript: 5.5.3
+      typescript: 5.5.4
     transitivePeerDependencies:
       - bluebird
       - supports-color
 
   '@pulumi/query@0.3.0': {}
 
-  '@pulumiverse/vercel@1.11.0(ts-node@7.0.1)(typescript@5.5.3)':
+  '@pulumiverse/vercel@1.11.0(ts-node@7.0.1)(typescript@5.5.4)':
     dependencies:
-      '@pulumi/pulumi': 3.127.0(ts-node@7.0.1)(typescript@5.5.3)
+      '@pulumi/pulumi': 3.127.0(ts-node@7.0.1)(typescript@5.5.4)
     transitivePeerDependencies:
       - bluebird
       - supports-color
@@ -3383,7 +3383,7 @@ snapshots:
       yn: 2.0.0
     optional: true
 
-  tsup@8.2.3(typescript@5.5.3):
+  tsup@8.2.3(typescript@5.5.4):
     dependencies:
       bundle-require: 5.0.0(esbuild@0.23.0)
       cac: 6.7.14
@@ -3402,7 +3402,7 @@ snapshots:
       sucrase: 3.35.0
       tree-kill: 1.2.2
     optionalDependencies:
-      typescript: 5.5.3
+      typescript: 5.5.4
     transitivePeerDependencies:
       - jiti
       - supports-color
@@ -3444,7 +3444,7 @@ snapshots:
       turbo-windows-64: 2.0.9
       turbo-windows-arm64: 2.0.9
 
-  typescript@5.5.3: {}
+  typescript@5.5.4: {}
 
   undici-types@5.26.5: {}
 
