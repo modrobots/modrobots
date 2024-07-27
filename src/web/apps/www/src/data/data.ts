@@ -49,7 +49,7 @@ export const modulesCategories = [
 export const parts = [
     {
         id: 'servo-motor-mg995-allmetal',
-        label: 'Servi motor MG995',
+        label: 'MG995 Servo motor',
         tags: ['electronics'],
         sources: [
             {
