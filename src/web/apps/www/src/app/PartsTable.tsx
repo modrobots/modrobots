@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { parts as partsData } from "../data/data";
 import { Table, TableHead, TableRow, TableHeadCell, TableBody, TableCell } from "../components/shared/Table";
+import { orderBy } from "@signalco/js";
 
 export function PartsTable({ parts }: { parts: typeof partsData[0][]; }) {
+    const orderedParts = orderBy(parts, (partA, partB) => partA.label.localeCompare(partB.label));
     return (
         <Table>
             <TableHead>
@@ -12,7 +14,7 @@ export function PartsTable({ parts }: { parts: typeof partsData[0][]; }) {
                 </TableRow>
             </TableHead>
             <TableBody>
-                {parts ? parts.map((part) => {
+                {orderedParts ? orderedParts.map((part) => {
                     return (
                         <TableRow key={part.id}>
                             <TableCell><Link href={`/parts/${part?.id}`}>{part?.label ?? 'Undocumented part ' + part.id}</Link></TableCell>

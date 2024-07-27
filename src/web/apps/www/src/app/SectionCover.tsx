@@ -1,8 +1,8 @@
 'use client';
 
-import { ScrolledLine } from "../components/shared/ScrolledLine";
 import { useEffect, useState } from "react";
 import { SectionHeader } from "./SectionHeader";
+import { ScrolledLine } from "@signalco/ui-primitives/ScrolledLine";
 
 export function SectionCover() {
     const lines = ['modable', 'modular', 'modifiable'];

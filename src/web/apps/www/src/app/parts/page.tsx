@@ -1,4 +1,5 @@
-import { Card } from "../../components/shared/Card";
+import React from "react";
+import { Card } from "@signalco/ui-primitives/Card";
 import { parts } from "../../data/data";
 import { PartsTable } from "../PartsTable";
 import { SectionHeader } from "../SectionHeader";
