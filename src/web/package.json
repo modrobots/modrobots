@@ -7,11 +7,10 @@
     "lint": "turbo lint"
   },
   "devDependencies": {
-    "@modrobots/eslint-config": "workspace:*",
     "@modrobots/typescript-config": "workspace:*",
-    "turbo": "2.0.4"
+    "turbo": "2.0.9"
   },
-  "packageManager": "pnpm@8.9.0",
+  "packageManager": "pnpm@9.6.0",
   "engines": {
     "node": ">=18"
   }
