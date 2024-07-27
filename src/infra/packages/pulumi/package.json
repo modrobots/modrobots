@@ -3,8 +3,7 @@
     "private": true,
     "license": "MIT",
     "type": "module",
-    "scripts": {
-    },
+    "scripts": {},
     "exports": {
         "./azure": {
             "import": "./src/azure/index.ts"
@@ -27,8 +26,8 @@
     },
     "devDependencies": {
         "@infra/typescript-config": "workspace:*",
-        "@types/node": "20.14.11",
-        "typescript": "5.5.3"
+        "@types/node": "20.14.12",
+        "typescript": "5.5.4"
     },
     "dependencies": {
         "@pulumi/cloudflare": "5.35.0",
