@@ -7,7 +7,6 @@
     "lint": "turbo lint"
   },
   "devDependencies": {
-    "@modrobots/eslint-config": "workspace:*",
     "@modrobots/typescript-config": "workspace:*",
     "turbo": "2.0.9"
   },
