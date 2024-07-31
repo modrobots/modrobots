@@ -30,7 +30,7 @@
         "typescript": "5.5.4"
     },
     "dependencies": {
-        "@pulumi/cloudflare": "5.35.0",
+        "@pulumi/cloudflare": "5.35.1",
         "@pulumi/command": "1.0.1",
         "@pulumi/pulumi": "3.127.0",
         "@pulumiverse/vercel": "1.11.0"
