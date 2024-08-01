@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@infra/pulumi": "workspace:*",
-        "@types/node": "20.14.12",
+        "@types/node": "20.14.13",
         "tsup": "8.2.3",
         "typescript": "5.5.4"
     },
