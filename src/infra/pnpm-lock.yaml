@@ -18,8 +18,8 @@ importers:
   apps/www:
     dependencies:
       '@pulumi/cloudflare':
-        specifier: 5.35.0
-        version: 5.35.0(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.4))(typescript@5.5.4)
+        specifier: 5.35.1
+        version: 5.35.1(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.4))(typescript@5.5.4)
       '@pulumi/pulumi':
         specifier: 3.127.0
         version: 3.127.0(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.4))(typescript@5.5.4)
@@ -43,8 +43,8 @@ importers:
   packages/pulumi:
     dependencies:
       '@pulumi/cloudflare':
-        specifier: 5.35.0
-        version: 5.35.0(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.4))(typescript@5.5.4)
+        specifier: 5.35.1
+        version: 5.35.1(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.4))(typescript@5.5.4)
       '@pulumi/command':
         specifier: 1.0.1
         version: 1.0.1(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.4))(typescript@5.5.4)
@@ -430,8 +430,8 @@ packages:
   '@protobufjs/utf8@1.1.0':
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
 
-  '@pulumi/cloudflare@5.35.0':
-    resolution: {integrity: sha512-nv5vCL4SdCETkiy6KNi5jXIFK3rVwGjAMFaN8if41ApqCEWRfls/y5LzN+qylvxzSt8y05ObNdAN0jQn+rAyNQ==}
+  '@pulumi/cloudflare@5.35.1':
+    resolution: {integrity: sha512-mDiGwMPRPuLTXf8h4ucfUsoSWMvnjIZfYIjL1CKVfKp3/3w38KPi2eNa44e4IjQzQwZnBTWcSjP/bnYeloeIJw==}
 
   '@pulumi/command@1.0.1':
     resolution: {integrity: sha512-PqqcMp80Y9dc7Lt0epXqvqha76S4XF08NB8lpMA0zJ9zWvkkssQ8lq8XdHuZOrAGHXj7gKBs6JBrhhltoovUTQ==}
@@ -2169,7 +2169,7 @@ snapshots:
 
   '@protobufjs/utf8@1.1.0': {}
 
-  '@pulumi/cloudflare@5.35.0(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.4))(typescript@5.5.4)':
+  '@pulumi/cloudflare@5.35.1(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.4))(typescript@5.5.4)':
     dependencies:
       '@pulumi/pulumi': 3.127.0(ts-node@10.9.2(@types/node@20.14.12)(typescript@5.5.4))(typescript@5.5.4)
     transitivePeerDependencies:
