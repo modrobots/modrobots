@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "../../../components/shared/Table";
 import { parts } from "../../../data/data";
 import { Card, CardHeader, CardOverflow, CardTitle } from "@signalco/ui-primitives/Card";
 import { Typography } from "@signalco/ui-primitives/Typography";
 import { slug } from "@signalco/js";
 import { notFound } from "next/navigation";
+import { Table } from "@signalco/ui-primitives/Table";
 
 export default function ModulePage({ params }: { params: { id: string } }) {
     const { id } = params;
@@ -22,30 +22,30 @@ export default function ModulePage({ params }: { params: { id: string } }) {
                 </CardHeader>
                 <CardOverflow>
                     <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableHeadCell>URL</TableHeadCell>
-                                <TableHeadCell>Price per unit</TableHeadCell>
-                                <TableHeadCell>Min. order qt</TableHeadCell>
-                                <TableHeadCell>Order price</TableHeadCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
+                        <Table.Header>
+                            <Table.Row>
+                                <Table.Head>URL</Table.Head>
+                                <Table.Head>Price per unit</Table.Head>
+                                <Table.Head>Min. order qt</Table.Head>
+                                <Table.Head>Order price</Table.Head>
+                            </Table.Row>
+                        </Table.Header>
+                        <Table.Body>
                             {part.sources ? part.sources.map((partSource) => {
                                 return (
-                                    <TableRow key={partSource.url}>
-                                        <TableCell><Link href={partSource.url} target="_blank" referrerPolicy="no-referrer">{partSource.url}</Link></TableCell>
-                                        <TableCell>€{partSource.prices[0]?.pricePerItem}</TableCell>
-                                        <TableCell>{partSource.prices[0]?.numberOfItems ?? '-'}</TableCell>
-                                        <TableCell>€{(partSource.prices[0]?.numberOfItems ?? 0) * (partSource.prices[0]?.pricePerItem ?? 0)}</TableCell>
-                                    </TableRow>
+                                    <Table.Row key={partSource.url}>
+                                        <Table.Cell><Link href={partSource.url} target="_blank" referrerPolicy="no-referrer">{partSource.url}</Link></Table.Cell>
+                                        <Table.Cell>€{partSource.prices[0]?.pricePerItem}</Table.Cell>
+                                        <Table.Cell>{partSource.prices[0]?.numberOfItems ?? '-'}</Table.Cell>
+                                        <Table.Cell>€{(partSource.prices[0]?.numberOfItems ?? 0) * (partSource.prices[0]?.pricePerItem ?? 0)}</Table.Cell>
+                                    </Table.Row>
                                 );
                             }) : (
-                                <TableRow>
-                                    <TableCell colSpan={4}>No sources</TableCell>
-                                </TableRow>
+                                    <Table.Row>
+                                        <Table.Cell colSpan={4}>No sources</Table.Cell>
+                                    </Table.Row>
                             )}
-                        </TableBody>
+                        </Table.Body>
                     </Table>
                 </CardOverflow>
             </Card>
