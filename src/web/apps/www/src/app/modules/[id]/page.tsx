@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "../../../components/shared/Table";
 import { modules, parts } from "../../../data/data";
 import { ModulePreview } from "../../ModulePreview";
 import { Card, CardHeader, CardOverflow, CardTitle } from "@signalco/ui-primitives/Card";
@@ -8,6 +7,7 @@ import { ModuleCard } from "../../ModuleCard";
 import { Stack } from "@signalco/ui-primitives/Stack";
 import { Typography } from "@signalco/ui-primitives/Typography";
 import { Row } from "@signalco/ui-primitives/Row";
+import { Table } from "@signalco/ui-primitives/Table";
 
 export default function ModulePage({ params }: { params: { id: string } }) {
     const { id } = params;
@@ -43,33 +43,33 @@ export default function ModulePage({ params }: { params: { id: string } }) {
                 </CardHeader>
                 <CardOverflow>
                     <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableHeadCell>Name</TableHeadCell>
-                                <TableHeadCell>Quantity</TableHeadCell>
-                                <TableHeadCell>Price</TableHeadCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
+                        <Table.Header>
+                            <Table.Row>
+                                <Table.Head>Name</Table.Head>
+                                <Table.Head>Quantity</Table.Head>
+                                <Table.Head>Price</Table.Head>
+                            </Table.Row>
+                        </Table.Header>
+                        <Table.Body>
                             {mod.parts ? mod.parts.map((modulePart) => {
                                 const part = parts.find(p => p.id === modulePart.partId);
                                 return (
-                                    <TableRow key={modulePart.partId}>
-                                        <TableCell><Link href={`/parts/${part?.id}`}>{part?.label ?? 'Undocumented part ' + modulePart.partId}</Link></TableCell>
-                                        <TableCell>{modulePart.quantity}</TableCell>
-                                        <TableCell>€{((part?.sources?.at(0)?.prices?.at(0)?.pricePerItem ?? 0) * modulePart.quantity).toFixed(2)}</TableCell>
-                                    </TableRow>
+                                    <Table.Row key={modulePart.partId}>
+                                        <Table.Cell><Link href={`/parts/${part?.id}`}>{part?.label ?? 'Undocumented part ' + modulePart.partId}</Link></Table.Cell>
+                                        <Table.Cell>{modulePart.quantity}</Table.Cell>
+                                        <Table.Cell>€{((part?.sources?.at(0)?.prices?.at(0)?.pricePerItem ?? 0) * modulePart.quantity).toFixed(2)}</Table.Cell>
+                                    </Table.Row>
                                 );
                             }) : (
-                                <TableRow>
-                                    <TableCell colSpan={3}>No parts</TableCell>
-                                </TableRow>
+                                    <Table.Row>
+                                        <Table.Cell colSpan={3}>No parts</Table.Cell>
+                                    </Table.Row>
                             )}
-                            <TableRow>
-                                <TableCell className="text-right font-bold" colSpan={2}>Total</TableCell>
-                                <TableCell>€{partsTotal?.toFixed(2)}</TableCell>
-                            </TableRow>
-                        </TableBody>
+                            <Table.Row>
+                                <Table.Cell className="text-right font-bold" colSpan={2}>Total</Table.Cell>
+                                <Table.Cell>€{partsTotal?.toFixed(2)}</Table.Cell>
+                            </Table.Row>
+                        </Table.Body>
                     </Table>
                 </CardOverflow>
             </Card>
