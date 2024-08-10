@@ -49,7 +49,7 @@ export default function SectionPrinciples() {
                                 <Stack spacing={1}>
                                     <Row spacing={2}>
                                         <Icon className="size-8 shrink-0" />
-                                        <Typography level="body1" thin>{title}</Typography>
+                                        <Typography level="body1">{title}</Typography>
                                     </Row>
                                     <Typography level="body2" tertiary className="text-pretty">
                                         {description}

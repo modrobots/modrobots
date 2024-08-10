@@ -30,8 +30,8 @@ importers:
         specifier: 0.1.7
         version: 0.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@signalco/ui-themes-minimal':
-        specifier: 0.1.2
-        version: 0.1.2(tailwindcss-animate@1.0.7(tailwindcss@3.4.8(ts-node@10.9.2(@types/node@20.14.15)(typescript@5.5.4))))(tailwindcss@3.4.8(ts-node@10.9.2(@types/node@20.14.15)(typescript@5.5.4)))
+        specifier: 0.1.3
+        version: 0.1.3(tailwindcss-animate@1.0.7(tailwindcss@3.4.8(ts-node@10.9.2(@types/node@20.14.15)(typescript@5.5.4))))(tailwindcss@3.4.8(ts-node@10.9.2(@types/node@20.14.15)(typescript@5.5.4)))
       '@types/three':
         specifier: 0.167.1
         version: 0.167.1
@@ -274,11 +274,11 @@ packages:
       react: '>=18'
       react-dom: '>=18'
 
-  '@signalco/ui-themes-minimal@0.1.2':
-    resolution: {integrity: sha512-4ovc+RfcnkzOa9n55SgY9yZIHFIehIggcH+hJnp/xrnR7i+019gc3SDFunMyIp49I26Eed57XtT5c2Y9FulcoQ==}
+  '@signalco/ui-themes-minimal@0.1.3':
+    resolution: {integrity: sha512-jDVwWVYpCUY9cui3g2vrnySwgGixZ90jCkGl0KBGJSkb/L8G5zOp6F6FGkwGxG5URS1FzFBxj7MVlBCvnYoXWw==}
     peerDependencies:
-      tailwindcss: 3.4.6
-      tailwindcss-animate: 1.0.7
+      tailwindcss: '>=3'
+      tailwindcss-animate: '>=1'
 
   '@swc/counter@0.1.3':
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
@@ -1280,7 +1280,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@signalco/ui-themes-minimal@0.1.2(tailwindcss-animate@1.0.7(tailwindcss@3.4.8(ts-node@10.9.2(@types/node@20.14.15)(typescript@5.5.4))))(tailwindcss@3.4.8(ts-node@10.9.2(@types/node@20.14.15)(typescript@5.5.4)))':
+  '@signalco/ui-themes-minimal@0.1.3(tailwindcss-animate@1.0.7(tailwindcss@3.4.8(ts-node@10.9.2(@types/node@20.14.15)(typescript@5.5.4))))(tailwindcss@3.4.8(ts-node@10.9.2(@types/node@20.14.15)(typescript@5.5.4)))':
     dependencies:
       tailwindcss: 3.4.8(ts-node@10.9.2(@types/node@20.14.15)(typescript@5.5.4))
       tailwindcss-animate: 1.0.7(tailwindcss@3.4.8(ts-node@10.9.2(@types/node@20.14.15)(typescript@5.5.4)))
