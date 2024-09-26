@@ -17,7 +17,7 @@
     },
     "dependencies": {
         "@pulumi/cloudflare": "5.36.0",
-        "@pulumi/pulumi": "3.130.0",
+        "@pulumi/pulumi": "3.134.1",
         "@pulumiverse/vercel": "1.11.0"
     }
 }
