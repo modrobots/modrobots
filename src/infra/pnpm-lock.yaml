@@ -18,8 +18,8 @@ importers:
   apps/www:
     dependencies:
       '@pulumi/cloudflare':
-        specifier: 5.40.0
-        version: 5.40.0(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
+        specifier: 5.41.0
+        version: 5.41.0(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
       '@pulumi/pulumi':
         specifier: 3.134.1
         version: 3.134.1(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
@@ -43,8 +43,8 @@ importers:
   packages/pulumi:
     dependencies:
       '@pulumi/cloudflare':
-        specifier: 5.40.0
-        version: 5.40.0(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
+        specifier: 5.41.0
+        version: 5.41.0(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
       '@pulumi/command':
         specifier: 1.0.1
         version: 1.0.1(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
@@ -418,14 +418,26 @@ packages:
   '@protobufjs/utf8@1.1.0':
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
 
-  '@pulumi/cloudflare@5.40.0':
-    resolution: {integrity: sha512-+n9YdldBysIsodQnMQCX2IVa90c9x1Uxj5n2LyA1q3eIM3LJlMUrDg3xPUcg9uS4DfLXLjohIgAQhG/Cz0eclA==}
+  '@pulumi/cloudflare@5.41.0':
+    resolution: {integrity: sha512-tquPVxxYZTiMgOmAPu2AIs1ndrf+GlztdWECScNzrllr5LUMHmbd2ZpifGQWh3GXqBwxPsWO1WoRIasLxKXJ/Q==}
 
   '@pulumi/command@1.0.1':
     resolution: {integrity: sha512-PqqcMp80Y9dc7Lt0epXqvqha76S4XF08NB8lpMA0zJ9zWvkkssQ8lq8XdHuZOrAGHXj7gKBs6JBrhhltoovUTQ==}
 
   '@pulumi/pulumi@3.134.1':
     resolution: {integrity: sha512-uXUldyEsYbEXkqE3nPfgABnfgnXjQv3YkzkiigeOBzTF2+7rQe7C/9nMnMJHs4k5XMW5183t7bYMU/W4qUUVcA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      ts-node: '>= 7.0.1 < 12'
+      typescript: '>= 3.8.3 < 6'
+    peerDependenciesMeta:
+      ts-node:
+        optional: true
+      typescript:
+        optional: true
+
+  '@pulumi/pulumi@3.137.0':
+    resolution: {integrity: sha512-YgvcPKxuE3X1Yi93W2qZuM43nELT1FEvz7J5IK1hAJPo+v9m2oAh5Vag1lNDPjM0+y7WDfFe0ODI+2way3quRw==}
     engines: {node: '>=18'}
     peerDependencies:
       ts-node: '>= 7.0.1 < 12'
@@ -2112,9 +2124,9 @@ snapshots:
 
   '@protobufjs/utf8@1.1.0': {}
 
-  '@pulumi/cloudflare@5.40.0(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)':
+  '@pulumi/cloudflare@5.41.0(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)':
     dependencies:
-      '@pulumi/pulumi': 3.134.1(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
+      '@pulumi/pulumi': 3.137.0(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
     transitivePeerDependencies:
       - bluebird
       - supports-color
@@ -2149,6 +2161,45 @@ snapshots:
       '@types/tmp': 0.2.6
       execa: 5.1.1
       fdir: 6.1.1(picomatch@3.0.1)
+      google-protobuf: 3.21.2
+      got: 11.8.6
+      ini: 2.0.0
+      js-yaml: 3.14.1
+      minimist: 1.2.8
+      normalize-package-data: 6.0.0
+      picomatch: 3.0.1
+      pkg-dir: 7.0.0
+      require-from-string: 2.0.2
+      semver: 7.6.0
+      source-map-support: 0.5.21
+      tmp: 0.2.1
+      upath: 1.2.0
+    optionalDependencies:
+      ts-node: 10.9.2(@types/node@20.16.3)(typescript@5.5.4)
+      typescript: 5.5.4
+    transitivePeerDependencies:
+      - bluebird
+      - supports-color
+
+  '@pulumi/pulumi@3.137.0(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)':
+    dependencies:
+      '@grpc/grpc-js': 1.10.1
+      '@logdna/tail-file': 2.2.0
+      '@npmcli/arborist': 7.4.0
+      '@opentelemetry/api': 1.9.0
+      '@opentelemetry/exporter-zipkin': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/instrumentation-grpc': 0.52.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/resources': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/sdk-trace-base': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/sdk-trace-node': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/semantic-conventions': 1.25.1
+      '@pulumi/query': 0.3.0
+      '@types/google-protobuf': 3.15.12
+      '@types/semver': 7.5.8
+      '@types/tmp': 0.2.6
+      execa: 5.1.1
+      fdir: 6.3.0(picomatch@3.0.1)
       google-protobuf: 3.21.2
       got: 11.8.6
       ini: 2.0.0
@@ -2567,6 +2618,10 @@ snapshots:
   exponential-backoff@3.1.1: {}
 
   fdir@6.1.1(picomatch@3.0.1):
+    optionalDependencies:
+      picomatch: 3.0.1
+
+  fdir@6.3.0(picomatch@3.0.1):
     optionalDependencies:
       picomatch: 3.0.1
 
