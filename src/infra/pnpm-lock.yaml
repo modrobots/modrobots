@@ -24,8 +24,8 @@ importers:
         specifier: 3.134.1
         version: 3.134.1(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
       '@pulumiverse/vercel':
-        specifier: 1.11.0
-        version: 1.11.0(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
+        specifier: 1.14.3
+        version: 1.14.3(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
     devDependencies:
       '@infra/pulumi':
         specifier: workspace:*
@@ -52,8 +52,8 @@ importers:
         specifier: 3.134.1
         version: 3.134.1(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
       '@pulumiverse/vercel':
-        specifier: 1.11.0
-        version: 1.11.0(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
+        specifier: 1.14.3
+        version: 1.14.3(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
     devDependencies:
       '@infra/typescript-config':
         specifier: workspace:*
@@ -439,8 +439,8 @@ packages:
   '@pulumi/query@0.3.0':
     resolution: {integrity: sha512-xfo+yLRM2zVjVEA4p23IjQWzyWl1ZhWOGobsBqRpIarzLvwNH/RAGaoehdxlhx4X92302DrpdIFgTICMN4P38w==}
 
-  '@pulumiverse/vercel@1.11.0':
-    resolution: {integrity: sha512-d08fjLd9iXhj3y/EsAF3/8PX9tGfGHgtx8b3BsTnGQmqRtmjdkZSnhXKmbJJmfLqoef2WOlZx05Xt1+zon040g==}
+  '@pulumiverse/vercel@1.14.3':
+    resolution: {integrity: sha512-Wdq/vNPNWh/cjzv+VHCjT30gBBhrrmX5J8E8VlNJ8bQ5mkMfEZDPpHaY+6NTFIb6arF+KUGdIsUFsndT50pmeA==}
 
   '@rollup/rollup-android-arm-eabi@4.19.1':
     resolution: {integrity: sha512-XzqSg714++M+FXhHfXpS1tDnNZNpgxxuGZWlRG/jSj+VEPmZ0yg6jV4E0AL3uyBKxO8mO3xtOsP5mQ+XLfrlww==}
@@ -2171,7 +2171,7 @@ snapshots:
 
   '@pulumi/query@0.3.0': {}
 
-  '@pulumiverse/vercel@1.11.0(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)':
+  '@pulumiverse/vercel@1.14.3(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)':
     dependencies:
       '@pulumi/pulumi': 3.134.1(ts-node@10.9.2(@types/node@20.16.3)(typescript@5.5.4))(typescript@5.5.4)
     transitivePeerDependencies:
