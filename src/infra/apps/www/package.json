@@ -11,13 +11,13 @@
     },
     "devDependencies": {
         "@infra/pulumi": "workspace:*",
-        "@types/node": "20.14.15",
-        "tsup": "8.2.4",
+        "@types/node": "20.16.3",
+        "tsup": "8.3.5",
         "typescript": "5.5.4"
     },
     "dependencies": {
-        "@pulumi/cloudflare": "5.36.0",
-        "@pulumi/pulumi": "3.128.0",
-        "@pulumiverse/vercel": "1.11.0"
+        "@pulumi/cloudflare": "5.40.0",
+        "@pulumi/pulumi": "3.134.1",
+        "@pulumiverse/vercel": "1.14.3"
     }
 }
