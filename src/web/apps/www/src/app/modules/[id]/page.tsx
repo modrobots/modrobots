@@ -9,8 +9,8 @@ import { Typography } from "@signalco/ui-primitives/Typography";
 import { Row } from "@signalco/ui-primitives/Row";
 import { Table } from "@signalco/ui-primitives/Table";
 
-export default function ModulePage({ params }: { params: { id: string } }) {
-    const { id } = params;
+export default async function ModulePage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
     const mod = modules.find((module) => module.id === id);
     if (!mod) {
         return <div>Module not found</div>;

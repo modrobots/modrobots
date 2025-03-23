@@ -6,8 +6,8 @@ import { slug } from "@signalco/js";
 import { notFound } from "next/navigation";
 import { Table } from "@signalco/ui-primitives/Table";
 
-export default function ModulePage({ params }: { params: { id: string } }) {
-    const { id } = params;
+export default async function ModulePage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
     const part = parts.find((part) => part.id === id);
     if (!part) {
         notFound();
