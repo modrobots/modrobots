@@ -46,11 +46,31 @@ export const modulesCategories = [
     'Attachment'
 ]
 
+// TODO: https://www.aliexpress.com/item/1005007128724375.html?spm=a2g0o.order_list.order_list_main.65.70cd1802B8Cvo3
+// TODO: https://www.aliexpress.com/item/1005006470782095.html?spm=a2g0o.order_list.order_list_main.70.70cd1802B8Cvo3
+// TODO: https://www.aliexpress.com/item/1005006127587095.html?spm=a2g0o.order_list.order_list_main.75.70cd1802B8Cvo3
+// TODO: https://www.aliexpress.com/item/1005005985538095.html?spm=a2g0o.order_list.order_list_main.80.70cd1802B8Cvo3
+// TODO: https://www.aliexpress.com/item/4001125180492.html?spm=a2g0o.order_list.order_list_main.95.70cd1802B8Cvo3
+// TODO: https://www.aliexpress.com/item/1005004289391906.html?spm=a2g0o.order_list.order_list_main.100.70cd1802B8Cvo3
+// TODO: https://www.aliexpress.com/item/1005006103248770.html?spm=a2g0o.order_list.order_list_main.115.70cd1802B8Cvo3
+// TODO: https://www.aliexpress.com/item/1005006330566170.html?spm=a2g0o.order_list.order_list_main.120.70cd1802B8Cvo3
+// TODO: https://www.aliexpress.com/item/1005005220715165.html?spm=a2g0o.order_list.order_list_main.125.70cd1802B8Cvo3
+// TODO: https://www.aliexpress.com/item/1005004342343376.html?spm=a2g0o.order_list.order_list_main.130.70cd1802B8Cvo3
+// TODO: https://www.aliexpress.com/item/1005006653810963.html?spm=a2g0o.order_list.order_list_main.135.70cd1802B8Cvo3
+// TODO: https://www.aliexpress.com/item/1005006329585567.html?spm=a2g0o.order_list.order_list_main.140.70cd1802B8Cvo3
+// TODO: 5-20PC DRV8833 Motor Drive Module Board 1.5A 3V-10V Single H-Bridge 6Pin Step Motor Overcurrent Protection DC Gear Motor Driver €2.82x1
+// TODO: 4pcs AS5600 Magnetic Encoder 12bit 3.3V High Precision Magnetic Induction Angle Measurement Sensor Module €6.11x2
+// TODO: https://www.aliexpress.com/item/1005005866360101.html
+// TODO: https://www.aliexpress.com/item/1005005985389931.html
+// TODO: https://www.aliexpress.com/item/32830267123.html
+// TODO: https://www.aliexpress.com/item/1005005993753202.html
+// TODO: https://www.aliexpress.com/item/1005006344542138.html
+
 export const parts = [
     {
         id: 'servo-motor-mg995-allmetal',
         label: 'MG995 Servo motor',
-        tags: ['electronics'],
+        tags: ['electronics', "motors"],
         sources: [
             {
                 url: 'https://www.aliexpress.com/item/4000536728030.html',
@@ -64,6 +84,67 @@ export const parts = [
                         numberOfItems: 12,
                         pricePerItem: 3.93,
                         updatedAt: new Date(2024, 5, 15)
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: "dc-motor-jga25-310-6v-12rpm",
+        label: "JGA25-310 DC Motor 6V 12RPM",
+        tags: ["electronics", "motors"],
+        sources: [
+            {
+                url: "https://www.aliexpress.com/item/1005005371660765.html",
+                prices: [
+                    {
+                        numberOfItems: 1,
+                        pricePerItem: 2.91,
+                        updatedAt: new Date(2024, 8, 18)
+                    },
+                    {
+                        numberOfItems: 1,
+                        pricePerItem: 2.78,
+                        updatedAt: new Date(2025, 2, 23)
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'speaker-4ohm-3w',
+        label: 'Speaker 4Ohm 3W',
+        tags: ['electronics', 'audio'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/1005005699882165.html',
+                prices: [
+                    {
+                        numberOfItems: 1,
+                        pricePerItem: 1.83,
+                        updatedAt: new Date(2024, 5, 22)
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'slip-ring-4ch-1500ma-short',
+        label: 'Slip Ring 4CH 1500mA',
+        tags: ['electronics', 'mechanical'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/1005003633545570.html',
+                prices: [
+                    {
+                        numberOfItems: 1,
+                        pricePerItem: 5.26,
+                        updatedAt: new Date(2024, 5, 20)
+                    },
+                    {
+                        numberOfItems: 1,
+                        pricePerItem: 6.61,
+                        updatedAt: new Date(2025, 2, 23)
                     }
                 ]
             }
