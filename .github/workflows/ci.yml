@@ -10,7 +10,7 @@ on:
 
 jobs:
     vercel_www_deploy:
-        name: "Vercel Blog (deploy)"
+        name: "Vercel WWW (deploy)"
         uses: ./.github/workflows/web-vercel-deploy_reusable.yml
         with:
           name: 'www'
