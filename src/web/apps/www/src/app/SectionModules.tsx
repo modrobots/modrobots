@@ -17,7 +17,7 @@ export function SectionModules() {
                 <Stack spacing={6}>
                     {modulesCategories.map((category) => (
                         <div key={category} className="flex flex-col gap-4 px-4 md:px-12 w-full">
-                            <Typography level="h3" uppercase>{category}</Typography>
+                            <Typography level="h3" uppercase className="text-xl">{category}</Typography>
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                                 {modules.filter(({ categories }) => categories.includes(category)).map(({ id, label, version }) => (
                                     <ModuleCard key={id} id={id} label={label} version={version}>
