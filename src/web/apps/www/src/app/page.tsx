@@ -1,5 +1,3 @@
-'use client';
-
 import SectionPrinciples from "./SectionPrinciples";
 import { SectionCover } from "./SectionCover";
 import { SectionModules } from "./SectionModules";

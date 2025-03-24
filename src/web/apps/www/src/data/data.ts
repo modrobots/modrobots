@@ -7,7 +7,8 @@ export const modules = [
             { partId: 'screw-hex-socket-m3-6mm-black', quantity: 24 },
             { partId: 'servo-motor-mg995-allmetal', quantity: 1 },
             { partId: '40-pin-header-2-54mm', quantity: 1 },
-            { partId: 'prototype-pcb-3x7-double-sided-white', quantity: 1 }
+            { partId: 'prototype-pcb-3x7-double-sided-white', quantity: 1 },
+            { partId: 'pogopin-h455-3-0x6-7mm', quantity: 12 }
         ]
     },
     { id: 'wheel', label: "Wheel", version: 0, categories: ['Motion'] },
@@ -22,12 +23,15 @@ export const modules = [
         parts: [
             { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
             { partId: 'tft-display-round-1-28inch-240x240-gc9a01-spi', quantity: 1 },
+            { partId: 'speaker-4ohm-3w', quantity: 1 },
             { partId: 'audio-amplifier-max98357-i2s-3w-breakout', quantity: 1 },
             { partId: 'battery-charger-module-ups-18650-3a-5v', quantity: 1 },
             { partId: 'battery-lipo-3-7v-liitokala-18650-3400mah', quantity: 2 },
             { partId: 'push-button-switch-1712kd-17x12x9-5mm', quantity: 1 },
             { partId: '40-pin-header-2-54mm', quantity: 1 },
-            { partId: 'prototype-pcb-3x7-double-sided-white', quantity: 1 }
+            { partId: 'prototype-pcb-3x7-double-sided-white', quantity: 1 },
+            { partId: 'pogopin-h455-3-0x6-7mm', quantity: 3 },
+            { partId: 'screw-hex-socket-m3-6mm-black', quantity: 8 },
         ]
     },
     { id: 'skeleton', label: "Skeleton", version: 0, categories: ['Perception'] },
@@ -61,7 +65,6 @@ export const modulesCategories = [
 // TODO: 5-20PC DRV8833 Motor Drive Module Board 1.5A 3V-10V Single H-Bridge 6Pin Step Motor Overcurrent Protection DC Gear Motor Driver €2.82x1
 // TODO: 4pcs AS5600 Magnetic Encoder 12bit 3.3V High Precision Magnetic Induction Angle Measurement Sensor Module €6.11x2
 // TODO: https://www.aliexpress.com/item/1005005866360101.html
-// TODO: https://www.aliexpress.com/item/1005005985389931.html
 // TODO: https://www.aliexpress.com/item/32830267123.html
 // TODO: https://www.aliexpress.com/item/1005005993753202.html
 // TODO: https://www.aliexpress.com/item/1005006344542138.html
@@ -308,6 +311,23 @@ export const parts = [
                         numberOfItems: 1,
                         pricePerItem: 1.57,
                         updatedAt: new Date(2024, 5, 21)
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'pogopin-h455-3-0x6-7mm',
+        label: 'Pogo Pin H455 3.0x6.7mm',
+        tags: ['mechanical', 'electronics'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/1005005993753202.html',
+                prices: [
+                    {
+                        numberOfItems: 1,
+                        pricePerItem: 0.46,
+                        updatedAt: new Date(2025, 2, 24)
                     }
                 ]
             }

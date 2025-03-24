@@ -17,7 +17,7 @@ export function ModuleCard({ id, label, version, children }: PropsWithChildren<{
             )}
             <Link href={`/modules/${id}`}>
                 <div className="absolute bottom-4 right-4 border-r px-4 py-2">
-                    <div className="font-light uppercase">{label}</div>
+                    <div className="uppercase">{label}</div>
                     <div className="opacity-40 text-xs text-right">v{version}</div>
                 </div>
             </Link>
