@@ -1,17 +1,11 @@
 #include <Arduino.h>
 #include "bootstrapper.h"
 #include <ArduinoJson.h>
-#include <ESP32Servo.h>
 
 #define STATUS_LED 8
 
 bool ledOn = false;
 Bootstrapper bootstrapper;
-
-Servo servo1;
-int servo1pos = 0;
-int servo1dir = 0;
-#define SERVO1_PIN 1
 
 void formatMacAddress(const uint8_t *macAddr, char *buffer, int maxLength)
 {
@@ -148,67 +142,67 @@ void setup()
 
     bootstrapper.setup(receiveCallback, sentCallback);
 
-    bootstrapper.m_webServer.on("/data", HTTP_GET, []()
-                                {
-        JsonDocument doc;
-        doc["freeHeap"] = freeHeap;
-        doc["availableHeap"] = availableHeap;
-        doc["chipTemperature"] = coreTemperature;
-
-        // Chip model as string
-        switch (chip_info.model)
+    bootstrapper.m_webServer.on(
+        "/data",
+        HTTP_GET,
+        []()
         {
-        case CHIP_ESP32:
-            doc["chipModel"] = "ESP32";
-            break;
-        case CHIP_ESP32S2:
-            doc["chipModel"] = "ESP32S2";
-            break;
-        case CHIP_ESP32S3:
-            doc["chipModel"] = "ESP32S3";
-            break;
-        case CHIP_ESP32C3:
-            doc["chipModel"] = "ESP32C3";
-            break;
-        case CHIP_ESP32H2:
-            doc["chipModel"] = "ESP32H2";
-            break;
-        default:
-            doc["chipModel"] = "Unknown";
-            break;
-        }
+            JsonDocument doc;
+            doc["freeHeap"] = freeHeap;
+            doc["availableHeap"] = availableHeap;
+            doc["chipTemperature"] = coreTemperature;
 
-        doc["chipRevision"] = chip_info.revision;
+            // Chip model as string
+            switch (chip_info.model)
+            {
+            case CHIP_ESP32:
+                doc["chipModel"] = "ESP32";
+                break;
+            case CHIP_ESP32S2:
+                doc["chipModel"] = "ESP32S2";
+                break;
+            case CHIP_ESP32S3:
+                doc["chipModel"] = "ESP32S3";
+                break;
+            case CHIP_ESP32C3:
+                doc["chipModel"] = "ESP32C3";
+                break;
+            case CHIP_ESP32H2:
+                doc["chipModel"] = "ESP32H2";
+                break;
+            default:
+                doc["chipModel"] = "Unknown";
+                break;
+            }
 
-        // List of CHIP_FEATURE_X flags as string array
-        doc["chipFeatures"] = JsonArray();
-        if (chip_info.features & CHIP_FEATURE_EMB_FLASH)
-            doc["chipFeatures"].add("EMB_FLASH");
-        if (chip_info.features & CHIP_FEATURE_WIFI_BGN)
-            doc["chipFeatures"].add("WIFI_BGN");
-        if (chip_info.features & CHIP_FEATURE_BLE)
-            doc["chipFeatures"].add("BLE");
-        if (chip_info.features & CHIP_FEATURE_BT)
-            doc["chipFeatures"].add("BT");
-        if (chip_info.features & CHIP_FEATURE_IEEE802154)
-            doc["chipFeatures"].add("IEEE802154");
-        if (chip_info.features & CHIP_FEATURE_EMB_PSRAM)
-            doc["chipFeatures"].add("EMB_PSRAM");
+            doc["chipRevision"] = chip_info.revision;
 
-        doc["loopTimeMicros"] = JsonArray();
-        for (int i = 0; i < sizeof(loopTime) / sizeof(loopTime[0]); i++)
-        {
-            doc["loopTimeMicros"].add(loopTime[i]);
-        }
+            // List of CHIP_FEATURE_X flags as string array
+            doc["chipFeatures"] = JsonArray();
+            if (chip_info.features & CHIP_FEATURE_EMB_FLASH)
+                doc["chipFeatures"].add("EMB_FLASH");
+            if (chip_info.features & CHIP_FEATURE_WIFI_BGN)
+                doc["chipFeatures"].add("WIFI_BGN");
+            if (chip_info.features & CHIP_FEATURE_BLE)
+                doc["chipFeatures"].add("BLE");
+            if (chip_info.features & CHIP_FEATURE_BT)
+                doc["chipFeatures"].add("BT");
+            if (chip_info.features & CHIP_FEATURE_IEEE802154)
+                doc["chipFeatures"].add("IEEE802154");
+            if (chip_info.features & CHIP_FEATURE_EMB_PSRAM)
+                doc["chipFeatures"].add("EMB_PSRAM");
 
-        String message;
-        serializeJson(doc, message);
+            doc["loopTimeMicros"] = JsonArray();
+            for (int i = 0; i < sizeof(loopTime) / sizeof(loopTime[0]); i++)
+            {
+                doc["loopTimeMicros"].add(loopTime[i]);
+            }
 
-        bootstrapper.m_webServer.send(200, "application/json", message); });
+            String message;
+            serializeJson(doc, message);
 
-    ESP32PWM::allocateTimer(0);
-    servo1.setPeriodHertz(50);            // standard 50 hz servo
-    servo1.attach(SERVO1_PIN, 500, 2500); // attaches the servo on pin 18 to the servo object
+            bootstrapper.m_webServer.send(200, "application/json", message);
+        });
 }
 
 void loop()

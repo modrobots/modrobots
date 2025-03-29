@@ -13,7 +13,7 @@ void Bootstrapper::setupWifiApSta()
   Serial.println("WIFI AP&STA Mode");
 
   // Set WIFI SSID and Password
-  auto apSsid = "MODRobots micro";
+  auto apSsid = "modRobots micro";
   WiFi.softAP(apSsid, "password");
   Serial.print("AP SSID: ");
   Serial.println(apSsid);

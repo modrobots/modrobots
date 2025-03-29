@@ -254,7 +254,7 @@
 
     <script>
         const refreshData = async () => {
-            const resp = await fetch('http://192.168.0.51/data');
+            const resp = await fetch('/data');
             const data = await resp.json();
             document.getElementById('freeHeap').innerText = `Free Heap: ${Math.floor(data.freeHeap / data.availableHeap * 1000) / 10}% (${data.freeHeap} bytes)`;
             document.getElementById('availableHeap').innerText = `Available Heap: ${data.availableHeap} bytes`;
