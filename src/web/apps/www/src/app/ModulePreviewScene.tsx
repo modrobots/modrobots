@@ -15,7 +15,7 @@ export function ModulePreviewScene({ children }: PropsWithChildren) {
                     <Environment preset="sunset" backgroundBlurriness={1} />
                 </Suspense>
                 <OrbitControls
-                    autoRotate
+                    // autoRotate
                     autoRotateSpeed={1}
                     enablePan={false}
                     enableZoom={false} target={[0, 0, 0]} />

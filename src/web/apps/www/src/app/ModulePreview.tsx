@@ -1,9 +1,10 @@
 import { FC, Suspense } from "react";
 import { ModulePreviewScene } from "./ModulePreviewScene";
-import { BrainPreview, HolderPreview, JointPreview } from "../components/modules/previews/JointModel";
+import { BrainPreview, HolderPreview, JointPreview, Joint360Preview } from "../components/modules/previews/JointModel";
 
 const modulePreviewComponents: Record<string, FC<{ version: number }> | null> = {
     joint: JointPreview,
+    joint360: Joint360Preview,
     holder: HolderPreview,
     brain: BrainPreview
 };

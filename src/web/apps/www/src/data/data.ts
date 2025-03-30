@@ -11,6 +11,10 @@ export const modules = [
             { partId: 'pogopin-h455-3-0x6-7mm', quantity: 12 }
         ]
     },
+    {
+        id: 'joint360', label: 'Joint 360', version: 1, categories: ['Motion'],
+        description: "A joint is a connection between two parts that allows them to move relative to each other. This joint is designed to be used in all robots.",
+    },
     { id: 'wheel', label: "Wheel", version: 0, categories: ['Motion'] },
     { id: 'foot', label: "Foot", version: 0, categories: ['Motion'] },
     { id: 'gripper-flex', label: "Flex Gripper", version: 0, categories: ['Manipulation'] },
@@ -70,6 +74,28 @@ export const modulesCategories = [
 // TODO: https://www.aliexpress.com/item/1005006344542138.html
 
 export const parts = [
+    {
+        id: 'mr-joint360-base-mount-r',
+        label: 'Joint 360 - Base Mount Rotation side',
+        tags: ['mechanical', '3d-printable'],
+        versions: [
+            {
+                version: 14,
+                url: '/3d/Joint360/Base Mount R v14.3mf',
+            }
+        ]
+    },
+    {
+        id: 'mr-joint360-base-mount-s',
+        label: 'Joint 360 - Base Mount Static side',
+        tags: ['mechanical', '3d-printable'],
+        versions: [
+            {
+                version: 15,
+                url: '/3d/Joint360/Base Mount S v15.3MF',
+            }
+        ]
+    },
     {
         id: 'servo-motor-mg995-allmetal',
         label: 'MG995 Servo motor',
