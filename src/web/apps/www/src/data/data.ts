@@ -1,17 +1,5 @@
 export const modules = [
     {
-        id: 'joint', label: "Joint", version: 44, categories: ['Motion'],
-        description: "A joint is a connection between two parts that allows them to move relative to each other. This joint is designed to be used in all robots.",
-        parts: [
-            { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
-            { partId: 'screw-hex-socket-m3-6mm-black', quantity: 24 },
-            { partId: 'servo-motor-mg995-allmetal', quantity: 1 },
-            { partId: '40-pin-header-2-54mm', quantity: 1 },
-            { partId: 'prototype-pcb-3x7-double-sided-white', quantity: 1 },
-            { partId: 'pogopin-h455-3-0x6-7mm', quantity: 12 }
-        ]
-    },
-    {
         id: 'joint360', label: 'Joint 360', version: 1, categories: ['Motion'],
         description: "A joint is a connection between two parts that allows them to move relative to each other. This joint is designed to be used in all robots.",
         parts: [
@@ -40,7 +28,7 @@ export const modules = [
     {
         id: 'brain',
         label: "Brain",
-        version: 25,
+        version: 0,
         categories: ['Control'],
         parts: [
             { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
@@ -60,7 +48,7 @@ export const modules = [
     { id: 'vacuum-foot', label: "Vacuum Foot", version: 0, categories: ['Motion'] },
     { id: 'distance-sensor', label: "Distance Sensor", version: 0, categories: ['Perception'] },
     { id: 'sticky-mount', label: "Sticky Mount", version: 0, categories: ['Attachment'] },
-    { id: 'holder', label: "Holder", version: 1, categories: ['Attachment'] },
+    { id: 'holder', label: "Holder", version: 0, categories: ['Attachment'] },
     { id: 'locker', label: "Locker", version: 0, categories: ['Attachment'] },
 ];
 

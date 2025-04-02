@@ -60,82 +60,86 @@ export function BrainPreview({ version }: { version: number }) {
     );
 }
 
+const joint360PartInfos = [
+    {
+        model: {
+            id: 'mr-joint360-base-mount-r',
+            rotations: [
+                [90, 0, -45]
+            ]
+        }
+    },
+    {
+        model: {
+            id: 'mr-joint360-base-mount-s',
+            rotations: [
+                [-90, 0, 90]
+            ]
+        }
+    },
+    {
+        model: {
+            id: 'mr-joint360-base-v2',
+            positions: [
+                [0, -23, 23],
+                [0, -23, -23],
+                [-23, 23, 0],
+                [23, 23, 0]
+            ],
+            rotations: [
+                [45, 0, 0],
+                [135, 0, 0],
+                [90, -135, 90],
+                [90, 135, 90],
+            ],
+        },
+        count: 4
+    },
+    {
+        model: {
+            id: 'mr-joint360-mount-28byj48',
+            rotations: [
+                [-90, 0, 90]
+            ]
+        }
+    },
+    {
+        model: {
+            id: 'mr-joint360-ring-v2',
+            rotations: [
+                [-90, 0, 90]
+            ]
+        }
+    },
+    {
+        model: {
+            id: 'mr-joint360-shell-v2',
+            rotations: [
+                [-90, 0, 0],
+                [-90, 180, 90]
+            ],
+        },
+        count: 2,
+        // opacity: 0.3
+    },
+];
+
 function Joint360Model({ version }: { version: number }) {
     const groupRef = useRef<Group<Object3DEventMap>>(null);
-    const partsInfo = [
-        {
-            model: {
-                id: 'mr-joint360-base-mount-r',
-                rotations: [
-                    [90, 0, -45]
-                ]
-            }
-        },
-        {
-            model: {
-                id: 'mr-joint360-base-mount-s',
-                rotations: [
-                    [-90, 0, 90]
-                ]
-            }
-        },
-        {
-            model: {
-                id: 'mr-joint360-base-v2',
-                positions: [
-                    [0, -23, 23],
-                    [0, -23, -23],
-                    [-23, 23, 0],
-                    [23, 23, 0]
-                ],
-                rotations: [
-                    [45, 0, 0],
-                    [135, 0, 0],
-                    [90, -135, 90],
-                    [90, 135, 90],
-                ],
-            },
-            count: 4
-        },
-        {
-            model: {
-                id: 'mr-joint360-mount-28byj48',
-                rotations: [
-                    [-90, 0, 90]
-                ]
-            }
-        },
-        {
-            model: {
-                id: 'mr-joint360-ring-v2',
-                rotations: [
-                    [-90, 0, 90]
-                ]
-            }
-        },
-        {
-            model: {
-                id: 'mr-joint360-shell-v2',
-                rotations: [
-                    [-90, 0, 0],
-                    [-90, 180, 90]
-                ],
-            },
-            count: 2,
-            // opacity: 0.3
-        },
-    ];
-    const partModels = partsInfo.map((part) => {
+    const partModels = joint360PartInfos.map((part) => {
         const partModel = parts.find(p => p.id === part.model.id)?.versions?.at(0);
         if (!partModel) return null;
         return useLoader(ThreeMFLoader, partModel.url);
     });
     const scale = 1;
     useEffect(() => {
-        if (!groupRef.current) return;
+        if (!groupRef.current ||
+            !partModels.every((partModel) => partModel)) {
+            return;
+        }
         groupRef.current.clear();
-        for (let i = 0; i < partsInfo.length; i++) {
-            const part = partsInfo[i];
+        for (let i = 0; i < joint360PartInfos.length; i++) {
+            const part = joint360PartInfos[i];
             const partModel = partModels[i];
             if (!partModel) continue;
             const box = new Box3().setFromObject(partModel);
@@ -166,7 +170,7 @@ function Joint360Model({ version }: { version: number }) {
                 groupRef.current.add(partModelClone);
             }
         }
-    }, [groupRef, partModels, partsInfo]);
+    }, [groupRef, ...partModels, joint360PartInfos]);
     return (
         <Center top>
             <group ref={groupRef} position={[0, 1, 0]} scale={0.03} />
