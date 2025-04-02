@@ -1,4 +1,4 @@
-import { FC, Suspense } from "react";
+import { FC } from "react";
 import { ModulePreviewScene } from "./ModulePreviewScene";
 import { BrainPreview, HolderPreview, JointPreview, Joint360Preview } from "../components/modules/previews/JointModel";
 
@@ -14,10 +14,8 @@ export function ModulePreview({ id, version }: { id: string, version: number }) 
     // TODO: Add placeholder/fallback model
     if (!Model) return null;
     return (
-        <Suspense>
-            <ModulePreviewScene>
-                <Model version={version} />
-            </ModulePreviewScene>
-        </Suspense>
+        <ModulePreviewScene>
+            <Model version={version} />
+        </ModulePreviewScene>
     );
 }

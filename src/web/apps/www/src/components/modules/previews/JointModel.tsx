@@ -67,7 +67,7 @@ function Joint360Model({ version }: { version: number }) {
             model: {
                 id: 'mr-joint360-base-mount-r',
                 rotations: [
-                    [0, 90, -45]
+                    [90, 0, -45]
                 ]
             }
         },
@@ -75,50 +75,50 @@ function Joint360Model({ version }: { version: number }) {
             model: {
                 id: 'mr-joint360-base-mount-s',
                 rotations: [
-                    [0, 0, -90]
+                    [-90, 0, 90]
                 ]
             }
         },
         {
             model: {
-                url: '/3d/Joint360/Base v2 v14.3MF',
+                id: 'mr-joint360-base-v2',
                 positions: [
-                    [23, 0, 23],
-                    [-23, 0, 23],
-                    [0, 23, -23],
-                    [0, -23, -23]
+                    [0, -23, 23],
+                    [0, -23, -23],
+                    [-23, 23, 0],
+                    [23, 23, 0]
                 ],
                 rotations: [
-                    [0, 45, 90],
-                    [0, -45, 90],
-                    [-90 - 45, 0, 0],
-                    [90 + 45, 0, 0]
+                    [45, 0, 0],
+                    [135, 0, 0],
+                    [90, -135, 90],
+                    [90, 135, 90],
                 ],
             },
             count: 4
         },
         {
             model: {
-                url: '/3d/Joint360/Mount 28BYJ48 v19.3MF',
+                id: 'mr-joint360-mount-28byj48',
                 rotations: [
-                    [0, 0, -90]
+                    [-90, 0, 90]
                 ]
             }
         },
         {
             model: {
-                url: '/3d/Joint360/Ring v2 v18.3MF',
+                id: 'mr-joint360-ring-v2',
                 rotations: [
-                    [0, 0, -90]
+                    [-90, 0, 90]
                 ]
             }
         },
         {
             model: {
-                url: '/3d/Joint360/Shell v2 v11.3MF',
+                id: 'mr-joint360-shell-v2',
                 rotations: [
-                    [0, 0, 0],
-                    [0, 180, 90]
+                    [-90, 0, 0],
+                    [-90, 180, 90]
                 ],
             },
             count: 2,

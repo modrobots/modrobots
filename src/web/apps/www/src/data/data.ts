@@ -14,6 +14,24 @@ export const modules = [
     {
         id: 'joint360', label: 'Joint 360', version: 1, categories: ['Motion'],
         description: "A joint is a connection between two parts that allows them to move relative to each other. This joint is designed to be used in all robots.",
+        parts: [
+            { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
+            { partId: 'stepper-motor-28byj48-5v', quantity: 1 },
+            { partId: 'jst-XH2_54-5pin-female', quantity: 1 },
+            { partId: 'drv8833-driver', quantity: 1 },
+            { partId: 'prototype-pcb-3x7-double-sided-white', quantity: 1 },
+            { partId: 'pogopin-h455-3-0x6-7mm', quantity: 12 },
+            { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.5 },
+            { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.5 },
+            { partId: 'screw-hex-socket-m3-6mm-black', quantity: 30 },
+            { partId: 'screw-hex-socket-m4-6mm-black', quantity: 2 },
+            { partId: 'mr-joint360-base-mount-r', quantity: 1 },
+            { partId: 'mr-joint360-base-mount-s', quantity: 1 },
+            { partId: 'mr-joint360-ring-v2', quantity: 1 },
+            { partId: 'mr-joint360-mount-28byj48', quantity: 1 },
+            { partId: 'mr-joint360-shell-v2', quantity: 2 },
+            { partId: 'mr-joint360-base-v2', quantity: 4 },
+        ]
     },
     { id: 'wheel', label: "Wheel", version: 0, categories: ['Motion'] },
     { id: 'foot', label: "Foot", version: 0, categories: ['Motion'] },
@@ -73,7 +91,91 @@ export const modulesCategories = [
 // TODO: https://www.aliexpress.com/item/1005005993753202.html
 // TODO: https://www.aliexpress.com/item/1005006344542138.html
 
-export const parts = [
+export type PartType = {
+    id: string;
+    label: string;
+    description?: string;
+    tags: string[];
+    versions?: {
+        version: number;
+        url: string;
+        modelRotation?: [number, number, number]; // rotation in degrees
+        printingDetails?: {
+            profiles: {
+                supports?: string;
+                weight: number;
+                material: string;
+                color: string;
+                printer: string;
+                settings: string;
+            }[]
+        }
+    }[];
+    sources?: {
+        url: string;
+        prices: {
+            numberOfItems: number;
+            pricePerItem: number;
+            updatedAt: Date;
+        }[]
+    }[];
+}
+
+export const parts: PartType[] = [
+    {
+        id: 'wire-22awag-solid-core-black-1m',
+        label: 'Wire 22AWG Solid Core Black 1m',
+        tags: ['electronics', 'wire'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/1005004336218242.html',
+                prices: [
+                    {
+                        numberOfItems: 5,
+                        pricePerItem: 0.44,
+                        updatedAt: new Date(2025, 3, 2)
+                    },
+                    {
+                        numberOfItems: 10,
+                        pricePerItem: 0.278,
+                        updatedAt: new Date(2025, 3, 2)
+                    },
+                    {
+                        numberOfItems: 20,
+                        pricePerItem: 0.208,
+                        updatedAt: new Date(2025, 3, 2)
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'wire-22awag-solid-core-red-1m',
+        label: 'Wire 22AWG Solid Core Red 1m',
+        tags: ['electronics', 'wire'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/1005004336218242.html',
+                prices: [
+                    {
+                        numberOfItems: 5,
+                        pricePerItem: 0.44,
+                        updatedAt: new Date(2025, 3, 2)
+                    },
+                    {
+                        numberOfItems: 10,
+                        pricePerItem: 0.278,
+                        updatedAt: new Date(2025, 3, 2)
+                    },
+                    {
+                        numberOfItems: 20,
+                        pricePerItem: 0.208,
+                        updatedAt: new Date(2025, 3, 2)
+                    }
+                ]
+            }
+        ]
+    },
     {
         id: 'mr-joint360-base-mount-r',
         label: 'Joint 360 - Base Mount Rotation side',
@@ -82,6 +184,19 @@ export const parts = [
             {
                 version: 14,
                 url: '/3d/Joint360/Base Mount R v14.3mf',
+                modelRotation: [-90, 0, 0],
+                printingDetails: {
+                    profiles: [
+                        {
+                            weight: 8.77,
+                            supports: 'Tree',
+                            material: 'PLA',
+                            color: 'White Matte',
+                            printer: 'BambuLab X1C',
+                            settings: '0.20mm layer height, 15% infill, 2 perimeters, tree supports',
+                        }
+                    ]
+                }
             }
         ]
     },
@@ -92,7 +207,150 @@ export const parts = [
         versions: [
             {
                 version: 15,
-                url: '/3d/Joint360/Base Mount S v15.3MF',
+                url: '/3d/Joint360/Base Mount S v15.3mf',
+                modelRotation: [-90, 0, 0],
+                printingDetails: {
+                    profiles: [
+                        {
+                            weight: 7.81,
+                            supports: 'Tree',
+                            material: 'PLA',
+                            color: 'White Matte',
+                            printer: 'BambuLab X1C',
+                            settings: '0.20mm layer height, 15% infill, 2 perimeters, tree supports',
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'mr-joint360-ring-v2',
+        label: 'Joint 360 - Ring v2',
+        tags: ['mechanical', '3d-printable'],
+        versions: [
+            {
+                version: 18,
+                url: '/3d/Joint360/Ring v2 v18.3mf',
+                printingDetails: {
+                    profiles: [
+                        {
+                            weight: 8.58,
+                            material: 'PLA',
+                            color: 'White Matte',
+                            printer: 'BambuLab X1C',
+                            settings: '0.20mm layer height, 15% infill, 2 perimeters',
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'mr-joint360-mount-28byj48',
+        label: 'Joint 360 - Mount 28BYJ48',
+        tags: ['mechanical', '3d-printable'],
+        versions: [
+            {
+                version: 19,
+                url: '/3d/Joint360/Mount 28BYJ48 v19.3mf',
+                modelRotation: [-90, 0, 0],
+                printingDetails: {
+                    profiles: [
+                        {
+                            weight: 9.1,
+                            material: 'PLA',
+                            color: 'White Matte',
+                            printer: 'BambuLab X1C',
+                            settings: '0.20mm layer height, 15% infill, 2 perimeters',
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'mr-joint360-shell-v2',
+        label: 'Joint 360 - Shell v2',
+        tags: ['mechanical', '3d-printable'],
+        versions: [
+            {
+                version: 11,
+                url: '/3d/Joint360/Shell v2 v11.3mf',
+                modelRotation: [-90, 0, 0],
+                printingDetails: {
+                    profiles: [
+                        {
+                            weight: 15.76,
+                            material: 'PLA',
+                            color: 'White Matte',
+                            printer: 'BambuLab X1C',
+                            settings: '0.20mm layer height, 15% infill, 2 perimeters',
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'mr-joint360-base-v2',
+        label: 'Joint 360 - Base v2',
+        tags: ['mechanical', '3d-printable'],
+        versions: [
+            {
+                version: 14,
+                url: '/3d/Joint360/Base v2 v14.3mf',
+                modelRotation: [-90, 0, 0],
+                printingDetails: {
+                    profiles: [
+                        {
+                            weight: 3.57,
+                            material: 'PLA',
+                            color: 'White Matte',
+                            printer: 'BambuLab X1C',
+                            settings: '0.20mm layer height, 15% infill, 2 perimeters',
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'stepper-motor-28byj48-5v',
+        label: '28BYJ-48 Stepper Motor 5V',
+        tags: ['electronics', 'motors'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/1005005371660765.html',
+                prices: [
+                    {
+                        numberOfItems: 1,
+                        pricePerItem: 2.60,
+                        updatedAt: new Date(2025, 3, 2)
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'drv8833-driver',
+        label: 'DRV8833 Driver',
+        tags: ['electronics', 'drivers'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/1005007635436457.html',
+                prices: [
+                    {
+                        numberOfItems: 1,
+                        pricePerItem: 1.37,
+                        updatedAt: new Date(2025, 3, 2)
+                    },
+                    {
+                        numberOfItems: 10,
+                        pricePerItem: 0.654,
+                        updatedAt: new Date(2025, 3, 2)
+                    }
+                ]
             }
         ]
     },
@@ -214,6 +472,23 @@ export const parts = [
         ]
     },
     {
+        id: 'screw-hex-socket-m4-6mm-black',
+        label: 'Screw Hex Socket M4 6mm Black',
+        tags: ['mechanical'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/4001068956302.html',
+                prices: [
+                    {
+                        numberOfItems: 20,
+                        pricePerItem: 0.132,
+                        updatedAt: new Date(2025, 3, 2)
+                    }
+                ]
+            }
+        ]
+    },
+    {
         id: "prototype-pcb-3x7-double-sided-white",
         label: "Prototype PCB 3x7",
         tags: ["electronics"],
@@ -230,6 +505,23 @@ export const parts = [
                         numberOfItems: 10,
                         pricePerItem: 0.273,
                         updatedAt: new Date(2024, 5, 21)
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'jst-XH2_54-5pin-female',
+        label: "JST XH2.54mm 5 pin female connector",
+        tags: ["electronics", "mechanical"],
+        sources: [
+            {
+                url: "https://www.aliexpress.com/item/1005007128724375.html",
+                prices: [
+                    {
+                        numberOfItems: 10,
+                        pricePerItem: 0.24,
+                        updatedAt: new Date(2024, 3, 2)
                     }
                 ]
             }
@@ -352,7 +644,7 @@ export const parts = [
                 prices: [
                     {
                         numberOfItems: 1,
-                        pricePerItem: 0.46,
+                        pricePerItem: 0.52,
                         updatedAt: new Date(2025, 2, 24)
                     }
                 ]

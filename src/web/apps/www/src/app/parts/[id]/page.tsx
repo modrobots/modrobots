@@ -5,6 +5,11 @@ import { Typography } from "@signalco/ui-primitives/Typography";
 import { slug } from "@signalco/js";
 import { notFound } from "next/navigation";
 import { Table } from "@signalco/ui-primitives/Table";
+import { Stack } from "@signalco/ui-primitives/Stack";
+import { Row } from "@signalco/ui-primitives/Row";
+import { Chip } from "@signalco/ui-primitives/Chip";
+import { PartPreview } from "./PartPreview";
+import { PartCard } from "./PartCard";
 
 export default async function ModulePage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
@@ -13,9 +18,26 @@ export default async function ModulePage({ params }: { params: Promise<{ id: str
         notFound();
     }
 
+    const version = part.versions?.at(0);
+    const modelUrl = version?.url;
+    const modelRotation = version?.modelRotation;
+
     return (
         <div className="p-8 flex flex-col gap-8">
-            <Typography level="h1" id={slug(part.label)}>{part.label}</Typography>
+            <Row spacing={2} alignItems="start">
+                <PartCard id={part.id} label={part.label} noPreview={!modelUrl}>
+                    {modelUrl && <PartPreview modelUrl={modelUrl} modelRotation={modelRotation} />}
+                </PartCard>
+                <Stack spacing={2}>
+                    <Typography level="h1" id={slug(part.label)}>{part.label}</Typography>
+                    {part.description && <Typography secondary>{part.description}</Typography>}
+                    <Row spacing={2}>
+                        {part.tags.map((category) => (
+                            <Chip key={category}>{category}</Chip>
+                        ))}
+                    </Row>
+                </Stack>
+            </Row>
             <Card>
                 <CardHeader>
                     <CardTitle>Sources</CardTitle>

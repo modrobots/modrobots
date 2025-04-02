@@ -53,11 +53,14 @@ export default async function ModulePage({ params }: { params: Promise<{ id: str
                         <Table.Body>
                             {mod.parts ? mod.parts.map((modulePart) => {
                                 const part = parts.find(p => p.id === modulePart.partId);
+                                const partPrice = part?.sources
+                                    ? part?.sources?.at(0)?.prices?.at(0)?.pricePerItem ?? 0
+                                    : (part?.versions?.at(0)?.printingDetails?.profiles?.at(0)?.weight ?? 0) * (25 / 1000);
                                 return (
                                     <Table.Row key={modulePart.partId}>
                                         <Table.Cell><Link href={`/parts/${part?.id}`}>{part?.label ?? 'Undocumented part ' + modulePart.partId}</Link></Table.Cell>
                                         <Table.Cell>{modulePart.quantity}</Table.Cell>
-                                        <Table.Cell>€{((part?.sources?.at(0)?.prices?.at(0)?.pricePerItem ?? 0) * modulePart.quantity).toFixed(2)}</Table.Cell>
+                                        <Table.Cell>€{(partPrice * modulePart.quantity).toFixed(2)}</Table.Cell>
                                     </Table.Row>
                                 );
                             }) : (
