@@ -16,37 +16,46 @@
 // TODO: https://www.aliexpress.com/item/1005005993753202.html
 // TODO: https://www.aliexpress.com/item/1005006344542138.html
 
+export type PartVersionPartType = {
+    partId: string;
+    quantity: number;
+}
+
+export type PartVersionType = {
+    version: number;
+    parts?: PartVersionPartType[];
+    modelUrl?: string;
+    modelScale?: number;
+    modelTranslate?: [number, number, number];
+    modelRotation?: [number, number, number];
+    printingDetails?: {
+        profiles: {
+            supports?: string;
+            weight: number;
+            material: string;
+            color: string;
+            printer: string;
+            settings: string;
+        }[]
+    }
+};
+
+export type PartSourceType = {
+    url: string;
+    prices: {
+        numberOfItems: number;
+        pricePerItem: number;
+        updatedAt: Date;
+    }[]
+};
+
 export type PartType = {
     id: string;
     label: string;
     description?: string;
     tags: string[];
-    versions?: {
-        version: number;
-        parts?: { partId: string; quantity: number }[];
-        modelUrl?: string;
-        modelScale?: number;
-        modelTranslate?: [number, number, number];
-        modelRotation?: [number, number, number];
-        printingDetails?: {
-            profiles: {
-                supports?: string;
-                weight: number;
-                material: string;
-                color: string;
-                printer: string;
-                settings: string;
-            }[]
-        }
-    }[];
-    sources?: {
-        url: string;
-        prices: {
-            numberOfItems: number;
-            pricePerItem: number;
-            updatedAt: Date;
-        }[]
-    }[];
+    versions?: PartVersionType[];
+    sources?: PartSourceType[];
 }
 
 export const parts: PartType[] = [
