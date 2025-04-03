@@ -1,64 +1,11 @@
 'use client';
 
 import { useLoader } from '@react-three/fiber'
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 import { ThreeMFLoader } from 'three/examples/jsm/loaders/3MFLoader.js';
 import { Suspense, useEffect, useRef } from "react";
 import { Center, ContactShadows } from '@react-three/drei'
-import { Box3, Group, Object3DEventMap, Vector3 } from 'three';
+import { Box3, Group, Mesh, Object3DEventMap, Vector3 } from 'three';
 import { parts } from '../../../data/data';
-
-const modelScale = 0.02;
-
-function HolderModel({ version }: { version: number }) {
-    const jointModel = useLoader(STLLoader, `/3d/Preview Holder v${version}.stl`);
-    return (
-        <Center top>
-            <group scale={[modelScale, modelScale, modelScale]} position={[0, 4, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-                <mesh castShadow>
-                    <primitive object={jointModel} />
-                    <meshStandardMaterial metalness={1} roughness={1} />
-                </mesh>
-            </group>
-        </Center>
-    )
-}
-
-export function HolderPreview({ version }: { version: number }) {
-    return (
-        <group position={[0, -0.5, 0]}>
-            <Suspense fallback={null}>
-                <HolderModel version={version} />
-            </Suspense>
-            <ContactShadows resolution={512} position={[0, -0.1, 0]} opacity={0.5} blur={2} scale={10} />
-        </group>
-    );
-}
-
-function BrainModel({ version }: { version: number }) {
-    const jointModel = useLoader(STLLoader, `/3d/Preview Brain v${version}.stl`);
-    return (
-        <Center top>
-            <group scale={[modelScale * 0.7, modelScale * 0.7, modelScale * 0.7]} position={[0, 0.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-                <mesh castShadow>
-                    <primitive object={jointModel} />
-                    <meshStandardMaterial metalness={1} roughness={1} />
-                </mesh>
-            </group>
-        </Center>
-    )
-}
-
-export function BrainPreview({ version }: { version: number }) {
-    return (
-        <group position={[0, -0.9, 0]}>
-            <Suspense fallback={null}>
-                <BrainModel version={version} />
-            </Suspense>
-            <ContactShadows resolution={512} position={[0, -0.1, 0]} opacity={0.5} blur={2} scale={10} />
-        </group>
-    );
-}
 
 const joint360PartInfos = [
     {
@@ -129,7 +76,7 @@ function Joint360Model({ version }: { version: number }) {
     const partModels = joint360PartInfos.map((part) => {
         const partModel = parts.find(p => p.id === part.model.id)?.versions?.at(0);
         if (!partModel) return null;
-        return useLoader(ThreeMFLoader, partModel.url);
+        return useLoader(ThreeMFLoader, partModel.modelUrl);
     });
     const scale = 1;
     useEffect(() => {
@@ -142,10 +89,6 @@ function Joint360Model({ version }: { version: number }) {
             const part = joint360PartInfos[i];
             const partModel = partModels[i];
             if (!partModel) continue;
-            const box = new Box3().setFromObject(partModel);
-            const center = new Vector3();
-            box.getCenter(center);
-            partModel.position.sub(center);
             for (let j = 0; j < (part?.count ?? 1); j++) {
                 const partModelClone = partModel.clone();
                 partModelClone.scale.set(scale, scale, scale);
@@ -167,6 +110,24 @@ function Joint360Model({ version }: { version: number }) {
                 //         }
                 //     });
                 // }
+                // Loop through all children of the partModelClone and set castShadow and receiveShadow to true
+                partModelClone.traverse((child) => {
+                    if (child.type === 'Mesh') {
+                        const meshChild = child as Mesh;
+                        meshChild.geometry.computeVertexNormals();
+                        meshChild.castShadow = true;
+                        meshChild.receiveShadow = true;
+                    }
+                });
+                partModelClone.castShadow = true;
+                partModelClone.receiveShadow = true;
+
+                // Center
+                const box = new Box3().setFromObject(partModel);
+                const center = new Vector3();
+                box.getCenter(center);
+                partModel.position.sub(center);
+
                 groupRef.current.add(partModelClone);
             }
         }
@@ -184,32 +145,7 @@ export function Joint360Preview({ version }: { version: number }) {
             <Suspense fallback={null}>
                 <Joint360Model version={version} />
             </Suspense>
-            <ContactShadows resolution={512} position={[0, -0.1, 0]} opacity={0.5} blur={2} scale={10} />
-        </group>
-    );
-}
-
-function JointModel({ version }: { version: number }) {
-    const jointModel = useLoader(STLLoader, `/3d/Preview Joint v${version}.stl`);
-    return (
-        <Center top>
-            <group scale={[modelScale, modelScale, modelScale]} position={[0, 2, 0]} rotation={[Math.PI / 2, 0, 0]}>
-                <mesh castShadow>
-                    <primitive object={jointModel} />
-                    <meshStandardMaterial metalness={1} roughness={1} />
-                </mesh>
-            </group>
-        </Center>
-    )
-}
-
-export function JointPreview({ version }: { version: number }) {
-    return (
-        <group position={[0, -0.9, 0]}>
-            <Suspense fallback={null}>
-                <JointModel version={version} />
-            </Suspense>
-            <ContactShadows resolution={512} position={[0, -0.1, 0]} opacity={0.5} blur={2} scale={10} />
+            <ContactShadows resolution={512} position={[0, -0.1, 0]} opacity={0.2} blur={5} scale={10} />
         </group>
     );
 }

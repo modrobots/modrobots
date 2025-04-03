@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { modules, parts } from "../../../data/data";
+import { parts } from "../../../data/data";
 import { ModulePreview } from "../../ModulePreview";
 import { Card, CardHeader, CardOverflow, CardTitle } from "@signalco/ui-primitives/Card";
 import { Chip } from "@signalco/ui-primitives/Chip";
@@ -8,30 +8,35 @@ import { Stack } from "@signalco/ui-primitives/Stack";
 import { Typography } from "@signalco/ui-primitives/Typography";
 import { Row } from "@signalco/ui-primitives/Row";
 import { Table } from "@signalco/ui-primitives/Table";
+import { orderBy } from "@signalco/js";
+import { Suspense } from "react";
 
 export default async function ModulePage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
-    const mod = modules.find((module) => module.id === id);
+    const mod = parts.find((part) => part.id === id);
     if (!mod) {
         return <div>Module not found</div>;
     }
 
-    const partsTotal = mod.parts?.reduce((total, modulePart) => {
+    const lastVersion = orderBy(mod.versions ?? [], (a, b) => a.version - b.version).at(0);
+    const partsTotal = lastVersion?.parts?.reduce((total, modulePart) => {
         const part = parts.find(p => p.id === modulePart.partId);
-        return total + (part?.sources?.at(0)?.prices?.at(0)?.pricePerItem ?? 0) * modulePart.quantity;
+        return total + (orderBy(part?.sources?.at(0)?.prices ?? [], (a, b) => a.updatedAt.getTime() - b.updatedAt.getTime()).at(0)?.pricePerItem ?? 0) * modulePart.quantity;
     }, 0);
 
     return (
         <Stack spacing={2} className="p-8">
             <Row spacing={2} alignItems="start">
-                <ModuleCard id={id} label={mod.label} version={mod.version}>
-                    <ModulePreview id={id} version={mod.version} />
+                <ModuleCard id={id} label={mod.label} version={lastVersion?.version}>
+                    <Suspense>
+                        <ModulePreview id={id} version={lastVersion?.version ?? 0} />
+                    </Suspense>
                 </ModuleCard>
                 <Stack spacing={2}>
                     <Typography level="h1">{mod.label}</Typography>
                     {mod.description && <Typography secondary>{mod.description}</Typography>}
                     <Row spacing={2}>
-                        {mod.categories.map((category) => (
+                        {mod.tags.map((category) => (
                             <Chip key={category}>{category}</Chip>
                         ))}
                     </Row>
@@ -51,11 +56,11 @@ export default async function ModulePage({ params }: { params: Promise<{ id: str
                             </Table.Row>
                         </Table.Header>
                         <Table.Body>
-                            {mod.parts ? mod.parts.map((modulePart) => {
+                            {lastVersion?.parts ? lastVersion.parts.map((modulePart) => {
                                 const part = parts.find(p => p.id === modulePart.partId);
                                 const partPrice = part?.sources
-                                    ? part?.sources?.at(0)?.prices?.at(0)?.pricePerItem ?? 0
-                                    : (part?.versions?.at(0)?.printingDetails?.profiles?.at(0)?.weight ?? 0) * (25 / 1000);
+                                    ? orderBy(part?.sources?.at(0)?.prices ?? [], (a, b) => a.updatedAt.getTime() - b.updatedAt.getTime())?.at(0)?.pricePerItem ?? 0
+                                    : (orderBy(part?.versions ?? [], (a, b) => a.version - b.version).at(0)?.printingDetails?.profiles?.at(0)?.weight ?? 0) * (25 / 1000);
                                 return (
                                     <Table.Row key={modulePart.partId}>
                                         <Table.Cell><Link href={`/parts/${part?.id}`}>{part?.label ?? 'Undocumented part ' + modulePart.partId}</Link></Table.Cell>

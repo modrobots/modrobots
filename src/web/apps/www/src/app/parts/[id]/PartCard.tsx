@@ -18,7 +18,7 @@ export function PartCard({ id, label, noPreview, children }: PropsWithChildren<{
             )}
             <Link href={`/parts/${id}`}>
                 <div className="absolute bottom-4 right-4 border-r px-4 py-2">
-                    <div className="uppercase">{label}</div>
+                    <div className="uppercase text-right">{label}</div>
                 </div>
             </Link>
         </Card>
