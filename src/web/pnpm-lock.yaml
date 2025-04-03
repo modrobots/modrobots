@@ -26,6 +26,9 @@ importers:
       '@signalco/js':
         specifier: 0.1.0
         version: 0.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@signalco/ui-icons':
+        specifier: 0.2.0
+        version: 0.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@signalco/ui-primitives':
         specifier: 0.5.0
         version: 0.5.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.11)(typescript@5.8.2))))(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.11)(typescript@5.8.2)))
@@ -38,6 +41,9 @@ importers:
       classix:
         specifier: 2.2.2
         version: 2.2.2
+      lucide-react:
+        specifier: 0.487.0
+        version: 0.487.0(react@19.0.0)
       next:
         specifier: 15.2.3
         version: 15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -341,6 +347,12 @@ packages:
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
+
+  '@signalco/ui-icons@0.2.0':
+    resolution: {integrity: sha512-NJ93m1S0N5rPDeP+Xe17oNHD3VdnNKgPm1OiKdjZ8M3HFGUksXV3CC6aHQ0sfjIxp6Q+8JHa22j7M9OYvhHKYw==}
+    peerDependencies:
+      react: '>=19.0.0-rc-65a56d0e-20241020'
+      react-dom: '>=19.0.0-rc-65a56d0e-20241020'
 
   '@signalco/ui-primitives@0.5.0':
     resolution: {integrity: sha512-megaGJmdx8KWYK2GbhGBCjUTcumKcV8ca7PENSSjGZ/WrbWeeD+HkPZ1m5QbcxyKFqZt/QvTXCzAOzix7Vvm/w==}
@@ -688,6 +700,11 @@ packages:
   lru-cache@10.2.2:
     resolution: {integrity: sha512-9hp3Vp2/hFQUiIwKo8XCeFVnrg8Pk3TYNPIR7tJADKi5YfcF7vEaK7avFHTlSy3kOKYaJQaalfEo6YuXdceBOQ==}
     engines: {node: 14 || >=16.14}
+
+  lucide-react@0.487.0:
+    resolution: {integrity: sha512-aKqhOQ+YmFnwq8dWgGjOuLc8V1R9/c/yOd+zDY4+ohsR2Jo05lSGc3WsstYPIzcTpeosN7LoCkLReUUITvaIvw==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   maath@0.10.8:
     resolution: {integrity: sha512-tRvbDF0Pgqz+9XUa4jjfgAQ8/aPKmQdWXilFu2tMy4GWj4NOsx99HlULO4IeREfbO3a0sA145DZYyvXPkybm0g==}
@@ -1403,6 +1420,11 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
+  '@signalco/ui-icons@0.2.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
   '@signalco/ui-primitives@0.5.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss-animate@1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.11)(typescript@5.8.2))))(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.11)(typescript@5.8.2)))':
     dependencies:
       react: 19.0.0
@@ -1725,6 +1747,10 @@ snapshots:
   lines-and-columns@1.2.4: {}
 
   lru-cache@10.2.2: {}
+
+  lucide-react@0.487.0(react@19.0.0):
+    dependencies:
+      react: 19.0.0
 
   maath@0.10.8(@types/three@0.174.0)(three@0.174.0):
     dependencies:

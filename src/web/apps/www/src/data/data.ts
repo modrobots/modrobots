@@ -1,59 +1,3 @@
-export const modules = [
-    {
-        id: 'joint', label: "Joint", version: 44, categories: ['Motion'],
-        description: "A joint is a connection between two parts that allows them to move relative to each other. This joint is designed to be used in all robots.",
-        parts: [
-            { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
-            { partId: 'screw-hex-socket-m3-6mm-black', quantity: 24 },
-            { partId: 'servo-motor-mg995-allmetal', quantity: 1 },
-            { partId: '40-pin-header-2-54mm', quantity: 1 },
-            { partId: 'prototype-pcb-3x7-double-sided-white', quantity: 1 },
-            { partId: 'pogopin-h455-3-0x6-7mm', quantity: 12 }
-        ]
-    },
-    {
-        id: 'joint360', label: 'Joint 360', version: 1, categories: ['Motion'],
-        description: "A joint is a connection between two parts that allows them to move relative to each other. This joint is designed to be used in all robots.",
-    },
-    { id: 'wheel', label: "Wheel", version: 0, categories: ['Motion'] },
-    { id: 'foot', label: "Foot", version: 0, categories: ['Motion'] },
-    { id: 'gripper-flex', label: "Flex Gripper", version: 0, categories: ['Manipulation'] },
-    { id: 'gripper-vacuum', label: "Vacuum Gripper", version: 0, categories: ['Manipulation'] },
-    {
-        id: 'brain',
-        label: "Brain",
-        version: 25,
-        categories: ['Control'],
-        parts: [
-            { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
-            { partId: 'tft-display-round-1-28inch-240x240-gc9a01-spi', quantity: 1 },
-            { partId: 'speaker-4ohm-3w', quantity: 1 },
-            { partId: 'audio-amplifier-max98357-i2s-3w-breakout', quantity: 1 },
-            { partId: 'battery-charger-module-ups-18650-3a-5v', quantity: 1 },
-            { partId: 'battery-lipo-3-7v-liitokala-18650-3400mah', quantity: 2 },
-            { partId: 'push-button-switch-1712kd-17x12x9-5mm', quantity: 1 },
-            { partId: '40-pin-header-2-54mm', quantity: 1 },
-            { partId: 'prototype-pcb-3x7-double-sided-white', quantity: 1 },
-            { partId: 'pogopin-h455-3-0x6-7mm', quantity: 3 },
-            { partId: 'screw-hex-socket-m3-6mm-black', quantity: 8 },
-        ]
-    },
-    { id: 'skeleton', label: "Skeleton", version: 0, categories: ['Perception'] },
-    { id: 'vacuum-foot', label: "Vacuum Foot", version: 0, categories: ['Motion'] },
-    { id: 'distance-sensor', label: "Distance Sensor", version: 0, categories: ['Perception'] },
-    { id: 'sticky-mount', label: "Sticky Mount", version: 0, categories: ['Attachment'] },
-    { id: 'holder', label: "Holder", version: 1, categories: ['Attachment'] },
-    { id: 'locker', label: "Locker", version: 0, categories: ['Attachment'] },
-];
-
-export const modulesCategories = [
-    'Control',
-    'Motion',
-    'Manipulation',
-    'Perception',
-    'Attachment'
-]
-
 // TODO: https://www.aliexpress.com/item/1005007128724375.html?spm=a2g0o.order_list.order_list_main.65.70cd1802B8Cvo3
 // TODO: https://www.aliexpress.com/item/1005006470782095.html?spm=a2g0o.order_list.order_list_main.70.70cd1802B8Cvo3
 // TODO: https://www.aliexpress.com/item/1005006127587095.html?spm=a2g0o.order_list.order_list_main.75.70cd1802B8Cvo3
@@ -66,14 +10,171 @@ export const modulesCategories = [
 // TODO: https://www.aliexpress.com/item/1005004342343376.html?spm=a2g0o.order_list.order_list_main.130.70cd1802B8Cvo3
 // TODO: https://www.aliexpress.com/item/1005006653810963.html?spm=a2g0o.order_list.order_list_main.135.70cd1802B8Cvo3
 // TODO: https://www.aliexpress.com/item/1005006329585567.html?spm=a2g0o.order_list.order_list_main.140.70cd1802B8Cvo3
-// TODO: 5-20PC DRV8833 Motor Drive Module Board 1.5A 3V-10V Single H-Bridge 6Pin Step Motor Overcurrent Protection DC Gear Motor Driver €2.82x1
 // TODO: 4pcs AS5600 Magnetic Encoder 12bit 3.3V High Precision Magnetic Induction Angle Measurement Sensor Module €6.11x2
 // TODO: https://www.aliexpress.com/item/1005005866360101.html
 // TODO: https://www.aliexpress.com/item/32830267123.html
 // TODO: https://www.aliexpress.com/item/1005005993753202.html
 // TODO: https://www.aliexpress.com/item/1005006344542138.html
 
-export const parts = [
+export type PartVersionPartType = {
+    partId: string;
+    quantity: number;
+}
+
+export type PartVersionType = {
+    version: number;
+    parts?: PartVersionPartType[];
+    modelUrl?: string;
+    modelScale?: number;
+    modelTranslate?: [number, number, number];
+    modelRotation?: [number, number, number];
+    printingDetails?: {
+        profiles: {
+            supports?: string;
+            weight: number;
+            material: string;
+            color: string;
+            printer: string;
+            settings: string;
+        }[]
+    }
+};
+
+export type PartSourceType = {
+    url: string;
+    prices: {
+        numberOfItems: number;
+        pricePerItem: number;
+        updatedAt: Date;
+    }[]
+};
+
+export type PartType = {
+    id: string;
+    label: string;
+    description?: string;
+    tags: string[];
+    versions?: PartVersionType[];
+    sources?: PartSourceType[];
+}
+
+export const parts: PartType[] = [
+    {
+        id: 'joint360',
+        label: 'Joint 360',
+        description: "A joint is a connection between two parts that allows them to move relative to each other. This joint is designed to be used in all robots.",
+        tags: ['module', 'module-motion'],
+        versions: [
+            {
+                version: 1,
+                parts: [
+                    { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
+                    { partId: 'stepper-motor-28byj48-5v', quantity: 1 },
+                    { partId: 'jst-XH2_54-5pin-female', quantity: 1 },
+                    { partId: 'drv8833-driver', quantity: 1 },
+                    { partId: 'prototype-pcb-3x7-double-sided-white', quantity: 1 },
+                    { partId: 'pogopin-h455-3-0x6-7mm', quantity: 12 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.5 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.5 },
+                    { partId: 'screw-hex-socket-m2-6mm-black', quantity: 30 },
+                    { partId: 'screw-hex-socket-m3-6mm-black', quantity: 2 },
+                    { partId: 'mr-joint360-base-mount-r', quantity: 1 },
+                    { partId: 'mr-joint360-base-mount-s', quantity: 1 },
+                    { partId: 'mr-joint360-ring-v2', quantity: 1 },
+                    { partId: 'mr-joint360-mount-28byj48', quantity: 1 },
+                    { partId: 'mr-joint360-shell-v2', quantity: 2 },
+                    { partId: 'mr-joint360-base-v2', quantity: 4 },
+                ]
+            }
+        ]
+    },
+    { id: 'wheel', label: "Wheel", tags: ['module', 'module-motion'] },
+    { id: 'foot', label: "Foot", tags: ['module', 'module-motion'] },
+    { id: 'gripper-flex', label: "Flex Gripper", tags: ['module', 'module-manipulation'] },
+    { id: 'gripper-vacuum', label: "Vacuum Gripper", tags: ['module', 'module-manipulation'] },
+    {
+        id: 'brain',
+        label: "Brain",
+        tags: ['module', 'module-control'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
+                    { partId: 'tft-display-round-1-28inch-240x240-gc9a01-spi', quantity: 1 },
+                    { partId: 'speaker-4ohm-3w', quantity: 1 },
+                    { partId: 'audio-amplifier-max98357-i2s-3w-breakout', quantity: 1 },
+                    { partId: 'battery-charger-module-ups-18650-3a-5v', quantity: 1 },
+                    { partId: 'battery-lipo-3-7v-liitokala-18650-3400mah', quantity: 2 },
+                    { partId: 'push-button-switch-1712kd-17x12x9-5mm', quantity: 1 },
+                    { partId: '40-pin-header-2-54mm', quantity: 1 },
+                    { partId: 'prototype-pcb-3x7-double-sided-white', quantity: 1 },
+                    { partId: 'pogopin-h455-3-0x6-7mm', quantity: 3 },
+                    { partId: 'screw-hex-socket-m2-6mm-black', quantity: 8 },
+                ]
+            }
+        ]
+    },
+    { id: 'skeleton', label: "Skeleton", tags: ['module', 'module-perception'] },
+    { id: 'vacuum-foot', label: "Vacuum Foot", tags: ['module', 'module-motion'] },
+    { id: 'distance-sensor', label: "Distance Sensor", tags: ['module', 'module-perception'] },
+    { id: 'sticky-mount', label: "Sticky Mount", tags: ['module', 'module-attachment'] },
+    { id: 'holder', label: "Holder", tags: ['module', 'module-attachment'] },
+    { id: 'locker', label: "Locker", tags: ['module', 'module-attachment'] },
+    {
+        id: 'wire-22awag-solid-core-black-1m',
+        label: 'Wire 22AWG Solid Core Black 1m',
+        tags: ['electronics', 'wire'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/1005004336218242.html',
+                prices: [
+                    {
+                        numberOfItems: 5,
+                        pricePerItem: 0.44,
+                        updatedAt: new Date(2025, 3, 2)
+                    },
+                    {
+                        numberOfItems: 10,
+                        pricePerItem: 0.278,
+                        updatedAt: new Date(2025, 3, 2)
+                    },
+                    {
+                        numberOfItems: 20,
+                        pricePerItem: 0.208,
+                        updatedAt: new Date(2025, 3, 2)
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'wire-22awag-solid-core-red-1m',
+        label: 'Wire 22AWG Solid Core Red 1m',
+        tags: ['electronics', 'wire'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/1005004336218242.html',
+                prices: [
+                    {
+                        numberOfItems: 5,
+                        pricePerItem: 0.44,
+                        updatedAt: new Date(2025, 3, 2)
+                    },
+                    {
+                        numberOfItems: 10,
+                        pricePerItem: 0.278,
+                        updatedAt: new Date(2025, 3, 2)
+                    },
+                    {
+                        numberOfItems: 20,
+                        pricePerItem: 0.208,
+                        updatedAt: new Date(2025, 3, 2)
+                    }
+                ]
+            }
+        ]
+    },
     {
         id: 'mr-joint360-base-mount-r',
         label: 'Joint 360 - Base Mount Rotation side',
@@ -81,7 +182,20 @@ export const parts = [
         versions: [
             {
                 version: 14,
-                url: '/3d/Joint360/Base Mount R v14.3mf',
+                modelUrl: '/3d/Joint360/Base Mount R v14.3mf',
+                modelRotation: [-90, 0, 0],
+                printingDetails: {
+                    profiles: [
+                        {
+                            weight: 8.77,
+                            supports: 'Tree',
+                            material: 'PLA',
+                            color: 'White Matte',
+                            printer: 'BambuLab X1C',
+                            settings: '0.20mm layer height, 15% infill, 2 perimeters, tree supports',
+                        }
+                    ]
+                }
             }
         ]
     },
@@ -92,7 +206,160 @@ export const parts = [
         versions: [
             {
                 version: 15,
-                url: '/3d/Joint360/Base Mount S v15.3MF',
+                modelUrl: '/3d/Joint360/Base Mount S v15.3mf',
+                modelRotation: [-90, 0, 0],
+                printingDetails: {
+                    profiles: [
+                        {
+                            weight: 7.81,
+                            supports: 'Tree',
+                            material: 'PLA',
+                            color: 'White Matte',
+                            printer: 'BambuLab X1C',
+                            settings: '0.20mm layer height, 15% infill, 2 perimeters, tree supports',
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'mr-joint360-ring-v2',
+        label: 'Joint 360 - Ring v2',
+        tags: ['mechanical', '3d-printable'],
+        versions: [
+            {
+                version: 18,
+                modelUrl: '/3d/Joint360/Ring v2 v18.3mf',
+                modelRotation: [-90, 0, 0],
+                printingDetails: {
+                    profiles: [
+                        {
+                            weight: 8.58,
+                            material: 'PLA',
+                            color: 'White Matte',
+                            printer: 'BambuLab X1C',
+                            settings: '0.20mm layer height, 15% infill, 2 perimeters',
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'mr-joint360-mount-28byj48',
+        label: 'Joint 360 - Mount 28BYJ48',
+        tags: ['mechanical', '3d-printable'],
+        versions: [
+            {
+                version: 19,
+                modelUrl: '/3d/Joint360/Mount 28BYJ48 v19.3mf',
+                modelRotation: [-90, 0, 0],
+                printingDetails: {
+                    profiles: [
+                        {
+                            weight: 9.1,
+                            material: 'PLA',
+                            color: 'White Matte',
+                            printer: 'BambuLab X1C',
+                            settings: '0.20mm layer height, 15% infill, 2 perimeters',
+                        }
+                    ]
+                }
+            }
+        ],
+    },
+    {
+        id: 'mr-joint360-shell-v2',
+        label: 'Joint 360 - Shell v2',
+        tags: ['mechanical', '3d-printable'],
+        versions: [
+            {
+                version: 11,
+                modelUrl: '/3d/Joint360/Shell v2 v11.3mf',
+                modelRotation: [-90, 0, 0],
+                printingDetails: {
+                    profiles: [
+                        {
+                            weight: 15.76,
+                            material: 'PLA',
+                            color: 'White Matte',
+                            printer: 'BambuLab X1C',
+                            settings: '0.20mm layer height, 15% infill, 2 perimeters',
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'mr-joint360-base-v2',
+        label: 'Joint 360 - Base v2',
+        tags: ['mechanical', '3d-printable'],
+        versions: [
+            {
+                version: 14,
+                modelUrl: '/3d/Joint360/Base v2 v14.3mf',
+                modelScale: 0.04,
+                modelRotation: [-90, 0, 0],
+                printingDetails: {
+                    profiles: [
+                        {
+                            weight: 3.57,
+                            material: 'PLA',
+                            color: 'White Matte',
+                            printer: 'BambuLab X1C',
+                            settings: '0.20mm layer height, 15% infill, 2 perimeters',
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'stepper-motor-28byj48-5v',
+        label: '28BYJ-48 Stepper Motor 5V',
+        tags: ['electronics', 'motors'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/1005005371660765.html',
+                prices: [
+                    {
+                        numberOfItems: 1,
+                        pricePerItem: 2.60,
+                        updatedAt: new Date(2025, 3, 2)
+                    }
+                ]
+            }
+        ],
+        versions: [
+            {
+                version: 1,
+                modelUrl: '/3d/parts/Stepper Motor 28BY-48 v2.3mf',
+                modelScale: 0.05,
+                modelRotation: [-90, 0, 0],
+            }
+        ]
+    },
+    {
+        id: 'drv8833-driver',
+        label: 'DRV8833 Driver',
+        tags: ['electronics', 'drivers'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/1005007635436457.html',
+                prices: [
+                    {
+                        numberOfItems: 1,
+                        pricePerItem: 1.37,
+                        updatedAt: new Date(2025, 3, 2)
+                    },
+                    {
+                        numberOfItems: 10,
+                        pricePerItem: 0.654,
+                        updatedAt: new Date(2025, 3, 2)
+                    }
+                ]
             }
         ]
     },
@@ -197,6 +464,23 @@ export const parts = [
         ]
     },
     {
+        id: 'screw-hex-socket-m2-6mm-black',
+        label: 'Screw Hex Socket M2 6mm Black',
+        tags: ['mechanical'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/4001068956302.html',
+                prices: [
+                    {
+                        numberOfItems: 50,
+                        pricePerItem: 0.0522,
+                        updatedAt: new Date(2025, 3, 2)
+                    }
+                ]
+            }
+        ]
+    },
+    {
         id: 'screw-hex-socket-m3-6mm-black',
         label: 'Screw Hex Socket M3 6mm Black',
         tags: ['mechanical'],
@@ -206,8 +490,30 @@ export const parts = [
                 prices: [
                     {
                         numberOfItems: 50,
+                        pricePerItem: 0.058,
+                        updatedAt: new Date(2025, 3, 2)
+                    },
+                    {
+                        numberOfItems: 50,
                         pricePerItem: 0.0504,
                         updatedAt: new Date(2024, 5, 15)
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'screw-hex-socket-m4-6mm-black',
+        label: 'Screw Hex Socket M4 6mm Black',
+        tags: ['mechanical'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/4001068956302.html',
+                prices: [
+                    {
+                        numberOfItems: 20,
+                        pricePerItem: 0.132,
+                        updatedAt: new Date(2025, 3, 2)
                     }
                 ]
             }
@@ -230,6 +536,23 @@ export const parts = [
                         numberOfItems: 10,
                         pricePerItem: 0.273,
                         updatedAt: new Date(2024, 5, 21)
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'jst-XH2_54-5pin-female',
+        label: "JST XH2.54mm 5 pin female connector",
+        tags: ["electronics", "mechanical"],
+        sources: [
+            {
+                url: "https://www.aliexpress.com/item/1005007128724375.html",
+                prices: [
+                    {
+                        numberOfItems: 10,
+                        pricePerItem: 0.24,
+                        updatedAt: new Date(2024, 3, 2)
                     }
                 ]
             }
@@ -352,10 +675,18 @@ export const parts = [
                 prices: [
                     {
                         numberOfItems: 1,
-                        pricePerItem: 0.46,
+                        pricePerItem: 0.52,
                         updatedAt: new Date(2025, 2, 24)
                     }
                 ]
+            }
+        ],
+        versions: [
+            {
+                version: 1,
+                modelUrl: '/3d/parts/Pogo H455 v1.3mf',
+                modelScale: 0.2,
+                modelRotation: [-90, 0, 0],
             }
         ]
     }
