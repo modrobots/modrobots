@@ -75,7 +75,7 @@ function Joint360Model({ version }: { version: number }) {
     const groupRef = useRef<Group<Object3DEventMap>>(null);
     const partModels = joint360PartInfos.map((part) => {
         const partModel = parts.find(p => p.id === part.model.id)?.versions?.at(0);
-        if (!partModel) return null;
+        if (!partModel || !partModel.modelUrl) return null;
         return useLoader(ThreeMFLoader, partModel.modelUrl);
     });
     const scale = 1;
