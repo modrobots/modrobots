@@ -13,7 +13,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-three/drei": "10.0.4",
+    "@react-three/drei": "10.0.6",
     "@react-three/fiber": "9.1.2",
     "@signalco/js": "0.1.0",
     "@signalco/ui-icons": "0.2.0",
