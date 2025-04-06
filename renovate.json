@@ -22,7 +22,7 @@
     "assigneesFromCodeOwners": true,
     "reviewersFromCodeOwners": true,
     "baseBranches": [
-        "next"
+        "main"
     ],
     "prHourlyLimit": 6,
     "platformAutomerge": true,
