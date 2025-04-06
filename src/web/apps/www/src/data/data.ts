@@ -70,12 +70,12 @@ export const parts: PartType[] = [
                 parts: [
                     { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
                     { partId: 'stepper-motor-28byj48-5v', quantity: 1 },
-                    { partId: 'jst-XH2_54-5pin-female', quantity: 1 },
                     { partId: 'drv8833-driver', quantity: 1 },
                     { partId: 'prototype-pcb-3x7-double-sided-white', quantity: 1 },
                     { partId: 'pogopin-h455-3-0x6-7mm', quantity: 12 },
-                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.5 },
-                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.5 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-white-1m', quantity: 0.25 },
                     { partId: 'screw-hex-socket-m2-6mm-black', quantity: 30 },
                     { partId: 'screw-hex-socket-m3-6mm-black', quantity: 2 },
                     { partId: 'mr-joint360-base-mount-r', quantity: 1 },
@@ -88,10 +88,181 @@ export const parts: PartType[] = [
             }
         ]
     },
-    { id: 'wheel', label: "Wheel", tags: ['module', 'module-motion'] },
-    { id: 'foot', label: "Foot", tags: ['module', 'module-motion'] },
-    { id: 'gripper-flex', label: "Flex Gripper", tags: ['module', 'module-manipulation'] },
-    { id: 'gripper-vacuum', label: "Vacuum Gripper", tags: ['module', 'module-manipulation'] },
+    {
+        id: 'wheel',
+        label: "Wheel",
+        description: "Wheel is a module that helps the robot to move. It contains a motor and a wheel.",
+        tags: ['module', 'module-motion'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
+                    { partId: 'dc-motor-jga25-310-6v-12rpm', quantity: 1 },
+                    { partId: 'drv8833-driver', quantity: 1 },
+                    { partId: 'pogopin-h455-3-0x6-7mm', quantity: 3 },
+                    { partId: 'screw-hex-socket-m2-6mm-black', quantity: 4 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-white-1m', quantity: 0.25 },
+                    // TODO: 3D printed parts
+                ]
+            }
+        ]
+    },
+    {
+        id: 'track-wheel',
+        label: "Track Wheel",
+        description: "Track wheel is a module that helps the robot to move. It contains a motor and a track wheel. Attach tracks to the wheels to create a robot that can move on muddy and uneven surfaces.",
+        tags: ['module', 'module-motion'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
+                    { partId: 'dc-motor-jga25-310-6v-12rpm', quantity: 1 },
+                    { partId: 'drv8833-driver', quantity: 1 },
+                    { partId: 'pogopin-h455-3-0x6-7mm', quantity: 3 },
+                    { partId: 'screw-hex-socket-m2-6mm-black', quantity: 4 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-white-1m', quantity: 0.25 },
+                    // TODO: 3D printed parts
+                ]
+            }
+        ]
+    },
+    {
+        id: 'omni-wheel',
+        label: "Omni Wheel",
+        description: "Omni wheel is a module that helps the robot to move. It contains a motor and an omni wheel. Attach four omni-wheels to the robot to create a robot that can move in any direction.",
+        tags: ['module', 'module-motion'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
+                    { partId: 'dc-motor-jga25-310-6v-12rpm', quantity: 1 },
+                    { partId: 'drv8833-driver', quantity: 1 },
+                    { partId: 'pogopin-h455-3-0x6-7mm', quantity: 3 },
+                    { partId: 'screw-hex-socket-m2-6mm-black', quantity: 4 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-white-1m', quantity: 0.25 },
+                    // TODO: 3D printed parts
+                ]
+            }
+        ]
+    },
+    {
+        id: 'foot',
+        label: "Foot",
+        description: "Foot is a module that helps the robot to walk. It contains preasure sensor to detect the ground. Combine it with a joint module and skeleton to create a leg.",
+        tags: ['module', 'module-motion'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
+                    // TODO: Force sensor
+                    { partId: 'pogopin-h455-3-0x6-7mm', quantity: 3 },
+                    { partId: 'screw-hex-socket-m2-6mm-black', quantity: 4 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-white-1m', quantity: 0.25 },
+                    // TODO: 3D printed parts
+                ]
+            }
+        ]
+    },
+    {
+        id: 'vacuum-foot',
+        label: "Vacuum Foot",
+        description: "Vacuum foot is a module that helps the robot to walk. It contains a vacuum pump and a suction cup to stick to the ground or walls. Combine it with a joint module and skeleton to create a leg.",
+        tags: ['module', 'module-motion'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
+                    // TODO: LED indicator
+                    // TODO: Vacuum pump
+                    { partId: 'drv8833-driver', quantity: 1 },
+                    { partId: 'pogopin-h455-3-0x6-7mm', quantity: 3 },
+                    { partId: 'screw-hex-socket-m2-6mm-black', quantity: 4 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-white-1m', quantity: 0.25 },
+                    // TODO: 3D printed parts
+                ]
+            }
+        ]
+    },
+    {
+        id: 'gripper-flex',
+        label: "Flex Gripper",
+        description: "Flex gripper is a module that helps the robot to grab objects. It has flexible grippers so it can catch objects with more organic shapes. Combine it with a joint module and skeleton to create a hand.",
+        tags: ['module', 'module-manipulation'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
+                    // TODO: Servo motor
+                    { partId: 'pogopin-h455-3-0x6-7mm', quantity: 3 },
+                    { partId: 'screw-hex-socket-m2-6mm-black', quantity: 4 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-white-1m', quantity: 0.25 },
+                    // TODO: 3D printed parts
+                ]
+            }
+        ]
+    },
+    {
+        id: 'gripper-fingers',
+        label: "Fingers Gripper",
+        description: "Fingers gripper is a module that helps the robot to grab objects. It has rigid fingers so it can grab objects in many shapes and sizes. Combine it with a joint module and skeleton to create a hand.",
+        tags: ['module', 'module-manipulation'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
+                    // TODO: Servo motor
+                    { partId: 'pogopin-h455-3-0x6-7mm', quantity: 3 },
+                    { partId: 'screw-hex-socket-m2-6mm-black', quantity: 4 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-white-1m', quantity: 0.25 },
+                    // TODO: 3D printed parts
+                ]
+            }
+        ]
+    },
+    {
+        id: 'gripper-vacuum',
+        label: "Vacuum Gripper",
+        description: "Vacuum gripper is a module that helps the robot to grab objects. It has a vacuum pump and a suction cup so it can grab objects with smooth surfaces. Combine it with a joint module and skeleton to create a hand.",
+        tags: ['module', 'module-manipulation'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
+                    // TODO: LED indicator
+                    // TODO: Vacuum pump
+                    { partId: 'drv8833-driver', quantity: 1 },
+                    { partId: 'pogopin-h455-3-0x6-7mm', quantity: 3 },
+                    { partId: 'screw-hex-socket-m2-6mm-black', quantity: 4 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-white-1m', quantity: 0.25 },
+                    // TODO: 3D printed parts
+                ]
+            }
+        ]
+    },
     {
         id: 'brain',
         label: "Brain",
@@ -104,23 +275,109 @@ export const parts: PartType[] = [
                     { partId: 'tft-display-round-1-28inch-240x240-gc9a01-spi', quantity: 1 },
                     { partId: 'speaker-4ohm-3w', quantity: 1 },
                     { partId: 'audio-amplifier-max98357-i2s-3w-breakout', quantity: 1 },
-                    { partId: 'battery-charger-module-ups-18650-3a-5v', quantity: 1 },
-                    { partId: 'battery-lipo-3-7v-liitokala-18650-3400mah', quantity: 2 },
+                    { partId: 'battery-charger-module-ups-2x-18650-3a-5v', quantity: 1 },
+                    { partId: 'battery-liion-3-7v-liitokala-18650-3400mah', quantity: 2 },
                     { partId: 'push-button-switch-1712kd-17x12x9-5mm', quantity: 1 },
                     { partId: '40-pin-header-2-54mm', quantity: 1 },
                     { partId: 'prototype-pcb-3x7-double-sided-white', quantity: 1 },
                     { partId: 'pogopin-h455-3-0x6-7mm', quantity: 3 },
                     { partId: 'screw-hex-socket-m2-6mm-black', quantity: 8 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-white-1m', quantity: 0.25 },
+                    // TODO: 3D printed parts
                 ]
             }
         ]
     },
-    { id: 'skeleton', label: "Skeleton", tags: ['module', 'module-perception'] },
-    { id: 'vacuum-foot', label: "Vacuum Foot", tags: ['module', 'module-motion'] },
-    { id: 'distance-sensor', label: "Distance Sensor", tags: ['module', 'module-perception'] },
-    { id: 'sticky-mount', label: "Sticky Mount", tags: ['module', 'module-attachment'] },
-    { id: 'holder', label: "Holder", tags: ['module', 'module-attachment'] },
-    { id: 'locker', label: "Locker", tags: ['module', 'module-attachment'] },
+    {
+        id: 'skeleton',
+        label: "Skeleton",
+        description: "Skeleton is a module that extends robots range. Combine it with other modules to make your robot have larger range of motion.",
+        tags: ['module', 'module-perception'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    { partId: 'screw-hex-socket-m2-6mm-black', quantity: 12 },
+                    { partId: 'pogopin-h455-3-0x6-7mm', quantity: 6 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.25 },
+                    // TODO: 3D printed parts
+                ]
+            }
+        ]
+    },
+    {
+        id: 'rangefinder',
+        label: "Rangefinder",
+        description: "Rangefinder is a module that helps the robot to detect obstacles. It uses lasers to measure the distance to the nearest object.",
+        tags: ['module', 'module-perception'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    { partId: 'esp32-c3-supermini-nologo-esp32c3fn4', quantity: 1 },
+                    // TODO: Laser sensor
+                    { partId: 'screw-hex-socket-m2-6mm-black', quantity: 12 },
+                    { partId: 'pogopin-h455-3-0x6-7mm', quantity: 6 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-white-1m', quantity: 0.25 },
+                    // TODO: 3D printed parts
+                ]
+            }
+        ]
+    },
+    {
+        id: 'camera',
+        label: "Camera",
+        description: "Camera is a module that helps the robot to see. It uses a camera to capture images and videos.",
+        tags: ['module', 'module-perception'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    // TODO: ESP with camera
+                    { partId: 'screw-hex-socket-m2-6mm-black', quantity: 12 },
+                    { partId: 'pogopin-h455-3-0x6-7mm', quantity: 6 },
+                    { partId: 'wire-22awag-solid-core-black-1m', quantity: 0.25 },
+                    { partId: 'wire-22awag-solid-core-red-1m', quantity: 0.25 },
+                    // TODO: 3D printed parts
+                ]
+            }
+        ]
+    },
+    {
+        id: 'sticky-mount',
+        label: "Sticky Mount",
+        description: "Sticky mount is a module that has sticky bottom. It is used to mount your robot to table or other flat surfaces.",
+        tags: ['module', 'module-attachment'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    // TODO: Stickers
+                    // TODO: 3D printed parts
+                ]
+            }
+        ]
+    },
+    {
+        id: 'mount-holder',
+        label: "Mount Holder",
+        description: "Mount holder is a module that has standard mount attachment. It can be used to attach your robot to stands or attach mini cameras (eg. GoPro) to your robots.",
+        tags: ['module', 'module-attachment'],
+        versions: [
+            {
+                version: 0,
+                parts: [
+                    // TODO: Mount adapter
+                    // TODO: 3D printed parts
+                ]
+            }
+        ]
+    },
     {
         id: 'wire-22awag-solid-core-black-1m',
         label: 'Wire 22AWG Solid Core Black 1m',
@@ -151,6 +408,33 @@ export const parts: PartType[] = [
     {
         id: 'wire-22awag-solid-core-red-1m',
         label: 'Wire 22AWG Solid Core Red 1m',
+        tags: ['electronics', 'wire'],
+        sources: [
+            {
+                url: 'https://www.aliexpress.com/item/1005004336218242.html',
+                prices: [
+                    {
+                        numberOfItems: 5,
+                        pricePerItem: 0.44,
+                        updatedAt: new Date(2025, 3, 2)
+                    },
+                    {
+                        numberOfItems: 10,
+                        pricePerItem: 0.278,
+                        updatedAt: new Date(2025, 3, 2)
+                    },
+                    {
+                        numberOfItems: 20,
+                        pricePerItem: 0.208,
+                        updatedAt: new Date(2025, 3, 2)
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'wire-22awag-solid-core-white-1m',
+        label: 'Wire 22AWG Solid Core White 1m',
         tags: ['electronics', 'wire'],
         sources: [
             {
@@ -593,8 +877,8 @@ export const parts: PartType[] = [
         ]
     },
     {
-        id: 'battery-lipo-3-7v-liitokala-18650-3400mah',
-        label: 'LiPo Battery 3.7V 18650 3400mAh',
+        id: 'battery-liion-3-7v-liitokala-18650-3400mah',
+        label: 'Battery Li-Ion 3.7V 18650 3400mAh',
         tags: ['electronics'],
         sources: [
             {
@@ -632,8 +916,8 @@ export const parts: PartType[] = [
         ]
     },
     {
-        id: 'battery-charger-module-ups-18650-3a-5v',
-        label: 'Battery Charge Module/UPS 18650',
+        id: 'battery-charger-module-ups-2x-18650-3a-5v',
+        label: 'Battery Charge Module/UPS 2x18650 5V',
         tags: ['electronics'],
         sources: [
             {
