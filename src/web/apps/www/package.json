@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@react-three/drei": "10.0.4",
-    "@react-three/fiber": "9.1.0",
+    "@react-three/fiber": "9.1.2",
     "@signalco/js": "0.1.0",
     "@signalco/ui-icons": "0.2.0",
     "@signalco/ui-primitives": "0.5.0",
