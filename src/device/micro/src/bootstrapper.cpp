@@ -119,6 +119,13 @@ void Bootstrapper::setupWebServer()
     m_webServer.streamFile(indexFile, "text/html");
     indexFile.close(); });
 
+  m_webServer.on(
+      "/controls/steppers/1",
+      HTTP_POST, [&]()
+      { 
+        m_stepper1.moveTo(m_webServer.arg("position").toInt()); 
+        m_webServer.send(200, "text/plain", ""); });
+
   m_webServer.on("/settings/wifi/form", HTTP_POST, [&]()
                  {
       // Save the SSID and Password to preferences
@@ -147,6 +154,12 @@ void Bootstrapper::setupDisplay()
   Serial.println("Display setup complete");
 }
 
+void Bootstrapper::setupStepper()
+{
+  m_stepper1.setup(STEPPER_1_PIN_1, STEPPER_1_PIN_2, STEPPER_1_PIN_3, STEPPER_1_PIN_4);
+  Serial.println("Stepper setup complete");
+}
+
 void Bootstrapper::setup(esp_now_recv_cb_t receiveCallback, esp_now_send_cb_t sentCallback)
 {
   setupSpiffs();
@@ -155,13 +168,15 @@ void Bootstrapper::setup(esp_now_recv_cb_t receiveCallback, esp_now_send_cb_t se
   setupEspNow(receiveCallback, sentCallback);
   setupOta();
   setupDisplay();
+  setupStepper();
 }
 
 void Bootstrapper::loop()
 {
   m_system.loop();
   loopWebServer();
-  m_display.loop();
+  // m_display.loop();
+  m_stepper1.loop(0);
 }
 
 void Bootstrapper::loopWebServer()

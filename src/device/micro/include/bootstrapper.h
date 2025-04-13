@@ -12,6 +12,12 @@
 #include "SPIFFS.h"
 #include "ota.h"
 #include "display.h"
+#include "stepper.h"
+
+#define STEPPER_1_PIN_1 GPIO_NUM_3
+#define STEPPER_1_PIN_2 GPIO_NUM_1
+#define STEPPER_1_PIN_3 GPIO_NUM_2
+#define STEPPER_1_PIN_4 GPIO_NUM_0
 
 class Bootstrapper
 {
@@ -33,6 +39,7 @@ private:
     void setupWebServer();
     void setupOta();
     void setupDisplay();
+    void setupStepper();
 
     void tryConnectToWifi();
     void setupWifiApSta();
@@ -44,6 +51,7 @@ private:
     System m_system;
     OTA m_ota;
     Display m_display;
+    Stepper m_stepper1;
 
     // WebServer
     boolean m_webServerStarted = false;
