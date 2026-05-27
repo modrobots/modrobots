@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@modrobots/typescript-config": "workspace:*",
-    "turbo": "2.5.0"
+    "turbo": "2.9.15"
   },
   "packageManager": "pnpm@10.6.5",
   "engines": {
