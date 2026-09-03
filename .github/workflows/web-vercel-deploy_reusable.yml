@@ -44,16 +44,16 @@ jobs:
           group: ${{ github.workflow }}-${{ github.ref || github.run_id }}-${{ inputs.name }}
           cancel-in-progress: true
         steps:
-          - uses: actions/checkout@v4
+          - uses: actions/checkout@v4.4.0
             with:
               fetch-depth: 2
 
           - name: ✨ Setup Node
-            uses: actions/setup-node@v4
+            uses: actions/setup-node@v4.4.0
             with:
               node-version: "22.14.0"
     
-          - uses: pnpm/action-setup@v3
+          - uses: pnpm/action-setup@v3.0.0
             name: ✨ Install pnpm
             with:
               version: 9.2.0
@@ -63,7 +63,7 @@ jobs:
             run: |
               echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
     
-          - uses: actions/cache@v4
+          - uses: actions/cache@v4.3.0
             name: ✨ Setup pnpm cache
             with:
               path: ${{ env.STORE_PATH }}
